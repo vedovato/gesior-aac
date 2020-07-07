@@ -23,7 +23,6 @@
   padding: 5px;
   min-height: 90px;
   height: auto !important;
-  height: 100px;
 }
 
 .Content #NewsTicker .BoxContent .Row {
@@ -49,7 +48,7 @@
 .Content #NewsTicker .NewsTickerDate {
   font-size: 8pt;
   position: absolute;
-  top: 0px;
+  top: 0;
   float: left;
 }
 
@@ -63,11 +62,11 @@
   margin-left: 85px;
   margin-right: 20px;
   display: none;
+  word-wrap: break-word;
 }
 
 .Content #NewsTicker .NewsTickerExtend {
   position: relative;
-  right: 0px;
   top: 1px;
   right: 1px;
   height: 12px;
@@ -75,19 +74,16 @@
   background-repeat: no-repeat;
   float: right;
   cursor: pointer;
-  z-index: 10;
+  z-index: 250;
 }
 
 /* Featured Article */
 
 .Content #FeaturedArticle .BoxContent {
   position:relative;
-  height: 100px;
-  padding: 5px;
-  padding-left: 10px;
+  padding: 5px 5px 5px 10px;
   min-height: 100px;
   height: auto !important;
-  height: 110px;
   line-height: 10.5pt;
 }
 .Content #FeaturedArticle .NewsHeadline {
@@ -96,12 +92,12 @@
 
 .Content #FeaturedArticle #TeaserThumbnail {
   position: relative;
-  top: 0px;
-  right: 0px;
+  top: 0;
+  right: 0;
   height: 100px;
   width: 150px;
   margin-left: 10px;
-  background-color: black;
+  /* background-color: black; */
   z-index: 90;
   float: right;
 }
@@ -118,8 +114,8 @@
 
 .Content #FeaturedArticle #Link {
   position: absolute;
-  top: 0px;
-  right: 0px;
+  top: 0;
+  right: 0;
   margin: 89px 165px 0 0;
   z-index: 99;
 }
@@ -136,7 +132,7 @@
 .Content #FeaturedArticle .NewsHeadlineIcon {
   position: absolute;
   top: -1px;
-  left: 0px;
+  left: 0;
   margin-left: 5px;
   margin-right: 5px;
   float:left;
@@ -163,7 +159,6 @@
 /* News */
 
 .Content #News .BoxContent {
-  min-height: 100px;
   height: auto !important;
   min-height: 367px;
 }
@@ -180,7 +175,7 @@
 .Content #News .NewsHeadlineIcon {
   position: absolute;
   top: -1px;
-  left: 0px;
+  left: 0;
   margin-left: 5px;
   margin-right: 5px;
 }
@@ -204,12 +199,12 @@
 }
 
 .Content .NewsHeadline .MostPowerfullGuilds {
-    position: relative;
-    top: 7px;
-    text-align:center;
-    font-size: 10pt;
-    font-weight: bold;
-    color: white;
+  position: relative;
+  top: 7px;
+  text-align:center;
+  font-size: 10pt;
+  font-weight: bold;
+  color: white;
 }
 
 /* News Archive */
@@ -226,7 +221,7 @@
 .Content #NewsArchive .NewsHeadlineIcon {
   position: absolute;
   top: -1px;
-  left: 0px;
+  left: 0;
   margin-left: 5px;
   margin-right: 5px;
 }
