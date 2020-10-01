@@ -137,7 +137,7 @@ if ($action == "") {
 		</TABLE>';
 }
 if ($action == "view") {
-	$guild_name = (string) $_REQUEST['GuildName'];
+	$guild_name = (string)$_REQUEST['GuildName'];
 	$guild = new Guild();
 	$guild->loadByName($guild_name);
 	if (!$guild->isLoaded())
@@ -1184,7 +1184,7 @@ if ($action == "create") {
 }
 if ($action == "invite") {
 	//set rights in guild
-	$guild_name = (string) $_REQUEST['GuildName'];
+	$guild_name = (string)$_REQUEST['GuildName'];
 	$name = $_REQUEST['character'];
 	if (!$logged)
 		$guild_errors[] = 'You are not logged in. You can\'t invite players.';
@@ -1497,7 +1497,7 @@ if ($action == "invite") {
 }
 if ($action == "leave") {
 	//set rights in guild
-	$guild_name = (string) $_REQUEST['GuildName'];
+	$guild_name = (string)$_REQUEST['GuildName'];
 	$name = $_REQUEST['character'];
 	if (!$logged)
 		$guild_errors[] = 'You are not logged in. You can\'t leave guild.';
@@ -1717,7 +1717,7 @@ if ($action == "leave") {
 }
 if ($action == "join") {
 	//set rights in guild
-	$guild_name = (string) $_REQUEST['GuildName'];
+	$guild_name = (string)$_REQUEST['GuildName'];
 	$name = $_REQUEST['character'];
 	if (!$logged)
 		$guild_errors[] = 'You are not logged in. You can\'t accept invitations.';
@@ -1951,9 +1951,9 @@ if ($action == "join") {
 }
 if ($action == "ranks") {
 	//set rights in guild
-	$guild_name = (string) $_REQUEST['GuildName'];
-	$ranktorename = (int) $_REQUEST['ranktorename'];
-	$new_rankname = (string) trim($_REQUEST['newrankname']);
+	$guild_name = (string)$_REQUEST['GuildName'];
+	$ranktorename = (int)$_REQUEST['ranktorename'];
+	$new_rankname = (string)trim($_REQUEST['newrankname']);
 	$rank_name = $_REQUEST['rank_name'];
 	if (!$logged)
 		$guild_errors[] = 'You are not logged in. You can\'t accept invitations.';
@@ -2320,9 +2320,9 @@ if ($action == "ranks") {
 if ($action == "members") {
 
 	#infos
-	$guild_name = (string) $_REQUEST['GuildName'];
+	$guild_name = (string)$_REQUEST['GuildName'];
 	$player_name = $_REQUEST['character'];
-	$new_rank = (int) $_REQUEST['newrank'];
+	$new_rank = (int)$_REQUEST['newrank'];
 	$newtitle = trim($_REQUEST['newtitle']);
 
 	if (!$logged)
@@ -2775,8 +2775,8 @@ if ($action == "members") {
 } #members condition
 
 if ($action == "disband") {
-	$guild_name = (string) $_REQUEST['GuildName'];
-	$password = (string) trim($_REQUEST['password']);
+	$guild_name = (string)$_REQUEST['GuildName'];
+	$password = (string)trim($_REQUEST['password']);
 	if (!$logged)
 		$guild_errors[] = 'You are not logged in. You can\'t disband this Guild.';
 	if (empty($guild_errors)) {
@@ -2992,7 +2992,7 @@ if ($action == "disband") {
 	}
 }
 if ($action == "description") {
-	$guild_name = (string) $_REQUEST['GuildName'];
+	$guild_name = (string)$_REQUEST['GuildName'];
 	if (empty($guild_errors)) {
 		$guild = new Guild();
 		$guild->loadByName($guild_name);
@@ -3399,8 +3399,8 @@ if ($action == "description") {
 	}
 }
 if ($action == "resignleadership") {
-	$guild_name = (string) $_REQUEST['GuildName'];
-	$pass_to = (string) $_REQUEST['character'];
+	$guild_name = (string)$_REQUEST['GuildName'];
+	$pass_to = (string)$_REQUEST['character'];
 	$password = trim($_REQUEST['password']);
 	if (empty($guild_errors)) {
 		$guild = new Guild();
@@ -3691,7 +3691,7 @@ if ($action == "guildwars") {
 	# 3 - War Canceled
 
 
-	$guild_name = (string) $_REQUEST['GuildName'];
+	$guild_name = (string)$_REQUEST['GuildName'];
 	$guild = new Guild();
 	$guild->loadByName($guild_name);
 	if (!$guild->isLoaded())
@@ -4023,7 +4023,7 @@ if ($action == "guildwars") {
 		';
 }
 if ($action == 'declarewar') {
-	$guild_name = (string) $_REQUEST['GuildName'];
+	$guild_name = (string)$_REQUEST['GuildName'];
 	if (!$logged)
 		$guild_errors[] = 'You are not logged.';
 	if (empty($guild_errors)) {
@@ -4099,8 +4099,8 @@ if ($action == 'declarewar') {
 	}
 }
 if ($action == 'guildwar_invite') {
-	$guild_name = (string) $_REQUEST['GuildName'];
-	$enemy_id = (int) $_REQUEST['enemy'];
+	$guild_name = (string)$_REQUEST['GuildName'];
+	$enemy_id = (int)$_REQUEST['enemy'];
 	if (!$logged)
 		$guild_errors[] = 'You are not logged.';
 	if (empty($guild_errors)) {
@@ -4169,8 +4169,8 @@ if ($action == 'guildwar_invite') {
 	}
 }
 if ($action == 'guildwar_cancel') {
-	$guild_name = (string) $_REQUEST['GuildName'];
-	$war_id = (int) $_REQUEST['war'];
+	$guild_name = (string)$_REQUEST['GuildName'];
+	$war_id = (int)$_REQUEST['war'];
 	if (!$logged)
 		$guild_errors[] = 'You are not logged.';
 	if (empty($guild_errors)) {
@@ -4218,8 +4218,8 @@ if ($action == 'guildwar_cancel') {
 	}
 }
 if ($action == 'guildwar_reject') {
-	$guild_name = (string) $_REQUEST['GuildName'];
-	$war_id = (int) $_REQUEST['war'];
+	$guild_name = (string)$_REQUEST['GuildName'];
+	$war_id = (int)$_REQUEST['war'];
 	if (!$logged)
 		$guild_errors[] = 'You are not logged.';
 	if (empty($guild_errors)) {
@@ -4267,8 +4267,8 @@ if ($action == 'guildwar_reject') {
 	}
 }
 if ($action == 'guildwar_accept') {
-	$guild_name = (string) $_REQUEST['GuildName'];
-	$war_id = (int) $_REQUEST['war'];
+	$guild_name = (string)$_REQUEST['GuildName'];
+	$war_id = (int)$_REQUEST['war'];
 	if (!$logged)
 		$guild_errors[] = 'You are not logged.';
 	if (empty($guild_errors)) {
@@ -4342,7 +4342,7 @@ if ($action == "guildevents") {
 				</TABLE>';
 }
 if ($action == "activitylog") {
-	$guild_name = (string) $_REQUEST['GuildName'];
+	$guild_name = (string)$_REQUEST['GuildName'];
 	if (!$logged)
 		$guild_errors[] = 'You are not logged.';
 	if (empty($guild_errors)) {
@@ -4540,7 +4540,7 @@ if ($action == "activitylog") {
 	}
 }
 if ($action == 'deletebyadmin') {
-	$guild_id = (int) $_REQUEST['guild'];
+	$guild_id = (int)$_REQUEST['guild'];
 	if (empty($guild_errors)) {
 		$guild = new Guild();
 		$guild->load($guild_id);
