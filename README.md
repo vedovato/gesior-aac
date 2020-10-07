@@ -1,20 +1,5 @@
-## Gesior Aac
+## Gesior-AAC
 
-#### PT-BR
-* Bem vindo ao tutorial de instalação desse lindo website feito com amor e carinho pra vcs meus queridos tibianos.
-* Lembrando que o Projeto todo em si não é de minha autoria ele tem diversos participantes.
-* Essa se trata de uma versão Estável do produto, isso não a deixa livre de bugs.
-* Se encontrar bugs ou tiver interesse que seja desenvolvido alguma nova funcionalidade fique a vontade para abrir um Issue.
-* sem mais delongas segue o tutorial.
-
-#### EN
-* Welcome to the installation tutorial of this beautiful website made with love and care for you my dear Tibians.
-* Remembering that the Project itself is not my own, it has several participants.
-* This is a Stable version of the product, this does not leave it free of bugs.
-* If you find bugs or are interested in developing some new functionality feel free to open an Issue.
-* without further ado follows the tutorial.
- 
- 
 ## Installation
 
 ### Requirements
@@ -23,13 +8,12 @@
 
 ### How to install
 
-* Clone the Ferobra Premium Gesior From Github.
+* Clone the Gesior-AAC From Github.
 * change the permission for write in /cache.
 
 ```bash
 sudo chmod -R 777 /cache
 ```
-
 
 ### Tips and Tricks
 
@@ -85,6 +69,12 @@ mv composer.phar /usr/local/bin/composer
 After that in the terminal enter the site folder and run the command
 ```bash
 cd /var/www/html && composer install
+```
+
+### FOR UBUNTU ACCOUNTING PROBLEMS
+If you have trouble registering using ubuntu or any other version of php where the site claims to have registered but was not done, simply run the following command on your database:
+```bash
+SET GLOBAL sql_mode = '';
 ```
 
 ## Main Dev
