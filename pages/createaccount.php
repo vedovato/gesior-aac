@@ -430,7 +430,11 @@ if (!$logged) {
 				$reg_account->setCreateIP(Visitor::getIP());
 				$reg_account->setFlag(Website::getCountryCode(long2ip(Visitor::getIP())));
 			}
-
+			if(isset($config['site']['newaccount_premdays']) && $config['site']['newaccount_premdays'] > 0)
+			{
+				$reg_account->set("premdays", $config['site']['newaccount_premdays']);
+				$reg_account->set("lastday", time());
+			}
 			$time = time();
 			if ($time < 1585936800)
 				$reg_account->setVipTime(1585936800);
