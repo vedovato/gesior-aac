@@ -1,5 +1,9 @@
 ## Gesior-AAC
 
+#### Caso esteja utilizando uniform server, siga o passo descrito no final do readme para habilitar a compatibilidade com o site.
+
+#### If you are using uniform server, follow the step described at the end of the readme for enable compatibility with the sitte.
+
 ## Installation
 
 ### Requirements
@@ -76,6 +80,12 @@ If you have trouble registering using ubuntu or any other version of php where t
 ```bash
 SET GLOBAL sql_mode = '';
 ```
+
+### UniformServer
+If you are using UniformServer, you will need to enable the module that allows SSL
+Go to: PHP/Edit Basic and Modules
+PHP Modules Enable/Disable
+Enable the "php_openssl.dll" file
 
 ## Main Dev
 @riicksouzaa
