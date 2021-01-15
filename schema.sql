@@ -20,6 +20,7 @@ CREATE TABLE `accounts` (
   `proxy_id` int(11) NOT NULL DEFAULT '0',
   `email` varchar(255) NOT NULL DEFAULT '',
   `creation` bigint(20) NOT NULL DEFAULT '0',
+  `recruiter` INT(6) DEFAULT 0,
   `vote` int(11) NOT NULL DEFAULT '0',
   `key` varchar(20) NOT NULL DEFAULT '0',
   `email_new` varchar(255) NOT NULL DEFAULT '',
@@ -158,7 +159,27 @@ CREATE TABLE `announcements` (
   `text` varchar(255) NOT NULL,
   `date` varchar(20) NOT NULL,
   `author` varchar(50) NOT NULL
-) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure `boosted_creature`
+--
+
+CREATE TABLE `boosted_creature` (
+    `boostname` TEXT,
+    `date` varchar(250) NOT NULL DEFAULT '',
+    `raceid` varchar(250) NOT NULL DEFAULT '',
+    `looktype` int(11) NOT NULL DEFAULT "136",
+    `lookfeet` int(11) NOT NULL DEFAULT "0",
+    `looklegs` int(11) NOT NULL DEFAULT "0",
+    `lookhead` int(11) NOT NULL DEFAULT "0",
+    `lookbody` int(11) NOT NULL DEFAULT "0",
+    `lookaddons` int(11) NOT NULL DEFAULT "0",
+    `lookmount` int(11) DEFAULT "0",
+    PRIMARY KEY  (`date`)
+) AS SELECT 0 AS date, "default" AS boostname, 0 AS raceid;
 
 -- --------------------------------------------------------
 
@@ -457,7 +478,7 @@ CREATE TABLE `newsticker` (
   `date` int(11) NOT NULL,
   `text` mediumtext NOT NULL,
   `icon` varchar(50) NOT NULL
-) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
 
@@ -472,7 +493,7 @@ CREATE TABLE `pagseguro` (
   `type` int(11) NOT NULL,
   `status` int(11) NOT NULL,
   `lastEventDate` datetime NOT NULL
-) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
 
@@ -488,7 +509,7 @@ CREATE TABLE `pagseguro_transactions` (
   `item_count` int(11) NOT NULL,
   `data` datetime NOT NULL,
   `payment_amount` float DEFAULT '0'
-) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
 
@@ -562,7 +583,13 @@ CREATE TABLE `players` (
   `deletion` bigint(15) NOT NULL DEFAULT '0',
   `balance` bigint(20) UNSIGNED NOT NULL DEFAULT '0',
   `bonusrerollcount` bigint(20) DEFAULT '0',
-  `quick_loot_fallback` tinyint(1) DEFAULT '0',
+  `quickloot_fallback` tinyint(1) DEFAULT '0',
+  `lookmountbody` tinyint(3) unsigned NOT NULL DEFAULT '0',
+  `lookmountfeet` tinyint(3) unsigned NOT NULL DEFAULT '0',
+  `lookmounthead` tinyint(3) unsigned NOT NULL DEFAULT '0',
+  `lookmountlegs` tinyint(3) unsigned NOT NULL DEFAULT '0',
+  `lookfamiliarstype` int(11) unsigned NOT NULL DEFAULT '0',
+  `isreward` tinyint(1) NOT NULL DEFAULT "1",
   `offlinetraining_time` smallint(5) UNSIGNED NOT NULL DEFAULT '43200',
   `offlinetraining_skill` int(11) NOT NULL DEFAULT '-1',
   `stamina` smallint(5) UNSIGNED NOT NULL DEFAULT '2520',
@@ -604,6 +631,8 @@ CREATE TABLE `players` (
   `skill_lifeleech_amount` bigint(20) UNSIGNED NOT NULL DEFAULT '0',
   `skill_manaleech_chance` bigint(20) UNSIGNED NOT NULL DEFAULT '0',
   `skill_manaleech_amount` bigint(20) UNSIGNED NOT NULL DEFAULT '0',
+  `manashield` SMALLINT UNSIGNED NOT NULL DEFAULT '0',
+  `max_manashield` SMALLINT UNSIGNED NOT NULL DEFAULT '0',
   `prey_stamina_1` int(11) DEFAULT NULL,
   `prey_stamina_2` int(11) DEFAULT NULL,
   `prey_stamina_3` int(11) DEFAULT NULL,
@@ -647,13 +676,47 @@ CREATE TABLE `players` (
 -- Extracting data from the table `players`
 --
 
-INSERT INTO `players` (`id`, `name`, `group_id`, `account_id`, `level`, `vocation`, `health`, `healthmax`, `experience`, `exptoday`, `lookbody`, `lookfeet`, `lookhead`, `looklegs`, `looktype`, `lookaddons`, `maglevel`, `mana`, `manamax`, `manaspent`, `soul`, `town_id`, `posx`, `posy`, `posz`, `conditions`, `cap`, `sex`, `lastlogin`, `lastip`, `save`, `skull`, `skulltime`, `lastlogout`, `blessings`, `blessings1`, `blessings2`, `blessings3`, `blessings4`, `blessings5`, `blessings6`, `blessings7`, `blessings8`, `onlinetime`, `deletion`, `balance`, `bonusrerollcount`, `quick_loot_fallback`, `offlinetraining_time`, `offlinetraining_skill`, `stamina`, `skill_fist`, `skill_fist_tries`, `skill_club`, `skill_club_tries`, `skill_sword`, `skill_sword_tries`, `skill_axe`, `skill_axe_tries`, `skill_dist`, `skill_dist_tries`, `skill_shielding`, `skill_shielding_tries`, `skill_fishing`, `skill_fishing_tries`, `deleted`, `description`, `comment`, `create_ip`, `create_date`, `hide_char`, `skill_critical_hit_chance`, `skill_critical_hit_chance_tries`, `skill_critical_hit_damage`, `skill_critical_hit_damage_tries`, `skill_life_leech_chance`, `skill_life_leech_chance_tries`, `skill_life_leech_amount`, `skill_life_leech_amount_tries`, `skill_mana_leech_chance`, `skill_mana_leech_chance_tries`, `skill_mana_leech_amount`, `skill_mana_leech_amount_tries`, `skill_criticalhit_chance`, `skill_criticalhit_damage`, `skill_lifeleech_chance`, `skill_lifeleech_amount`, `skill_manaleech_chance`, `skill_manaleech_amount`, `prey_stamina_1`, `prey_stamina_2`, `prey_stamina_3`, `prey_column`, `xpboost_stamina`, `xpboost_value`, `marriage_status`, `hide_skills`, `hide_set`, `former`, `signature`, `marriage_spouse`, `loyalty_ranking`, `bonus_rerolls`, `critical`, `bonus_reroll`, `sbw_points`, `instantrewardtokens`, `charmpoints`, `direction`, `lookmount`, `version`, `lootaction`, `spells`, `storages`, `items`, `depotitems`, `inboxitems`, `rewards`, `varcap`, `charmExpansion`, `bestiarykills`, `charms`, `bestiaryTracker`, `autoloot`, `lastday`, `cast`) VALUES
-(1, 'Rook Sample', 1, 1, 2, 0, 155, 155, 100, NULL, 113, 115, 95, 39, 129, 0, 0, 60, 60, 0, 100, 1, 32069, 31901, 6, '', 410, 0, 1592972902, 0, 1, 0, 0, 1592972908, 0, 1, 1, 1, 1, 1, 1, 1, 1, 15, 0, 0, 0, 0, 43200, -1, 2520, 10, 0, 10, 0, 10, 0, 10, 0, 10, 0, 10, 0, 10, 0, 0, '', '', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, NULL, NULL, '-', '', -1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1000, 0, NULL, NULL, NULL, NULL, NULL, NULL, 0, 0, NULL, NULL, NULL, NULL, 0, 0),
-(2, 'Sorcerer Sample', 1, 1, 8, 1, 185, 185, 4200, NULL, 113, 115, 95, 39, 129, 0, 0, 90, 90, 0, 100, 8, 32369, 32241, 7, '', 470, 1, 1592972892, 0, 1, 0, 0, 1592972893, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 0, 0, 0, 43200, -1, 2520, 10, 0, 10, 0, 10, 0, 10, 0, 10, 0, 10, 0, 10, 0, 0, '', '', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, NULL, NULL, '-', '', -1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1000, 0, NULL, NULL, NULL, NULL, NULL, NULL, 0, 0, NULL, NULL, NULL, NULL, 0, 0),
-(3, 'Druid Sample', 1, 1, 8, 2, 185, 185, 4200, NULL, 113, 115, 95, 39, 129, 0, 0, 90, 90, 0, 100, 8, 32369, 32241, 7, '', 470, 1, 1592974308, 0, 1, 0, 0, 1592974441, 0, 1, 1, 1, 1, 1, 1, 1, 1, 236, 0, 0, 0, 0, 43200, -1, 2520, 10, 0, 10, 0, 10, 0, 10, 0, 10, 0, 10, 0, 10, 0, 0, '', '', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, NULL, NULL, '-', '', -1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1000, 0, NULL, NULL, NULL, NULL, NULL, NULL, 0, 0, NULL, NULL, NULL, NULL, 0, 0),
-(4, 'Paladin Sample', 1, 1, 8, 3, 185, 185, 4200, NULL, 113, 115, 95, 39, 129, 0, 0, 90, 90, 0, 100, 8, 32369, 32241, 7, '', 470, 1, 1592932012, 0, 1, 0, 0, 1592932013, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 0, 0, 0, 43200, -1, 2520, 10, 0, 10, 0, 10, 0, 10, 0, 10, 0, 10, 0, 10, 0, 0, '', '', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, NULL, NULL, '-', '', -1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1000, 0, NULL, NULL, NULL, NULL, NULL, NULL, 0, 0, NULL, NULL, NULL, NULL, 0, 0),
-(5, 'Knight Sample', 1, 1, 8, 4, 185, 185, 4200, NULL, 113, 115, 95, 39, 129, 0, 0, 90, 90, 0, 100, 8, 32369, 32241, 7, '', 470, 1, 1592972881, 0, 1, 0, 0, 1592972882, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 0, 0, 0, 43200, -1, 2520, 10, 0, 10, 0, 10, 0, 10, 0, 10, 0, 10, 0, 10, 0, 0, '', '', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, NULL, NULL, '-', '', -1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1000, 0, NULL, NULL, NULL, NULL, NULL, NULL, 0, 0, NULL, NULL, NULL, NULL, 0, 0),
-(6, 'GOD', 6, 1, 1, 0, 150, 150, 0, NULL, 113, 115, 95, 39, 129, 0, 0, 60, 60, 0, 0, 1, 0, 0, 0, '', 410, 1, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 43200, -1, 2520, 10, 0, 10, 0, 10, 0, 10, 0, 10, 0, 10, 0, 10, 0, 0, '', '', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NULL, NULL, NULL, 1, NULL, NULL, 0, NULL, NULL, '-', '', -1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1000, 0, NULL, NULL, NULL, NULL, NULL, NULL, 0, 0, NULL, NULL, NULL, NULL, 0, 0);
+INSERT INTO `players` (`id`, `name`, `group_id`, `account_id`, `level`, `vocation`, `health`, `healthmax`, `experience`, `exptoday`, `lookbody`, `lookfeet`, `lookhead`, `looklegs`, `looktype`, `lookaddons`, `maglevel`, `mana`, `manamax`, `manaspent`, `soul`, `town_id`, `posx`, `posy`, `posz`, `conditions`, `cap`, `sex`, `lastlogin`, `lastip`, `save`, `skull`, `skulltime`, `lastlogout`, `blessings`, `blessings1`, `blessings2`, `blessings3`, `blessings4`, `blessings5`, `blessings6`, `blessings7`, `blessings8`, `onlinetime`, `deletion`, `balance`, `bonusrerollcount`, `quickloot_fallback`, `lookmountbody`, `lookmountfeet`, `lookmounthead`, `lookmountlegs`, `lookfamiliarstype`, `isreward`, `offlinetraining_time`, `offlinetraining_skill`, `stamina`, `skill_fist`, `skill_fist_tries`, `skill_club`, `skill_club_tries`, `skill_sword`, `skill_sword_tries`, `skill_axe`, `skill_axe_tries`, `skill_dist`, `skill_dist_tries`, `skill_shielding`, `skill_shielding_tries`, `skill_fishing`, `skill_fishing_tries`, `deleted`, `description`, `comment`, `create_ip`, `create_date`, `hide_char`, `skill_critical_hit_chance`, `skill_critical_hit_chance_tries`, `skill_critical_hit_damage`, `skill_critical_hit_damage_tries`, `skill_life_leech_chance`, `skill_life_leech_chance_tries`, `skill_life_leech_amount`, `skill_life_leech_amount_tries`, `skill_mana_leech_chance`, `skill_mana_leech_chance_tries`, `skill_mana_leech_amount`, `skill_mana_leech_amount_tries`, `skill_criticalhit_chance`, `skill_criticalhit_damage`, `skill_lifeleech_chance`, `skill_lifeleech_amount`, `skill_manaleech_chance`, `skill_manaleech_amount`, `manashield`, `max_manashield`, `prey_stamina_1`, `prey_stamina_2`, `prey_stamina_3`, `prey_column`, `xpboost_stamina`, `xpboost_value`, `marriage_status`, `hide_skills`, `hide_set`, `former`, `signature`, `marriage_spouse`, `loyalty_ranking`, `bonus_rerolls`, `critical`, `bonus_reroll`, `sbw_points`, `instantrewardtokens`, `charmpoints`, `direction`, `lookmount`, `version`, `lootaction`, `spells`, `storages`, `items`, `depotitems`, `inboxitems`, `rewards`, `varcap`, `charmExpansion`, `bestiarykills`, `charms`, `bestiaryTracker`, `autoloot`, `lastday`, `cast`) VALUES
+(1, 'Rook Sample', 1, 1, 2, 0, 155, 155, 100, NULL, 113, 115, 95, 39, 129, 0, 2, 60, 60, 5936, 0, 1, 0, 0, 0, '', 410, 1, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 43200, -1, 2520, 10, 0, 12, 155, 12, 155, 12, 155, 12, 93, 10, 0, 10, 0, 0, '', '', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, NULL, NULL, '-', '', -1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1000, 0, NULL, NULL, NULL, NULL, NULL, NULL, 0, 0, NULL, NULL, NULL, NULL, 0, 0),
+(2, 'Sorcerer Sample', 1, 1, 8, 1, 185, 185, 4200, NULL, 113, 115, 95, 39, 129, 0, 0, 90, 90, 0, 100, 8, 0, 0, 0, '', 470, 1, 0, 0, 1, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 43200, -1, 2520, 10, 0, 10, 0, 10, 0, 10, 0, 10, 0, 10, 0, 10, 0, 0, '', '', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, NULL, NULL, '-', '', -1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1000, 0, NULL, NULL, NULL, NULL, NULL, NULL, 0, 0, NULL, NULL, NULL, NULL, 0, 0),
+(3, 'Druid Sample', 1, 1, 8, 2, 185, 185, 4200, NULL, 113, 115, 95, 39, 129, 0, 0, 90, 90, 0, 100, 8, 0, 0, 0, '', 470, 1, 0, 0, 1, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 43200, -1, 2520, 10, 0, 10, 0, 10, 0, 10, 0, 10, 0, 10, 0, 10, 0, 0, '', '', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, NULL, NULL, '-', '', -1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1000, 0, NULL, NULL, NULL, NULL, NULL, NULL, 0, 0, NULL, NULL, NULL, NULL, 0, 0),
+(4, 'Paladin Sample', 1, 1, 8, 3, 185, 185, 4200, NULL, 113, 115, 95, 39, 129, 0, 0, 90, 90, 0, 100, 8, 0, 0, 0, '', 470, 1, 0, 0, 1, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 43200, -1, 2520, 10, 0, 10, 0, 10, 0, 10, 0, 10, 0, 10, 0, 10, 0, 0, '', '', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, NULL, NULL, '-', '', -1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1000, 0, NULL, NULL, NULL, NULL, NULL, NULL, 0, 0, NULL, NULL, NULL, NULL, 0, 0),
+(5, 'Knight Sample', 1, 1, 8, 4, 185, 185, 4200, NULL, 113, 115, 95, 39, 129, 0, 0, 90, 90, 0, 100, 8, 0, 0, 0, '', 470, 1, 0, 0, 1, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 43200, -1, 2520, 10, 0, 10, 0, 10, 0, 10, 0, 10, 0, 10, 0, 10, 0, 0, '', '', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, NULL, NULL, '-', '', -1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1000, 0, NULL, NULL, NULL, NULL, NULL, NULL, 0, 0, NULL, NULL, NULL, NULL, 0, 0),
+(6, 'GOD', 6, 1, 2, 0, 155, 155, 100, NULL, 113, 115, 95, 39, 75, 0, 0, 60, 60, 0, 0, 8, 0, 0, 0, '', 410, 1, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 43200, -1, 2520, 10, 0, 10, 0, 10, 0, 10, 0, 10, 0, 10, 0, 10, 0, 0, '', '', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, NULL, NULL, '-', '', -1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1000, 0, NULL, NULL, NULL, NULL, NULL, NULL, 0, 0, NULL, NULL, NULL, NULL, 0, 0);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure `player_charm`
+--
+
+CREATE TABLE `player_charms` (
+	`player_guid` INT(250) NOT NULL,
+	`charm_points` VARCHAR(250) NULL,
+	`charm_expansion` BOOLEAN NULL,
+	`rune_wound` INT(250) NULL,
+	`rune_enflame` INT(250) NULL,
+	`rune_poison` INT(250) NULL,
+	`rune_freeze` INT(250) NULL,
+	`rune_zap` INT(250) NULL,
+	`rune_curse` INT(250) NULL,
+	`rune_cripple` INT(250) NULL,
+	`rune_parry` INT(250) NULL,
+	`rune_dodge` INT(250) NULL,
+	`rune_adrenaline` INT(250) NULL,
+	`rune_numb` INT(250) NULL,
+	`rune_cleanse` INT(250) NULL,
+	`rune_bless` INT(250) NULL,
+	`rune_scavenge` INT(250) NULL,
+	`rune_gut` INT(250) NULL,
+	`rune_low_blow` INT(250) NULL,
+	`rune_divine` INT(250) NULL,
+	`rune_vamp` INT(250) NULL,
+	`rune_void` INT(250) NULL,
+	`UsedRunesBit` VARCHAR(250) NULL,
+	`UnlockedRunesBit` VARCHAR(250) NULL,
+	`tracker list` BLOB NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
 
@@ -884,6 +947,18 @@ CREATE TABLE `player_spells` (
 -- --------------------------------------------------------
 
 --
+-- Table structure `player_stash`
+--
+
+CREATE TABLE `player_stash` (
+	`player_id` INT(16) NOT NULL,
+	`item_id` INT(16) NOT NULL,
+	`item_count` INT(32) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- --------------------------------------------------------
+
+--
 -- Table structure `player_storage`
 --
 
@@ -911,7 +986,8 @@ CREATE TABLE `prey_slots` (
   `next_use` int(11) NOT NULL DEFAULT '0',
   `bonus_type` smallint(3) NOT NULL,
   `bonus_value` smallint(3) NOT NULL DEFAULT '0',
-  `bonus_grade` smallint(3) NOT NULL DEFAULT '0'
+  `bonus_grade` smallint(3) NOT NULL DEFAULT '0',
+  `tick` smallint(3) NOT NULL DEFAULT '0'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
@@ -989,9 +1065,9 @@ CREATE TABLE `server_config` (
 --
 
 INSERT INTO `server_config` (`config`, `value`) VALUES
-('db_version', '3'),
-('motd_hash', 'cba37deaba48292e07d57001c880622d0d050c26'),
-('motd_num', '1'),
+('db_version', '15'),
+('motd_hash', ''),
+('motd_num', '0'),
 ('players_record', '0');
 
 -- --------------------------------------------------------
@@ -1006,7 +1082,7 @@ CREATE TABLE `snowballwar` (
   `score` int(11) NOT NULL,
   `data` varchar(255) NOT NULL,
   `hora` varchar(255) NOT NULL
-) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
 
@@ -1107,7 +1183,7 @@ CREATE TABLE `z_network_box` (
   `id` int(11) NOT NULL,
   `network_name` varchar(10) NOT NULL,
   `network_link` varchar(50) NOT NULL
-) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
 
@@ -1121,7 +1197,7 @@ CREATE TABLE `z_news_tickers` (
   `image_id` int(3) NOT NULL DEFAULT '0',
   `text` text NOT NULL,
   `hide_ticker` tinyint(1) NOT NULL
-) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
 
@@ -1163,7 +1239,7 @@ CREATE TABLE `z_ots_guildcomunication` (
   `param6` varchar(255) NOT NULL,
   `param7` varchar(255) NOT NULL,
   `delete_it` int(2) NOT NULL DEFAULT '1'
-) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
 
@@ -1178,7 +1254,7 @@ CREATE TABLE `z_polls` (
   `start` int(11) NOT NULL,
   `answers` int(11) NOT NULL,
   `votes_all` int(11) NOT NULL
-) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
 
@@ -1191,7 +1267,7 @@ CREATE TABLE `z_polls_answers` (
   `answer_id` int(11) NOT NULL,
   `answer` varchar(255) NOT NULL,
   `votes` int(11) NOT NULL
-) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
 
@@ -1216,7 +1292,7 @@ CREATE TABLE `z_shop_category` (
   `desc` varchar(255) NOT NULL,
   `button` varchar(50) NOT NULL,
   `hide` int(11) NOT NULL DEFAULT '0'
-) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
 
@@ -1233,7 +1309,7 @@ CREATE TABLE `z_shop_donates` (
   `price` varchar(20) NOT NULL,
   `coins` int(11) NOT NULL,
   `status` varchar(20) NOT NULL
-) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
 
@@ -1247,7 +1323,7 @@ CREATE TABLE `z_shop_donate_confirm` (
   `account_name` varchar(50) NOT NULL,
   `donate_id` int(11) NOT NULL,
   `msg` text NOT NULL
-) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
 
@@ -1309,7 +1385,7 @@ CREATE TABLE `z_shop_payment` (
   `status` varchar(50) NOT NULL DEFAULT 'waiting',
   `date` int(11) NOT NULL,
   `gift` int(11) NOT NULL DEFAULT '0'
-) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Indexes for dumped tables
