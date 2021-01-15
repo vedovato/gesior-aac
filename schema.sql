@@ -1065,7 +1065,7 @@ CREATE TABLE `server_config` (
 --
 
 INSERT INTO `server_config` (`config`, `value`) VALUES
-('db_version', '15'),
+('db_version', '16'),
 ('motd_hash', ''),
 ('motd_num', '0'),
 ('players_record', '0');
