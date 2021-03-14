@@ -2,13 +2,13 @@
 
 #### Caso esteja utilizando uniform server, siga o passo descrito no final do readme para habilitar a compatibilidade com o site.
 
-#### If you are using uniform server, follow the step described at the end of the readme for enable compatibility with the sitte.
+#### If you are using uniform server, follow the step described at the end of the readme for enable compatibility with the site.
 
 ## Installation
 
 ### Requirements
 
-* [Apache](http://www.apache.org/) with [mod_rewrite](http://httpd.apache.org/docs/current/mod/mod_rewrite.html) enabled + [PHP](http://php.net) Version 5.6 or newer
+* [Apache](http://www.apache.org/) with [mod_rewrite](http://httpd.apache.org/docs/current/mod/mod_rewrite.html) enabled + [PHP](http://php.net) Version 7.4 or newer
 
 ### How to install
 
@@ -27,7 +27,7 @@ sudo chmod -R 777 /cache
 sudo a2enmod headers
 sudo a2enmod rewrite 
 ````
-* on ubuntu 16.06 or 14.04 go to apache folder and edit your config.
+* on ubuntu 18.04 or 20.04 go to apache folder and edit your config.
 * run:
 ````bash
 sudo vim /etc/apache2/apache2.conf 
@@ -45,11 +45,11 @@ and search for something like this:
 
 ### PHP NEEDS THAT FOLLOWING
 ```bash
-sudo apt-get install php5-gd
-sudo apt-get install php5-curl
+sudo apt-get install php7.4-gd
+sudo apt-get install php7.4-curl
 ```
 
-Make sure curl is enabled in the php.ini file. For me it's in /etc/php5/apache2/php.ini, if you can't find it, this line might be in /etc/php5/conf.d/curl.ini. Make sure the line :
+Make sure curl is enabled in the php.ini file. For me it's in /etc/php7/apache2/php.ini, if you can't find it, this line might be in /etc/php7/conf.d/curl.ini. Make sure the line :
 extension=curl.so
 
 now restart apache.:
@@ -82,10 +82,10 @@ SET GLOBAL sql_mode = '';
 ```
 
 ### UniformServer
-If you are using UniformServer, you will need to enable the module that allows SSL
+If you are using UniformServer, you will need to enable the module that allows curl and SSL
 Go to: PHP/Edit Basic and Modules
 PHP Modules Enable/Disable
-Enable the "php_openssl.dll" file
+Enable the options "curl" and "openssl"
 
 ## Main Dev
 @riicksouzaa
