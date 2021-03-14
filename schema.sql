@@ -589,7 +589,8 @@ CREATE TABLE `players` (
   `lookmounthead` tinyint(3) unsigned NOT NULL DEFAULT '0',
   `lookmountlegs` tinyint(3) unsigned NOT NULL DEFAULT '0',
   `lookfamiliarstype` int(11) unsigned NOT NULL DEFAULT '0',
-  `isreward` tinyint(1) NOT NULL DEFAULT "1",
+  `isreward` tinyint(1) NOT NULL DEFAULT '1',
+  `istutorial` tinyint(1) NOT NULL DEFAULT '0',
   `offlinetraining_time` smallint(5) UNSIGNED NOT NULL DEFAULT '43200',
   `offlinetraining_skill` int(11) NOT NULL DEFAULT '-1',
   `stamina` smallint(5) UNSIGNED NOT NULL DEFAULT '2520',
@@ -1065,7 +1066,7 @@ CREATE TABLE `server_config` (
 --
 
 INSERT INTO `server_config` (`config`, `value`) VALUES
-('db_version', '16'),
+('db_version', '17'),
 ('motd_hash', ''),
 ('motd_num', '0'),
 ('players_record', '0');
