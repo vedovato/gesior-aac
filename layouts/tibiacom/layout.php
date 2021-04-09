@@ -1029,9 +1029,9 @@ if(!defined('INITIALIZED'))
                                             <div id="PlayersOnline" onclick="window.location = '?subtopic=worlds';"><?php echo $players_online; ?></div>
                                         </div>
                                     <?php }?>
-                                    <div id="Themeboxes">	
-										<?php include_once "widgets/widget_PremiumBox.php"?>								
-                                        <?php include_once "widgets/widget_rank.php"?>                                          
+                                    <div id="Themeboxes">
+                                        <?php include_once "widgets/widget_PremiumBox.php"?><br>
+                                        <?php include_once "widgets/widget_rank.php"?>
                                         <?php include_once "widgets/widget_Serverinfobox.php"?>
                                         <?php include_once "widgets/widget_NetworksBox.php"?>
                                         <?php include_once "widgets/widget_CurrentPollBox.php"?>

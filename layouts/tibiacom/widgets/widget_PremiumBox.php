@@ -11,7 +11,7 @@
     }
 </style>
 <div id="PremiumBox" class="Themebox"
-     style="background-image:url(<?php echo $layout_name; ?>/images/global/themeboxes/premium/premiumbox.gif);">
+     style="background-image:url(<?php echo $layout_name; ?>/images/global/themeboxes/premium/premiumbox2.gif);">
     <div id="doublePointsSelector">
         <?php
         $doubleStatus = $SQL->query("SELECT `value` FROM `server_config` WHERE `config` = 'double'")->fetch();
@@ -21,12 +21,12 @@
     </div>
 
     <div class="ThemeboxButton">
-        <form action="?subtopic=accountmanagement&action=donate" method="post" style="padding:0px;margin:0px;">
+        <form action="?subtopic=accountmanagement&action=donate" method="post" style="padding:0px;margin:0px;"><br/><br/><br/>
             <div class="BigButton"
-                 style="background-image:url(<?php echo $layout_name; ?>/images/global/buttons/sbutton_green.gif)">
+                 style="background-image:url(<?php echo $layout_name; ?>/images/global/buttons/sbutton_green_over2.gif)">
                 <div onmouseover="MouseOverBigButton(this);" onmouseout="MouseOutBigButton(this);">
                     <div class="BigButtonOver"
-                         style="background-image:url(<?php echo $layout_name; ?>/images/global/buttons/sbutton_green_over.gif);">
+                         style="background-image:url(<?php echo $layout_name; ?>/images/global/buttons/sbutton_green_over2.gif);">
                     </div>
                     <input class="ButtonText" type="image" name="Get Premium" alt="Get Premium"
                            src="<?php echo $layout_name; ?>/images/global/buttons/_sbutton_gettibiacoins.gif">
@@ -34,8 +34,8 @@
             </div>
         </form>
     </div>
-    <div class="Bottom" style="background-image:url(<?php echo $layout_name; ?>/images/global/general/box-bottom.gif);">
-    </div>
+    <!-- <div class="Bottom" style="background-image:url(<?php echo $layout_name; ?>/images/global/general/box-bottom.gif);">
+    </div> -->
 </div>
 <!-- END Premium theme box -->
 <?php }?>
