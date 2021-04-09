@@ -420,6 +420,18 @@ CREATE TABLE `ip_bans` (
 -- --------------------------------------------------------
 
 --
+-- Table structure `links`
+--
+
+CREATE TABLE `links` (
+  `account_id` int(11) NOT NULL,
+  `code` varchar(50) NOT NULL,
+  `code_date` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- --------------------------------------------------------
+
+--
 -- Table structure `live_casts`
 --
 

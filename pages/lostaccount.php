@@ -1,5 +1,16 @@
 <?php
 
+use \PHPMailer\PHPMailer\PHPMailer;
+use \PHPMailer\PHPMailer\Exception;
+use \PHPMailer\PHPMailer\SMTP;
+
+require 'vendor/autoload.php';
+require 'config/config.php';
+require 'custom_scripts/PHPMailer/PHPMailer.php';
+require 'custom_scripts/PHPMailer/Exception.php';
+require 'custom_scripts/PHPMailer/SMTP.php';
+require 'custom_scripts/PHPMailer/OAuth.php';
+
 if (!defined('INITIALIZED'))
 	exit;
 
@@ -356,8 +367,21 @@ if ($config['site']['send_emails']) {
 						</body>
 					</html>';
 
-				$mail = new SendMail();
-				if ($mail->send($account->getEmail(), $account->getRLName(), "Account name for " . $config['server']['serverName'], "Account name for " . $config['server']['serverName'], "Account name for " . $config['server']['serverName'], $mailBody)) {
+				$mail = new PHPMailer();
+				$mail->isSMTP();
+				$mail->Host = $config['site']['smtp_host'];
+				$mail->Port = $config['site']['smtp_port'];
+				$mail->SMTPSecure = $config['site']['smtp_secure'];
+				$mail->SMTPAuth = $config['site']['smtp_auth'];
+				$mail->Username = $config['site']['smtp_user'];
+				$mail->Password = $config['site']['smtp_pass'];
+				$mail->setFrom($config['site']['mail_address'], $config['site']['mail_senderName']);
+				$mail->addAddress($account->getEmail(), $account->getRLName());
+				$mail->Subject = "Account name for " . $config['server']['serverName'];
+				$mail->msgHTML($mailBody);
+				$mail->AltBody = 'HTML messaging not supported';
+
+				if ($mail->send()) {
 					$main_content .= '
 						<TABLE CELLSPACING=1 CELLPADDING=4 BORDER=0 WIDTH=100%>
 							<TR>
@@ -430,8 +454,8 @@ if ($config['site']['send_emails']) {
 				$acceptedChars = '123456789zxcvbnmasdfghjklqwertyuiop';
 				$newcode = NULL;
 				for ($i = 0; $i < 20; $i++) {
-					$cnum[$i] = $acceptedChars{
-					mt_rand(0, 33)};
+					$cnum[$i] = $acceptedChars[
+					mt_rand(0, 33)];
 					$newcode .= $cnum[$i];
 				}
 
@@ -479,8 +503,21 @@ if ($config['site']['send_emails']) {
 						</html>';
 				}
 
-				$mail = new SendMail();
-				if ($mail->send($account->getEmail(), $account->getRLName(), "Confirmation key for new password " . $config['server']['serverName'], "Confirmation key for new password " . $config['server']['serverName'], "Confirmation key for new password " . $config['server']['serverName'], $mailBody)) {
+				$mail = new PHPMailer();
+				$mail->isSMTP();
+				$mail->Host = $config['site']['smtp_host'];
+				$mail->Port = $config['site']['smtp_port'];
+				$mail->SMTPSecure = $config['site']['smtp_secure'];
+				$mail->SMTPAuth = $config['site']['smtp_auth'];
+				$mail->Username = $config['site']['smtp_user'];
+				$mail->Password = $config['site']['smtp_pass'];
+				$mail->setFrom($config['site']['mail_address'], $config['site']['mail_senderName']);
+				$mail->addAddress($account->getEmail(), $account->getRLName());
+				$mail->Subject = "Confirmation key for new password " . $config['server']['serverName'];
+				$mail->msgHTML($mailBody);
+				$mail->AltBody = 'HTML messaging not supported';
+
+				if ($mail->send()) {
 					$main_content .= '
 						<TABLE CELLSPACING=1 CELLPADDING=4 BORDER=0 WIDTH=100%>
 							<TR>
@@ -674,9 +711,9 @@ if ($config['site']['send_emails']) {
 
 				$acceptedChars = '123456789zxcvbnmasdfghjklqwertyuiop';
 				$newpass = NULL;
-				for ($i = 0; $i < 8; $i++) {
-					$cnum[$i] = $acceptedChars{
-					mt_rand(0, 33)};
+				for ($i = 0; $i < 20; $i++) {
+					$cnum[$i] = $acceptedChars[
+					mt_rand(0, 33)];
 					$newpass .= $cnum[$i];
 				}
 
@@ -701,8 +738,21 @@ if ($config['site']['send_emails']) {
 					<p>Kind regards,<br />
 					Your " . $config['server']['serverName'] . " Team</p>";
 
-				$mail = new SendMail();
-				if ($mail->send($email, $email, "Account name and new password for " . $config['server']['serverName'], "Account name and new password for " . $config['server']['serverName'], "Account name and new password for " . $config['server']['serverName'], $mailBody)) {
+				$mail = new PHPMailer();
+				$mail->isSMTP();
+				$mail->Host = $config['site']['smtp_host'];
+				$mail->Port = $config['site']['smtp_port'];
+				$mail->SMTPSecure = $config['site']['smtp_secure'];
+				$mail->SMTPAuth = $config['site']['smtp_auth'];
+				$mail->Username = $config['site']['smtp_user'];
+				$mail->Password = $config['site']['smtp_pass'];
+				$mail->setFrom($config['site']['mail_address'], $config['site']['mail_senderName']);
+				$mail->addAddress($account->getEmail(), $account->getRLName());
+				$mail->Subject = "Account name and new password for " . $config['server']['serverName'];
+				$mail->msgHTML($mailBody);
+				$mail->AltBody = 'HTML messaging not supported';
+
+				if ($mail->send()) {
 					$main_content .= '
 						<TABLE CELLSPACING=1 CELLPADDING=4 BORDER=0 WIDTH=100%>
 							<TR>
@@ -807,8 +857,8 @@ if ($config['site']['send_emails']) {
 				$acceptedChars = '123456789zxcvbnmasdfghjklqwertyuiop';
 				$newcode = NULL;
 				for ($i = 0; $i < 20; $i++) {
-					$cnum[$i] = $acceptedChars{
-					mt_rand(0, 33)};
+					$cnum[$i] = $acceptedChars[
+					mt_rand(0, 33)];
 					$newcode .= $cnum[$i];
 				}
 
@@ -819,7 +869,8 @@ if ($config['site']['send_emails']) {
 				$emailcode->execute(['accid' => $idAccount, 'code' => $newcode, 'code_date' => $codeDate]);
 				$emailcode = $emailcode->fetchAll();
 
-				$mailBody = '
+				if ($emailcode) {
+				    $mailBody = '
 					<p>Dear ' . $config['server']['serverName'] . ' player,</p>
 
 					<p>You have requested both your account name and a new password.<br />
@@ -853,9 +904,23 @@ if ($config['site']['send_emails']) {
 
 					<p>Kind regards,<br />
 					Your ' . $config['server']['serverName'] . ' Team</p>';
+				}
 
-				$mail = new SendMail();
-				if ($mail->send($account->getEmail(), $account->getRLName(), "Account name and confirmation key for " . $config['server']['serverName'], "Account name and confirmation key for " . $config['server']['serverName'], "Account name and confirmation key for " . $config['server']['serverName'], $mailBody)) {
+				$mail = new PHPMailer();
+				$mail->isSMTP();
+				$mail->Host = $config['site']['smtp_host'];
+				$mail->Port = $config['site']['smtp_port'];
+				$mail->SMTPSecure = $config['site']['smtp_secure'];
+				$mail->SMTPAuth = $config['site']['smtp_auth'];
+				$mail->Username = $config['site']['smtp_user'];
+				$mail->Password = $config['site']['smtp_pass'];
+				$mail->setFrom($config['site']['mail_address'], $config['site']['mail_senderName']);
+				$mail->addAddress($account->getEmail(), $account->getRLName());
+				$mail->Subject = "Account name and confirmation key for " . $config['server']['serverName'];
+				$mail->msgHTML($mailBody);
+				$mail->AltBody = 'HTML messaging not supported';
+
+				if ($mail->send()) {
 					$main_content .= '
 						<TABLE CELLSPACING=1 CELLPADDING=4 BORDER=0 WIDTH=100%>
 							<TR>
@@ -982,9 +1047,9 @@ if ($config['site']['send_emails']) {
 
 				$acceptedChars = '123456789zxcvbnmasdfghjklqwertyuiop';
 				$newpass = NULL;
-				for ($i = 0; $i < 8; $i++) {
-					$cnum[$i] = $acceptedChars{
-					mt_rand(0, 33)};
+				for ($i = 0; $i < 20; $i++) {
+					$cnum[$i] = $acceptedChars[
+					mt_rand(0, 33)];
 					$newpass .= $cnum[$i];
 				}
 
@@ -1015,9 +1080,21 @@ if ($config['site']['send_emails']) {
 							</body>
 						</html>';
 
-				$mail = new SendMail();
-				if ($mail->send($account->getEmail(), $account->getRLName(), "New Password for " . $config['server']['serverName'], "New Password for " . $config['server']['serverName'], "New Password for " . $config['server']['serverName'], $mailBody)) {
+				$mail = new PHPMailer();
+				$mail->isSMTP();
+				$mail->Host = $config['site']['smtp_host'];
+				$mail->Port = $config['site']['smtp_port'];
+				$mail->SMTPSecure = $config['site']['smtp_secure'];
+				$mail->SMTPAuth = $config['site']['smtp_auth'];
+				$mail->Username = $config['site']['smtp_user'];
+				$mail->Password = $config['site']['smtp_pass'];
+				$mail->setFrom($config['site']['mail_address'], $config['site']['mail_senderName']);
+				$mail->addAddress($account->getEmail(), $account->getRLName());
+				$mail->Subject = "New password for " . $config['server']['serverName'];
+				$mail->msgHTML($mailBody);
+				$mail->AltBody = 'HTML messaging not supported';
 
+				if ($mail->send()) {
 					$main_content .= '
 					<TABLE CELLSPACING=1 CELLPADDING=4 BORDER=0 WIDTH=100%>
 						<TR>
