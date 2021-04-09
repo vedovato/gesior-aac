@@ -174,7 +174,7 @@ if(!defined('INITIALIZED'))
 </head>
 
 <body onbeforeunload="SaveMenu();"
-      style="background-image:url(<?php echo $layout_name; ?>/images/global/header/bg_4.jpg);
+      style="background-image:url(<?php echo $layout_name; ?>/images/global/header/background-artwork.jpg);
               background-size: 100%;
               background-position: top center;
               background-repeat: no-repeat;
