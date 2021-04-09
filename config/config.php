@@ -38,7 +38,7 @@ $config['site']['testurl'] = "http://localhost/"; // Put the url you use to test
 if ($config['base_url'] == $config['site']['realurl'] || $config['base_url'] == $config['site']['realurlwww']) {
 	$config['site']['serverPath'] = "/path/server/"; // SERVER PATH IN PRODUCTION
 } else {
-	$config['site']['serverPath'] = "C:/Users/eduar/Documents/GitHub/otservbr-global/"; // SERVERPATH LOCALHOST
+	$config['site']['serverPath'] = "/path/server/"; // SERVERPATH LOCALHOST
 }
 /** END SERVER PATHS */
 
