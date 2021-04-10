@@ -229,7 +229,7 @@ if (!$logged) {
 																		<span id="password1_label"' . (isset($e['pass']) ? ' class="red"' : '') . '>Password:</span>
 																	</td>
 																	<td>
-																		<input id="password1" type="password" name="password1" style="width:206px;float:left;" value="' . (isset($_POST['password1']) ? htmlspecialchars(substr($_POST['password1'], 0, 30)) : '') . '" size="30" maxlength="30" onBlur="SendAjaxCip({DataType: \'Container\'}, {Href: \'./account/ajax_password.php\',PostData: \'a_Password1=\'+getElementById(\'password1\').value+\'&a_Password2=\'+getElementById(\'password2\').value,Method: \'POST\'});" />
+																		<input id="password1" type="password" name="password1" style="width:206px;float:left;" value="' . (isset($_POST['password1']) ? htmlspecialchars(substr($_POST['password1'], 0, 30)) : '') . '" size="30" maxlength="30" onBlur="SendAjaxCip({DataType: \'Container\'}, {Href: \'./ajax_password.php\',PostData: \'a_Password1=\'+getElementById(\'password1\').value+\'&a_Password2=\'+getElementById(\'password2\').value,Method: \'POST\'});" />
 																		<div id="password1_indicator" class="InputIndicator" style="background-image:url(' . $layout_name . '/images/global/general/' . ($_POST['step'] != 'docreate' || isset($e['pass']) ? 'n' : '') . 'ok.gif);" ></div>
 																	</td>
 																</tr>
@@ -238,7 +238,7 @@ if (!$logged) {
 																		<span id="password2_label"' . (isset($e['pass']) ? ' class="red"' : '') . '>Password Again:</span>
 																	</td>
 																	<td>
-																		<input id="password2" type="password" name="password2" style="width:206px;float:left;" value="' . (isset($_POST['password2']) ? htmlspecialchars(substr($_POST['password2'], 0, 30)) : '') . '" size="30" maxlength="30" onBlur="SendAjaxCip({DataType: \'Container\'}, {Href: \'./account/ajax_password.php\',PostData: \'a_Password1=\'+getElementById(\'password1\').value+\'&a_Password2=\'+getElementById(\'password2\').value,Method: \'POST\'});" />
+																		<input id="password2" type="password" name="password2" style="width:206px;float:left;" value="' . (isset($_POST['password2']) ? htmlspecialchars(substr($_POST['password2'], 0, 30)) : '') . '" size="30" maxlength="30" onBlur="SendAjaxCip({DataType: \'Container\'}, {Href: \'./ajax_password.php\',PostData: \'a_Password1=\'+getElementById(\'password1\').value+\'&a_Password2=\'+getElementById(\'password2\').value,Method: \'POST\'});" />
 																		<div id="password2_indicator" class="InputIndicator" style="background-image:url(' . $layout_name . '/images/global/general/' . ($_POST['step'] != 'docreate' || isset($e['pass']) ? 'n' : '') . 'ok.gif);" ></div>
 																	</td>
 																</tr>
@@ -265,10 +265,7 @@ if (!$logged) {
 														window.onload = function() {
 														  SendAjaxCip({DataType: \'Container\'}, {Href: \'./ajax_account.php\',PostData: \'a_AccountName=\'+document.getElementById(\'accountname\').value,Method: \'POST\'});
 														  SendAjaxCip({DataType: \'Container\'}, {Href: \'./ajax_email.php\',PostData: \'a_EMail=\'+encodeURIComponent(document.getElementById(\'email\').value),Method: \'POST\'});
-														  SendAjaxCip({DataType: \'Container\'}, {Href: \'./ajax_email.php\',PostData: \'a_EMail=\'+encodeURIComponent(document.getElementById(\'email\').value),Method: \'POST\'});
-														  SendAjaxCip({DataType: \'Container\'}, {Href: \'./account/ajax_password.php\',PostData: \'a_Password1=\'+document.getElementById(\'password1\').value+\'&a_Password2=\'+document.getElementById(\'password2\').value,Method: \'POST\'});
-														  //SendAjaxCip({DataType: \'Container\'}, {Href: \'./account/ajax_password.php\',PostData: \'a_Password1=\'+document.getElementById(\'password1\').value+\'&a_Password2=\'+document.getElementById(\'password2\').value,Method: \'POST\'});
-
+														  SendAjaxCip({DataType: \'Container\'}, {Href: \'./ajax_password.php\',PostData: \'a_Password1=\'+document.getElementById(\'password1\').value+\'&a_Password2=\'+document.getElementById(\'password2\').value,Method: \'POST\'});
 
 														};
 													</script>
@@ -487,7 +484,34 @@ if (!$logged) {
 						$_SESSION['password'] = $_POST['password1'];
 						$_SESSION['recaptcha'] = true;
 						Visitor::login();
-						header("Location: ./?subtopic=accountmanagement");
+						$main_content .= '
+							<div class="TableContainer" >
+								<table class="Table1" cellpadding="0" cellspacing="0" >
+								<div class="CaptionContainer" >
+									<div class="CaptionInnerContainer" >
+										<span class="CaptionEdgeLeftTop" style="background-image:url(' . $layout_name . '/images/global/content/box-frame-edge.gif);" /></span>
+										<span class="CaptionEdgeRightTop" style="background-image:url(' . $layout_name . '/images/global/content/box-frame-edge.gif);" /></span>
+										<span class="CaptionBorderTop" style="background-image:url(' . $layout_name . '/images/global/content/table-headline-border.gif);" ></span>
+										<span class="CaptionVerticalLeft" style="background-image:url(' . $layout_name . '/images/global/content/box-frame-vertical.gif);" /></span>
+										<div class="Text">Account created successfully!</div>
+											<span class="CaptionVerticalRight" style="background-image:url(' . $layout_name . '/images/global/content/box-frame-vertical.gif);" /></span>
+											<span class="CaptionBorderBottom" style="background-image:url(' . $layout_name . '/images/global/content/table-headline-border.gif);" ></span>
+											<span class="CaptionEdgeLeftBottom" style="background-image:url(' . $layout_name . '/images/global/content/box-frame-edge.gif);" /></span>
+											<span class="CaptionEdgeRightBottom" style="background-image:url(' . $layout_name . '/images/global/content/box-frame-edge.gif);" /></span>
+										</div>
+									</div>
+								<tr>
+								<td><div class="InnerTableContainer" >
+									<table style="width:100%;" >
+										<tr>
+											<td>Your account has been successfully created on our server.<br> To finalize your registration and create your character, <a href="?subtopic=accountmanagement" >access now</a> your account.</td>
+										</tr>
+									</table>
+								</div>
+								</td>
+								</tr>
+								</table>
+							</div>';
 					} else {
 						$_SESSION['account'] = $_POST['accountname'];
 						$_SESSION['password'] = $_POST['password1'];
@@ -504,7 +528,34 @@ if (!$logged) {
 				$_SESSION['password'] = $_POST['password1'];
 				$_SESSION['recaptcha'] = true;
 				Visitor::login();
-				header("Location: ./?subtopic=accountmanagement");
+				$main_content .= '
+							<div class="TableContainer" >
+								<table class="Table1" cellpadding="0" cellspacing="0" >
+								<div class="CaptionContainer" >
+									<div class="CaptionInnerContainer" >
+										<span class="CaptionEdgeLeftTop" style="background-image:url(' . $layout_name . '/images/global/content/box-frame-edge.gif);" /></span>
+										<span class="CaptionEdgeRightTop" style="background-image:url(' . $layout_name . '/images/global/content/box-frame-edge.gif);" /></span>
+										<span class="CaptionBorderTop" style="background-image:url(' . $layout_name . '/images/global/content/table-headline-border.gif);" ></span>
+										<span class="CaptionVerticalLeft" style="background-image:url(' . $layout_name . '/images/global/content/box-frame-vertical.gif);" /></span>
+										<div class="Text">Account created successfully!</div>
+											<span class="CaptionVerticalRight" style="background-image:url(' . $layout_name . '/images/global/content/box-frame-vertical.gif);" /></span>
+											<span class="CaptionBorderBottom" style="background-image:url(' . $layout_name . '/images/global/content/table-headline-border.gif);" ></span>
+											<span class="CaptionEdgeLeftBottom" style="background-image:url(' . $layout_name . '/images/global/content/box-frame-edge.gif);" /></span>
+											<span class="CaptionEdgeRightBottom" style="background-image:url(' . $layout_name . '/images/global/content/box-frame-edge.gif);" /></span>
+										</div>
+									</div>
+								<tr>
+								<td><div class="InnerTableContainer" >
+									<table style="width:100%;" >
+										<tr>
+											<td>Your account has been successfully created on our server.<br> To finalize your registration and create your character, <a href="?subtopic=accountmanagement" >access now</a> your account.</td>
+										</tr>
+									</table>
+								</div>
+								</td>
+								</tr>
+								</table>
+							</div>';
 			}
 		}
 	} else {
@@ -581,7 +632,7 @@ if (!$logged) {
 																		<span id="password1_label"' . (isset($e['pass']) ? ' class="red"' : '') . '>Password:</span>
 																	</td>
 																	<td>
-																		<input id="password1" type="password" name="password1" style="width:206px;float:left;" value="' . (isset($_POST['password1']) ? htmlspecialchars(substr($_POST['password1'], 0, 30)) : '') . '" size="30" maxlength="30" onBlur="SendAjaxCip({DataType: \'Container\'}, {Href: \'./account/ajax_password.php\',PostData: \'a_Password1=\'+getElementById(\'password1\').value+\'&a_Password2=\'+getElementById(\'password2\').value,Method: \'POST\'});" />
+																		<input id="password1" type="password" name="password1" style="width:206px;float:left;" value="' . (isset($_POST['password1']) ? htmlspecialchars(substr($_POST['password1'], 0, 30)) : '') . '" size="30" maxlength="30" onBlur="SendAjaxCip({DataType: \'Container\'}, {Href: \'./ajax_password.php\',PostData: \'a_Password1=\'+getElementById(\'password1\').value+\'&a_Password2=\'+getElementById(\'password2\').value,Method: \'POST\'});" />
 																		<div id="password1_indicator" class="InputIndicator" style="background-image:url(' . $layout_name . '/images/global/general/' . ($_POST['step'] != 'docreate' || isset($e['pass']) ? 'n' : '') . 'ok.gif);" ></div>
 																	</td>
 																</tr>
@@ -590,7 +641,7 @@ if (!$logged) {
 																		<span id="password2_label"' . (isset($e['pass']) ? ' class="red"' : '') . '>Password Again:</span>
 																	</td>
 																	<td>
-																		<input id="password2" type="password" name="password2" style="width:206px;float:left;" value="' . (isset($_POST['password2']) ? htmlspecialchars(substr($_POST['password2'], 0, 30)) : '') . '" size="30" maxlength="30" onBlur="SendAjaxCip({DataType: \'Container\'}, {Href: \'./account/ajax_password.php\',PostData: \'a_Password1=\'+getElementById(\'password1\').value+\'&a_Password2=\'+getElementById(\'password2\').value,Method: \'POST\'});" />
+																		<input id="password2" type="password" name="password2" style="width:206px;float:left;" value="' . (isset($_POST['password2']) ? htmlspecialchars(substr($_POST['password2'], 0, 30)) : '') . '" size="30" maxlength="30" onBlur="SendAjaxCip({DataType: \'Container\'}, {Href: \'./ajax_password.php\',PostData: \'a_Password1=\'+getElementById(\'password1\').value+\'&a_Password2=\'+getElementById(\'password2\').value,Method: \'POST\'});" />
 																		<div id="password2_indicator" class="InputIndicator" style="background-image:url(' . $layout_name . '/images/global/general/' . ($_POST['step'] != 'docreate' || isset($e['pass']) ? 'n' : '') . 'ok.gif);" ></div>
 																	</td>
 																</tr>
@@ -765,3 +816,4 @@ if (!$logged) {
 			</div>';
 	}
 } else header("Location: ./?subtopic=accountmanagement");
+?>

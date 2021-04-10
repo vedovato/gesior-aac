@@ -8,23 +8,23 @@ class PicPay
 	/*
 	  *@var type String: $urlCallBack
 	  */
-	private $urlCallBack = '***REMOVED***';
+	private $urlCallBack = '';
 
 	/*
 	   *@var type String: $urlReturn
 	   */
-	private $urlReturn = '***REMOVED***';
+	private $urlReturn = '';
 
 	/*
 	  *@Get token: https://bit.ly/2XyAWCy
 	  *@var type String: $x_picpay_token
 	  */
-	private $x_picpay_token = '***REMOVED***';
+	private $x_picpay_token = '';
 
 	/*
 	   *@var type String: $x_seller_token
 	   */
-	private $x_seller_token = '***REMOVED***';
+	private $x_seller_token = '';
 
 
 

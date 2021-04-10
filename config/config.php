@@ -336,7 +336,7 @@ $config['pagseguro']['testing'] = false;
 $config['pagseguro']['lightbox'] = true;
 $config['pagseguro']['tokentest'] = "";
 
-/** PAGSEGURO CONFIGS ***REMOVED****/
+/** PAGSEGURO CONFIGS */
 $config['pagseguro']['email'] = "@gmail.com";
 $config['pagseguro']['token'] = "";
 $config['pagseguro']['produtoNome'] = 'Tibia Coins';
@@ -375,11 +375,11 @@ $config['paypal']['currency'] = "BRL";
 /** SETUP LIVE OR TESTING YOUR IMPLEMENT */
 $config['paypal']['env'] = "production"; // sandbox | production
 /** PRODUCTION IDS *
-$config['paypal']['clientID'] = "***REMOVED***";
-$config['paypal']['clientSecretID'] = "***REMOVED***";
+$config['paypal']['clientID'] = "";
+$config['paypal']['clientSecretID'] = "";
 /** SANDBOX IDS *
-$config['paypal']['sandboxClientID'] = "***REMOVED***";
-$config['paypal']['sandboxClientSecretID'] = "***REMOVED***";
+$config['paypal']['sandboxClientID'] = "";
+$config['paypal']['sandboxClientSecretID'] = "";
 /** ##PayPal configs*/
 
 /** MERCADO PAGO CONFIGS */
