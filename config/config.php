@@ -417,8 +417,8 @@ $config['site']['min_lvl_to_sell'] = 1;
 $config['site']['percent_sellchar_sale'] = 5;
 
 /** Promoção configuration */
-$config['site']['promo_isactive'] = true;
-$config['site']['promo_imagename'] = '_promo.png';
+$config['site']['promo_isactive'] = false;
+$config['site']['promo_imagename'] = 'promo.png';
 
 /** SELL CHARACTERS VARIABLES LOAD */
 $config['site']['Outfits_path'] = $config['site']['serverPath'] . "data/XML/outfits.xml";
