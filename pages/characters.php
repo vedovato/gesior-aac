@@ -160,7 +160,7 @@ if (!empty($name)) {
 					return '<td style="background-color: #d4c0a1; text-align: center;"><img src="./layouts/tibiacom/images/shop/items/' . $pid . '.gif" class="CharItems"></td>';
 				} else {
 					$item_id = $player->getItems()->getItem($pid)[array_keys($player->getItems()->getItem($pid))[0]]->data['itemtype'];
-					return '<td align="center" style="background-color: #D4C0A1;"><img src="./layouts/tibiacom/images/shop/items/' . $item_id . '.png" class="CharItems"></td>';
+					return '<td align="center" style="background-color: #D4C0A1;"><img src="./layouts/tibiacom/images/shop/items/' . $item_id . '.gif" class="CharItems"></td>';
 				}
 			};
 			$player_info = $player->data;
