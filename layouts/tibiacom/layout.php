@@ -997,34 +997,52 @@ if(!defined('INITIALIZED'))
                                 </div>
                                 <div id="ThemeboxesColumn">
                                 	<?PHP
-                                		$monsterquery = $SQL->query("SELECT `value` FROM `server_config` WHERE `config` = 'boost_monster_name'")->fetch();
-                                		$monster = $monsterquery["value"];
-                                		$urlmonsterquery = $SQL->query("SELECT `value` FROM `server_config` WHERE `config` = 'boost_monster_url'")->fetch();
-                                		$urlmonster = $urlmonsterquery["value"];
-
+                                        $monsterquery = $SQL->query("SELECT `boostname`, `looktype`, `lookfeet` , `looklegs` , `lookhead` , `lookbody` , `lookaddons` , `lookmount`   FROM `boosted_creature`")->fetch();
+                                        $monstername = $monsterquery["boostname"];
+                                        $monstertype = $monsterquery["looktype"];
+                                        $monsterfeet = $monsterquery["lookfeet"];
+                                        $monsterlegs = $monsterquery["looklegs"];
+                                        $monsterhead = $monsterquery["lookhead"];
+                                        $monsterbody = $monsterquery["lookbody"];
+                                        $monsteraddons = $monsterquery["lookaddons"];
+                                        $monstermount= $monsterquery["lookmount"];
                                 	?>
                                     <div id="DeactivationContainerThemebox" onclick="DisableDeactivationContainer();"></div>
                                     <?php if(Website::getWebsiteConfig()->getValue('info_bar_active')){?>
                                     <div id="RightArtwork">
-                                        <img id="Monster" src="<?php echo $urlmonster; ?>" alt="Monster of the Day" title="Today's boosted creature: <?PHP echo ucwords(strtolower(trim($monster))); ?>" style="position: absolute;
-                                            height: 45px;
-                                            width: 50px;
-                                            top: -80px;
-                                            left: 23px;
-                                            z-index: 106;
-                                            cursor: pointer;">
+                                      <div  id="Monster" style=" 
+                                      height: 32px; 
+                                      width: 32px; 
+                                      position: absolute; 
+                                      top: -62px; 
+                                      left: 47px;">
+                                        <img src="/AnimatedOutfits/animoutfit.php?id=<?php echo $monstertype; ?>&addons=<?php echo $monsteraddons; ?>&head=<?php echo $monsterhead; ?>&body=<?php echo $monsterbody; ?>&legs=<?php echo $monsterlegs; ?>&feet=<?php echo $monsterfeet; ?>&mount=<?php echo $monstermount; ?>" alt="Monster of the Day" title="Today's boosted creature: <?PHP echo ucwords(strtolower(trim($monstername))); ?>" style="
+                                            height: auto;
+                                            width: auto;
+                                            position: absolute;
+                                            right: 0px;
+                                            bottom: 0px;
+                                            z-index: 106;">
+                                       </div>
                                         <img id="Pedestal" src="<?php echo $layout_name; ?>/images/global/header/pedestal.png" alt="Monster Pedestal">
                                         <!--<div id="PlayersOnline" onclick="window.location = '?subtopic=worlds';"><?php echo $players_online; ?></div>-->
                                     </div>
                                     <?php } else {?>
                                         <div id="RightArtwork">
-                                         <img id="Monster" src="<?php echo $urlmonster; ?>" alt="Monster of the Day" title="Today's boosted creature: <?PHP echo ucwords(strtolower(trim($monster))); ?>" style="position: absolute;
-                                                height: 45px;
-                                                width: 50px;
-                                                top: -80px;
-                                                left: 23px;
-                                                z-index: 106;
-                                                cursor: pointer;">
+                                        <div  id="Monster" style=" 
+                                           height: 128px; 
+                                           width: 128px; 
+                                           position: absolute; 
+                                           top: -158px; 
+                                           left: -50px;">
+                                         <img id="Monster" src="/AnimatedOutfits/animoutfit.php?id=<?php echo $monstertype; ?>&addons=<?php echo $monsteraddons; ?>&head=<?php echo $monsterhead; ?>&body=<?php echo $monsterbody; ?>&legs=<?php echo $monsterlegs; ?>&feet=<?php echo $monsterfeet; ?>&mount=<?php echo $monstermount; ?>" alt="Monster of the Day" title="Today's boosted creature: <?PHP echo ucwords(strtolower(trim($monstername))); ?>" style="
+                                            height: auto;
+                                            width: auto;
+                                            position: absolute;
+                                            right: 0px;
+                                            bottom: 0px;
+                                            z-index: 106;">
+                                          </div>
                                             <img id="PedestalAndOnline" style="" src="<?php echo $layout_name; ?>/images/global/header/pedestal-and-online.gif" alt="Monster Pedestal and Online">
                                             <div id="PlayersOnline" onclick="window.location = '?subtopic=worlds';"><?php echo $players_online; ?></div>
                                         </div>
