@@ -593,7 +593,7 @@ if ($action == "showticket") {
 				$query = $SQL->prepare("UPDATE `tickets` SET `ticket_last_reply` = 'Staff', `ticket_admin_reply` = 1 WHERE ticket_id = :id");
 				$query->execute(['id' => $idTicket]);
 			} else {
-				$SQL->prepare("UPDATE `tickets` SET `ticket_admin_reply` = 0, `ticket_last_reply`= 'You' WHERE ticket_id = :id");
+				$query = $SQL->prepare("UPDATE `tickets` SET `ticket_admin_reply` = 0, `ticket_last_reply`= 'You' WHERE ticket_id = :id");
 				$query->execute(['id' => $idTicket]);
 			}
 		}
@@ -1092,3 +1092,4 @@ if ($action == '') {
 				</tbody></table></div>
 	';
 }
+?>
