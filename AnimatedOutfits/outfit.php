@@ -1,7 +1,7 @@
 <?php
 // CONFIG
 // folder with images
-$outfitImagesPath = 'animatedOutfits/';
+$outfitImagesPath = 'AnimatedOutfits/';
 
 // FORCE CACHE
 header('Cache-control: max-age='.(60*60*24*365));

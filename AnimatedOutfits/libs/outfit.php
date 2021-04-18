@@ -39,7 +39,7 @@ class Outfitter {
 
 	public static $data = [];
 	private static $transparentBackgroundColor = array(255, 255, 255);
-	public static $outfitPath = 'animatedOutfits/';
+	public static $outfitPath = 'AnimatedOutfits/';
 
 	public static function instance() {
 		if (!isset(self::$instance))

@@ -1,7 +1,7 @@
 <?php
 // CONFIG
 $password = '';
-$outfitImagesPath = 'animatedOutfits';
+$outfitImagesPath = 'AnimatedOutfits';
 
 
 // SCRIPT
