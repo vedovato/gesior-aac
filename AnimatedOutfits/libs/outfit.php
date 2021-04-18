@@ -117,7 +117,7 @@ class Outfitter {
 		}
 		$creature = false;
 
-		/*
+
 		// CODE TO BLOCK RENDERING OF CHARACTER SITTING ON NOT EXISTING MOUNT
 		// CAN BLOCK ADDONS FOR OUTFITS THAT ADDONS DON'T HAVE 'template' (color) FILE
 		$max = ($addons != 0) ? 3 : 1;
@@ -137,7 +137,7 @@ class Outfitter {
 				}
 			}
 		}
-		*/
+
 
 		if ($creature) {
 			$tmpOutfit = null;
