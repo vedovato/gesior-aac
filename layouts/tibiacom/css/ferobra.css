@@ -4498,4 +4498,83 @@ if it's not present, don't show loader */
     -ms-transform: rotate(360deg);
     transform: rotate(360deg); } }
 
+
+#PremiumBox2 {
+    position: relative;
+    height: 204px
+}
+#PremiumBoxDecor2 {
+    margin: 0;
+    position: absolute;
+    top: -28px;
+    left: 5px;
+    width: 64px;
+    height: 64px
+}
+#PremiumBoxBg2 {
+    margin: 0;
+    position: absolute;
+    top: 34px;
+    left: 10px;
+    width: 160px;
+    height: 126px
+}
+#PremiumBoxOverlay2 {
+    margin: 0;
+    position: absolute;
+    top: 34px;
+    left: 10px;
+    width: 163px;
+    height: 26px
+}
+#PremiumBoxOverlayText2 {
+    color: #fff;
+    font-family: Verdana, sans-serif;
+    margin-top: 3px;
+    text-align: center;
+    font-size: 11px
+}
+#PremiumBoxButtonDecor2 {
+    position: absolute;
+    width: 114px;
+    height: 26px;
+    left: 33px;
+    bottom: 34px;
+    z-index: 25
+}
+#PremiumBoxButton2 {
+    position: absolute;
+    bottom: 43px;
+    left: 18px;
+    text-align: center
+}
+.WebshopButton {
+    position: absolute;
+    width: 142px;
+    height: 34px;
+    z-index: 10
+}
+.WebshopButtonOver {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 142px;
+    height: 34px;
+    visibility: hidden;
+    z-index: 15;
+    vertical-align: middle
+}
+.WebshopButtonText {
+    position: relative;
+    top: 2px;
+    z-index: 20
+}
+
+.Themebox2 {
+    position: relative;
+    top: 0;
+    margin-bottom: 10px;
+    width: 180px;
+    height: 154px;
+}
 /*# sourceMappingURL=ferobra.css.map */

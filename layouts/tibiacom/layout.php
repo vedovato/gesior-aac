@@ -172,14 +172,21 @@ if(!defined('INITIALIZED'))
     <!-- <script src='https://www.google.com/recaptcha/api.js'></script> -->
     <link rel="stylesheet" href="<?php echo $layout_name; ?>/twitch/wiixzer2.css"> 
 </head>
-
+<?php
+  $bg = array('01.jpg', '02.jpg', '03.jpg', '04.jpg', '05.jpg', '06.jpg', '07.jpg', '08.jpg', '09.jpg', '10.jpg', '11.jpg'); // array of filenames
+  $i = rand(0, count($bg)-1); // generate random number size of the array
+  $selectedBg = "$bg[$i]"; // set variable equal to which random filename was chosen
+?>
+<style type="text/css">
+body{
+background: url(<?php echo $layout_name; ?>/images/global/header/headers/<?php echo $selectedBg; ?>) no-repeat;
+background-size: 100%;
+background-position: top center;
+background-repeat: no-repeat;
+background-attachment: fixed;
+}
+</style>
 <body onbeforeunload="SaveMenu();"
-      style="background-image:url(<?php echo $layout_name; ?>/images/global/header/background-artwork.jpg);
-              background-size: 100%;
-              background-position: top center;
-              background-repeat: no-repeat;
-              background-attachment: fixed;
-              "
       onunload="SaveMenu();"
       onload="SetFormFocus();"
       data-twttr-rendered="true">
@@ -885,7 +892,7 @@ if(!defined('INITIALIZED'))
                                         <div class="Corner-tl" style="background-image:url(layouts/tibiacom/images/global/content/corner-tl.gif);"></div>
                                         <div class="Corner-tr" style="background-image:url(layouts/tibiacom/images/global/content/corner-tr.gif);"></div>
                                         <div class="Border_1" style="background-image:url(layouts/tibiacom/images/global/content/border-1.gif);"></div>
-                                        <div class="BorderTitleText" style="background-image:url(layouts/tibiacom/images/global/content/title-background-blue.gif); height: 28px;">
+                                        <div class="BorderTitleText" style="background-image:url(layouts/tibiacom/images/global/content/newsheadline_background.gif); height: 28px;">
                                             <div class="InfoBar">
                                                 <?php if(Website::getWebsiteConfig()->getValue('info_bar_cast')){?>
                                                 
@@ -1048,7 +1055,9 @@ if(!defined('INITIALIZED'))
                                         </div>
                                     <?php }?>
                                     <div id="Themeboxes">
-                                        <?php include_once "widgets/widget_PremiumBox.php"?><br>
+                                        <?php $files = array('widgets/widget_PremiumBox.php', 'widgets/widget_PremiumBox2.php', 'widgets/widget_PremiumBox3.php', 'widgets/widget_PremiumBox4.php', 'widgets/widget_PremiumBox5.php', 'widgets/widget_PremiumBox6.php', 'widgets/widget_PremiumBox7.php');
+                                        // randomly include a file
+                                         include_once $files[array_rand($files)];?>
                                         <?php include_once "widgets/widget_rank.php"?>
                                         <?php include_once "widgets/widget_Serverinfobox.php"?>
                                         <?php include_once "widgets/widget_NetworksBox.php"?>
@@ -1078,7 +1087,7 @@ if(!defined('INITIALIZED'))
                                         }
                                         </style>
                                         <!-- Search Character -->              
-                                        <div id="searchcharButton" class="Themebox" style="background-image:url(<?php echo $layout_name; ?>/images/global/themeboxes/searchplayer.png);">
+                                        <!-- <div id="searchcharButton" class="Themebox" style="background-image:url(<?php echo $layout_name; ?>/images/global/themeboxes/searchplayer.png);">
                                                 <form method="post" action="?subtopic=characters">
                                                     <input style="margin:50px 20px" name="name" type="text" placeholder="Character name" class="pesquiserplayer" required>
                                                     <div class="BigButton" style="background-image:url(<?php echo $layout_name; ?>/images/global/buttons/sbutton.gif);margin-left: 23px; margin-top: -30px;">
@@ -1090,7 +1099,7 @@ if(!defined('INITIALIZED'))
                                                 </form>
                                                 <div class="Bottom" style="background-image:url(<?php echo $layout_name; ?>/images/global/general/box-bottom.gif);">
                                             </div>
-                                        </div>  
+                                        </div> -->
                                     </div>
                                 </div>
                             </div>
@@ -1193,11 +1202,14 @@ if(!defined('INITIALIZED'))
     <!-- float facebook like box start -->
 <?php if (Website::getWebsiteConfig()->getValue('widget_Serverinfoboxfloat')) { ?>
     <script id="float_fb" src="<?=$layout_name?>/js/fb_float_plugin.js<?php echo $css_version;?>" data-href="<?=$config['social']['facebook']?>" async></script>
-    <!-- float facebook like box end --> 	
+    <!-- float facebook like box end -->
+    <!-- float discord start -->
+    <script id="float_dc" src="<?php echo $layout_name; ?>/js/dc_float_plugin.js<?php echo $css_version;?>" data-href="<?=$config['social']['discord']?>" async></script>
+    <!-- float discord end -->			
 <?php }?>   
-	<!-- float discord start -->
-	<script id="float_discord" src="<?php echo $layout_name; ?>/js/discord/discord_float_plugin.js" data-id="528117503952551936&theme=dark"></script>
-	<!-- float discord end --> 
+    <!-- float discord start -->
+    <!-- <script id="float_discord" src="<?php echo $layout_name; ?>/js/discord/discord_float_plugin.js" data-id="528117503952551936&theme=dark"></script> -->
+    <!-- float discord end --> 
 <script src="<?php echo $layout_name; ?>/js/ouibounce.min.js<?php echo $css_version;?>"></script>
 <?php include_once "promo/promo.php"; ?>
 </body>

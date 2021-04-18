@@ -69,6 +69,17 @@ function MouseOutMediumButton(source) {
     }
 }
 
+function MouseOverWebshopButton(source){
+    if (source.firstChild.style) {
+        source.firstChild.style.visibility = "visible";
+    }
+}
+function MouseOutWebshopButton(source){
+    if (source.firstChild.style) {
+        source.firstChild.style.visibility = "hidden";
+    }
+}
+
 // function for Forum-Management
 function CheckAll(form_name, checkbox_name) {
     var form = document.getElementById(form_name);

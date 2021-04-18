@@ -22,8 +22,8 @@
                         width: 64px;
                         height: 64px;
                         position: absolute;
-                        left: -36px;
-                        margin-top: -15px;
+                        left: -35px;
+                        top: -28px;
                         background: url('.$player->makeOutfitUrl(). ') no-repeat 0 0;
                     }
 
@@ -72,6 +72,26 @@
                         <span class="thirdlevel">
                             <?php if (Website::getWebsiteConfig()->getValue('top_lvl_goku_isActive')) { ?>
                             <span id="<?php $m = ($player->getLookMount() == 0 ? "thirdlevel_nomount" : "thirdlevel_mount");
+                            echo $m; ?>"></span><?php } ?>
+                        </span>
+                    </div>
+                    <!-- <hr style="margin: 5px 0px 0 -29px;"/>-->
+                <?php } elseif ($a == 4) { ?>
+                    <div><span class="fourthlevel"><span id="fourthlevel"></span></span></div>
+                    <div class="rankinglevel">
+                        <span class="fourthlevel">
+                            <?php if (Website::getWebsiteConfig()->getValue('top_lvl_goku_isActive')) { ?>
+                            <span id="<?php $m = ($player->getLookMount() == 0 ? "fourthlevel_nomount" : "fourthlevel_mount");
+                            echo $m; ?>"></span><?php } ?>
+                        </span>
+                    </div>
+                    <!-- <hr style="margin: 5px 0px 0 -29px;"/>-->
+                <?php } elseif ($a == 5) { ?>
+                    <div><span class="fifthlevel"><span id="fifthlevel"></span></span></div>
+                    <div class="rankinglevel">
+                        <span class="fifthlevel">
+                            <?php if (Website::getWebsiteConfig()->getValue('top_lvl_goku_isActive')) { ?>
+                            <span id="<?php $m = ($player->getLookMount() == 0 ? "fifthlevel_nomount" : "fifthlevel_mount");
                             echo $m; ?>"></span><?php } ?>
                         </span>
                     </div>

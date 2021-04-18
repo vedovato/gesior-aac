@@ -72,6 +72,7 @@ $config['site']['top_lvl_out_anim'] = true; // true - false
 # Social Networks
 $config['social']['status'] = true;
 $config['social']['facebook'] = ""; // Link to your facebook page
+$config['social']['discord'] = ""; // Link to your discord invite
 $config['social']['fbapiversion'] = "";
 $config['social']['fbapilink'] = "";
 $config['social']['fbpageid'] = "";
