@@ -128,7 +128,7 @@ if ($player_id) {
 		}
 	} else {
 		$main_content .= '
-			<tr><td colspan="4" style="text-align: center">Não encontramos nenhum player à venda.</td></tr>
+			<tr><td colspan="4" style="text-align: center">We did not find any players on sale.</td></tr>
 		';
 	}
 	$main_content .= '

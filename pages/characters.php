@@ -23,7 +23,7 @@ if (!empty($name)) {
 		$main_content .= '
 		<tr>
 			<td width=20%>Name:</td>
-			<td>' . htmlspecialchars($player->getName()) . (($player->isDeleted()) ? ', will be deleted at ' . date("M j Y, H:i:s", $player->getDeletion()) : '') . '  ' . ($insell > 0 ? "<a href='./?subtopic=accountmanagement&action=buychar&id={$player->getID()}'>[Personagem à venda]</a>" : "") . ' </td>
+			<td>' . htmlspecialchars($player->getName()) . (($player->isDeleted()) ? ', will be deleted at ' . date("M j Y, H:i:s", $player->getDeletion()) : '') . '  ' . ($insell > 0 ? "<a href='./?subtopic=accountmanagement&action=buychar&id={$player->getID()}'>[Character on sale]</a>" : "") . ' </td>
 		</tr>';
 		$player_id = $player->getID();
 		$former_sql = "SELECT * FROM `player_former_names` WHERE `player_id` = '$player_id' ORDER BY `date` DESC LIMIT " . $config['site']['formerNames_amount'];

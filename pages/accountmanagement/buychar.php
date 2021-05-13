@@ -42,12 +42,12 @@ if (isset($_REQUEST['id'])) {
 					}
 				}
 			}
-			$main_content .= '</td></tr></tbody></table></div></div><div class="TableShadowContainer"><div class="TableBottomShadow" style="background-image:url(./layouts/tibiacom/images/global/content/table-shadow-bm.gif);"><div class="TableBottomLeftShadow" style="background-image:url(./layouts/tibiacom/images/global/content/table-shadow-bl.gif);"></div><div class="TableBottomRightShadow" style="background-image:url(./layouts/tibiacom/images/global/content/table-shadow-br.gif);"></div></div></div></td></tr><tr><td><div class="TableShadowContainerRightTop"><div class="TableShadowRightTop" style="background-image:url(./layouts/tibiacom/images/global/content/table-shadow-rt.gif);"></div></div><div class="TableContentAndRightShadow" style="background-image:url(./layouts/tibiacom/images/global/content/table-shadow-rm.gif);"><div class="TableContentContainer"><table class="TableContent" width="100%"><tbody><tr bgcolor="#D4C0A1"><td><strong>Character</strong></td><td><strong>Inventário</strong></td><td><strong>Addons</strong></td></tr>';
+			$main_content .= '</td></tr></tbody></table></div></div><div class="TableShadowContainer"><div class="TableBottomShadow" style="background-image:url(./layouts/tibiacom/images/global/content/table-shadow-bm.gif);"><div class="TableBottomLeftShadow" style="background-image:url(./layouts/tibiacom/images/global/content/table-shadow-bl.gif);"></div><div class="TableBottomRightShadow" style="background-image:url(./layouts/tibiacom/images/global/content/table-shadow-br.gif);"></div></div></div></td></tr><tr><td><div class="TableShadowContainerRightTop"><div class="TableShadowRightTop" style="background-image:url(./layouts/tibiacom/images/global/content/table-shadow-rt.gif);"></div></div><div class="TableContentAndRightShadow" style="background-image:url(./layouts/tibiacom/images/global/content/table-shadow-rm.gif);"><div class="TableContentContainer"><table class="TableContent" width="100%"><tbody><tr bgcolor="#D4C0A1"><td><strong>Character</strong></td><td><strong>Inventory</strong></td><td><strong>Addons</strong></td></tr>';
 
 			$player_info = $player_information->data;
 			$mount_id = $player_information->getStorage('10002011');
 			$main_content .= '<tr bgcolor="#F1E0C6"><td width="33%" rowspan="3"><center>';
-			$main_content .= "<img style='text-decoration:none;margin: 0 0 0 -13px;' class='outfitImgsell2' src='https://outfits.ferobraglobal.com/animoutfit.php?id={$player_info['looktype']}&addons={$player_info['lookaddons']}&head={$player_info['lookhead']}&body={$player_info['lookbody']}&legs={$player_info['looklegs']}&feet={$player_info['lookfeet']}&mount=" . ($mount_id == null ? 0 : $mount_id) . "' alt='' name=''>";
+			$main_content .= "<img style='text-decoration:none;margin: 0 0 0 -13px;' class='outfitImgsell2' src='./AnimatedOutfits/animoutfit.php?id={$player_info['looktype']}&addons={$player_info['lookaddons']}&head={$player_info['lookhead']}&body={$player_info['lookbody']}&legs={$player_info['looklegs']}&feet={$player_info['lookfeet']}&mount=" . ($mount_id == null ? 0 : $mount_id) . "' alt='' name=''>";
 			$main_content .= '<br>
 				<a href="?subtopic=characters&amp;name=' . urlencode(strtolower($player_information->getName())) . '">' . $player_information->getName() . '</a><br>
 				<font size="1">(' . $player_information->getVocationName() . ')<br>';
@@ -89,7 +89,7 @@ if (isset($_REQUEST['id'])) {
 					return '<td style="background-color: #d4c0a1; text-align: center;"><img src="./layouts/tibiacom/images/shop/items/' . $pid . '.gif" width="44" higth="44"></td>';
 				} else {
 					$item_id = $player_information->getItems()->getItem($pid)[array_keys($player_information->getItems()->getItem($pid))[0]]->data['itemtype'];
-					return '<td style="background-color: #d4c0a1; text-align: center;"><img src="./layouts/tibiacom/images/shop/items/' . $item_id . '.png" width="44" higth="44"></td>';
+					return '<td style="background-color: #d4c0a1; text-align: center;"><img src="./layouts/tibiacom/images/shop/items/' . $item_id . '.gif" width="44" higth="44"></td>';
 				}
 			};
 			$main_content .= $verifica_item_id(2);
@@ -121,10 +121,10 @@ if (isset($_REQUEST['id'])) {
 			$outfits = $outfits->getPlayerOutfitsByPlayerId($player_id);
 			if ($outfits != false) {
 				foreach ($outfits as $value) {
-				$main_content .= "<img src='https://outfits.ferobraglobal.com/animoutfit.php?id={$value['looktype']}&addons={$value['addon']}&head={$player_information->getLookHead()}&body={$player_information->getLookBody()}&legs={$player_information->getLookLegs()}&feet={$player_information->getLookFeet()}&mount=0'>";
+				$main_content .= "<img src='./AnimatedOutfits/animoutfit.php?id={$value['looktype']}&addons={$value['addon']}&head={$player_information->getLookHead()}&body={$player_information->getLookBody()}&legs={$player_information->getLookLegs()}&feet={$player_information->getLookFeet()}&mount=0'>";
 				}
 			} else {
-				$main_content .= "<p>Este player não possui outfits.</p>";
+				$main_content .= "<p>This player does not have outfits.</p>";
 			}
 
 			$main_content .= "</div>";
@@ -135,10 +135,10 @@ if (isset($_REQUEST['id'])) {
 			$mounts = $mounts->getAllMountsByPlayerId($player_id);
 			if ($mounts != false) {
 				foreach ($mounts as $value) {
-					$main_content .= "<img src='https://outfits.ferobraglobal.com/animoutfit.php?id={$value['clientid']}'>";
+					$main_content .= "<img src='./AnimatedOutfits/animoutfit.php?id={$value['clientid']}'>";
 				}
 			} else {
-				$main_content .= "<p>Este player não possui Montarias.</p>";
+				$main_content .= "<p>This player does not have mounts.</p>";
 			}
 			$main_content .= "</font></div>";
 
@@ -149,11 +149,11 @@ if (isset($_REQUEST['id'])) {
 				$main_content .= "<div class='depot'>";
 				foreach ($depotitems as $dep) {
 					$itemm = $getItemByItemId((int)$dep['itemtype']);
-					$main_content .= "<div class='depot-item'><img src='./layouts/tibiacom/images/shop/items/{$dep["itemtype"]}.png'><br/>Name:" . (isset($itemm['article']) ? $itemm['article'] : '') . " " . $itemm['name'] . "<br/>Qnt:{$dep["real_count"]}</div>";
+					$main_content .= "<div class='depot-item'><img src='./layouts/tibiacom/images/shop/items/{$dep["itemtype"]}.gif'><br/>Name:" . (isset($itemm['article']) ? $itemm['article'] : '') . " " . $itemm['name'] . "<br/>Qnt:{$dep["real_count"]}</div>";
 				}
 				$main_content .= "</div>";
 			} else {
-				$main_content .= "<p>Este player n�o possui nenhum item armazenado no depot.</p>";
+				$main_content .= "<p>This player does not have any items stored in the depot.</p>";
 			}
 
 			$main_content .= '</td></tr></tbody></table></span></td></tr></tbody></table></div></div><div class="TableShadowContainer"><div class="TableBottomShadow" style="background-image:url(./layouts/tibiacom/images/global/content/table-shadow-bm.gif);"><div class="TableBottomLeftShadow" style="background-image:url(./layouts/tibiacom/images/global/content/table-shadow-bl.gif);"></div><div class="TableBottomRightShadow" style="background-image:url(./layouts/tibiacom/images/global/content/table-shadow-br.gif);"></div></div></div></td></tr><tr><td><div class="TableShadowContainerRightTop"><div class="TableShadowRightTop" style="background-image:url(./layouts/tibiacom/images/global/content/table-shadow-rt.gif);"></div></div><div class="TableContentAndRightShadow" style="background-image:url(./layouts/tibiacom/images/global/content/table-shadow-rm.gif);"><div class="TableContentContainer"><table class="TableContent" width="100%"><tbody><tr bgcolor=""><td style="border:1px solid #faf0d7;width:95px;">Player ITEMS:</td><td style="border:1px solid #faf0d7;"><img id="Buttonitem" onmousedown="ToggleMaskedText(\'item\');" style="cursor:pointer;" src="./layouts/tibiacom/images/global/general/show.gif"><span id="Displayitem"></span><span id="Maskeditem" style="visibility:hidden;display:none"></span><span id="Readableitem" style="visibility:hidden;display:none"><br><br><table border="1" style="width:100%"><tbody><tr>';
@@ -166,11 +166,11 @@ if (isset($_REQUEST['id'])) {
 				$main_content .= "<div class='depot'>";
 				foreach ($items as $item) {
 					$itemm = $getItemByItemId((int)$item['itemtype']);
-					$main_content .= "<div class='depot-item'><img src='./layouts/tibiacom/images/shop/items/{$item["itemtype"]}.png'><br/>Name:" . (isset($itemm['article']) ? $itemm['article'] : '') . " " . $itemm['name'] . "<br/>Qnt:{$item["real_count"]}</div>";
+					$main_content .= "<div class='depot-item'><img src='./layouts/tibiacom/images/shop/items/{$item["itemtype"]}.gif'><br/>Name:" . (isset($itemm['article']) ? $itemm['article'] : '') . " " . $itemm['name'] . "<br/>Qnt:{$item["real_count"]}</div>";
 				}
 				$main_content .= "</div>";
 			} else {
-				$main_content .= "<p>Este Player nao esta carregando nenhum item.</p>";
+				$main_content .= "<p>This player is not carrying any items.</p>";
 			}
 
 			$main_content .= "</td></tr>";
@@ -247,8 +247,8 @@ if (isset($_REQUEST['id'])) {
 				[\'<button>NO</button>\', function (instance, toast) {
 				instance.hide({ transitionOut: \'fadeOut\' }, toast, \'button\');
 				iziToast.error({
-				title:"Compra",
-				message: "Cancelada..."
+				title:"Purchase",
+				message: "Canceled..."
 				});
 				}],
 				],
@@ -265,7 +265,7 @@ if (isset($_REQUEST['id'])) {
 				</script>';
 			} else { // type == 1
 				$main_content .= "<div align='center' style='margin-top: 20px;'>
-				<p style='font-size: 2em'><b>Selecione um personagem para utilizar o saldo no balance para efetuar a compra.</b></p>
+				<p style='font-size: 2em'><b>Select a character to use the balance to make the purchase.</b></p>
 				<form id='buy_this_char' method='post' action='./?subtopic=accountmanagement&action=sellchar'>
 				<input name='id' value='{$player_information->getID()}' type='hidden'>
 				<input name='type' value='3' type='hidden'>";
@@ -351,8 +351,8 @@ if (isset($_REQUEST['id'])) {
 							[\'<button>NO</button>\', function (instance, toast) {
 							instance.hide({ transitionOut: \'fadeOut\' }, toast, \'button\');
 							iziToast.error({
-							title:"Compra",
-							message: "Cancelada..."
+							title:"Purchase",
+							message: "Canceled..."
 							});
 							}],
 							],
@@ -483,7 +483,7 @@ $main_content .= "
 <tr>
 ";
 $main_content .= "
-<td><img class='Outfit' src='https://outfits.ferobraglobal.com/animoutfit.php?id={$player_info['looktype']}&addons={$player_info['lookaddons']}&head={$player_info['lookhead']}&body={$player_info['lookbody']}&legs={$player_info['looklegs']}&feet={$player_info['lookfeet']}&mount=" . ($mount_id == null ? 0 : $mount_id) . "' alt='' name=''></td>
+<td><img class='Outfit' src='./AnimatedOutfits/animoutfit.php?id={$player_info['looktype']}&addons={$player_info['lookaddons']}&head={$player_info['lookhead']}&body={$player_info['lookbody']}&legs={$player_info['looklegs']}&feet={$player_info['lookfeet']}&mount=" . ($mount_id == null ? 0 : $mount_id) . "' alt='' name=''></td>
 ";
 $main_content .= "<td><a href='./?subtopic=characters&name=" . urlencode($player_info['name']) . "'>{$player_info['name']}</a><br/> {$player_sale_info->getVocationName()} - Level {$player_sale_info->getLevel()}</td>
 <td>
@@ -496,7 +496,7 @@ $main_content .= "<td><a href='./?subtopic=characters&name=" . urlencode($player
 
 } else {
 $main_content .= '
-<tr><td colspan="4" style="text-align: center">Não encontramos nenhum player à venda.</td></tr>
+<tr><td colspan="4" style="text-align: center">We did not find any players on sale.</td></tr>
 ';
 }
 

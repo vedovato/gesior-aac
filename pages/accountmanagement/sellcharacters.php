@@ -101,46 +101,46 @@ $add_sell_character = function ($player_id, $price_type, $price, $rk) use ($veri
 											$query->execute(['account_id' => $player->getAccountID(), 'player_id' => $player_id, 'now' => $now]);
 
 											if (Website::getWebsiteConfig()->getValue('sell_by_gold')) {
-												$data = getStatus(false, 'Player inserido com sucesso.');
+												$data = getStatus(false, 'Player successfully inserted.');
 											} else {
-												$data = getStatus(false, 'Player inserido com sucesso. A venda via GOLD está inativa portanto o valor escolhido será tratado como coins.');
+												$data = getStatus(false, 'Player successfully inserted. The sale via GOLD is inactive so the chosen value will be treated as coins.');
 											}
 											return json_encode($data);
 										} else {
-											$data = getStatus(TRUE, 'O player que você tentou vender não pertence à essa account.');
+											$data = getStatus(TRUE, 'The player you tried to sell does not belong to that account.');
 											return json_encode($data);
 										}
 									} else {
-										$data = getStatus(TRUE, 'Este player está abaixo do Level necessário para venda.');
+										$data = getStatus(TRUE, 'This player is below the required level for sale.');
 										return json_encode($data);
 									}
 								} else {
-									$data = getStatus(TRUE, 'Esse player já se encontra em venda.');
+									$data = getStatus(TRUE, 'This player is already on sale.');
 									return json_encode($data);
 								}
 							}
 						} else {
-							$data = getStatus(TRUE, "Preço deve estar entre 1 e " . number_format($price_max, 0, ',', '.'));
+							$data = getStatus(TRUE, "Price must be between 1 and " . number_format($price_max, 0, ',', '.'));
 							return json_encode($data);
 						}
 					} else {
-						$data = getStatus(TRUE, "O jogador deve estar offline");
+						$data = getStatus(TRUE, "The player must be offline.");
 						return json_encode($data);
 					}
 				} else {
-					$data = getStatus(TRUE, "Você não pode vender seu char que está recebendo o dinheiro de suas compras.");
+					$data = getStatus(TRUE, "You cannot sell your character who is receiving money from your purchases.");
 					return json_encode($data);
 				}
 			} else {
-				$data = getStatus(TRUE, "Você não pode vender sem antes selecionar um player para receber o valor das suas vendas realizadas em coins.");
+				$data = getStatus(TRUE, "You cannot sell without first selecting a player to receive the value of your sales made in coins.");
 				return json_encode($data);
 			}
 		} else {
-			$data = getStatus(TRUE, "Número máximo de requisições por minuto atingido.");
+			$data = getStatus(TRUE, "Maximum number of requests per minute reached.");
 			return json_encode($data);
 		}
 	} else {
-		$data = getStatus(TRUE, "A RK(recovery key) digitada não é compatível com a RK da conta logada.");
+		$data = getStatus(TRUE, "The RK (recovery key) entered is not compatible with the RK of the logged in account.");
 		return json_encode($data);
 	}
 };
@@ -164,25 +164,25 @@ $remove_sell_characters = function ($player_id, $rk) use ($config, $SQL, $accoun
 				$query->execute(['account_id' => $account_id, 'player_id' => $player_id]);
 				$query = $SQL->prepare("DELETE FROM `account_character_sale` WHERE `id_player` = :player_id");
 				$query->execute(['player_id' => $player_id]);
-				$data = getStatus(false, 'Player removido da venda com sucesso');
+				$data = getStatus(false, 'Player successfully removed from sale.');
 				return json_encode($data);
 			} else {
-				$data = getStatus(TRUE, 'Falha ao remover este player ou ele não se encontra em venda ou não pertence à sua account.');
+				$data = getStatus(TRUE, 'Failed to remove this player or it is not for sale or does not belong to your account.');
 				return json_encode($data);
 			}
 		} else {
-			$data = getStatus(TRUE, "Número máximo de requisições por minuto atingido.");
+			$data = getStatus(TRUE, "Maximum number of requests per minute reached.");
 			return json_encode($data);
 		}
 	} else {
-		$data = getStatus(TRUE, "A RK(recovery key) digitada não é compatível com a RK da conta logada.");
+		$data = getStatus(TRUE, "The RK (recovery key) entered is not compatible with the RK of the logged in account.");
 		return json_encode($data);
 	}
 };
 
 
 /**
- * Só deve ser utilizado por administradores do site!
+ * It should only be used by site administrators! 
  * @param $id
  */
 $extorna_venda_by_id_venda = function ($id) use ($SQL) {
@@ -236,9 +236,9 @@ $buy_character_in_sale = function ($player_id, $account_id, $char_id = NULL) use
 					if ($char_id != NULL) {
 						$s = new Player();
 						$s->loadById($char_id);
-						//trava o codigo caso o player não seja da conta do maluco logado
+						//lock the code if the player does not belong to the logged in account
 						if ($account_logged->getID() != $s->getAccountID()) {
-							$data = getStatus(TRUE, 'Você não tem permissão pra isso.');
+							$data = getStatus(TRUE, 'You are not allowed to do this.');
 							return json_encode($data);
 						}
 						$balance = $s->getBalance();
@@ -264,10 +264,10 @@ $buy_character_in_sale = function ($player_id, $account_id, $char_id = NULL) use
 							$query->execute(['price' => $price, 'account_id' => $old_id]);
 							$query = $SQL->prepare("UPDATE players SET account_id = :acc_id WHERE id = :pl_id");
 							$query->execute(['acc_id' => $account_logged->getID(), 'pl_id' => $player_id]);
-							$data = getStatus(false, 'Você comprou este personagem com sucesso.');
+							$data = getStatus(false, 'You have successfully purchased this character.');
 							return json_encode($data);
 						} else {
-							$data = getStatus(TRUE, 'Você não tem saldo suficiente para essa compra.');
+							$data = getStatus(TRUE, 'You do not have enough balance for this purchase.');
 							return json_encode($data);
 						}
 					} else {
@@ -289,35 +289,35 @@ $buy_character_in_sale = function ($player_id, $account_id, $char_id = NULL) use
 									$query->execute(['price' => $price, 'p_id' => $bank_char_id]);
 									$query = $SQL->prepare("UPDATE players SET account_id = :acc_id WHERE id = :pl_id");
 									$query->execute(['acc_id' => $account_logged->getID(), 'pl_id' => $player_id]);
-									$data = getStatus(false, 'Você comprou este personagem com sucesso.');
+									$data = getStatus(false, 'You have successfully purchased this character .');
 									return json_encode($data);
 								} else {
-									$data = getStatus(TRUE, 'Seu personagem não pode estar logado ao realizar essa compra. Por favor faça logout e tente novamente.');
+									$data = getStatus(TRUE, 'Your character cannot be logged in when making this purchase. Please log out and try again.');
 									return json_encode($data);
 								}
 							} else {
-								$data = getStatus(TRUE, 'Você não tem saldo suficiente para essa compra.');
+								$data = getStatus(TRUE, 'You do not have enough balance for this purchase.');
 								return json_encode($data);
 							}
 						} else {
-							$data = getStatus(TRUE, 'Para essa operação você precisa selecionar um personagem cujo qual será utilizado o saldo do balance para a compra.');
+							$data = getStatus(TRUE, 'For this operation you need to select a character whose balance will be used for the purchase.');
 							return json_encode($data);
 						}
 					}
 				} else {
-					$data = getStatus(TRUE, 'Você não pode comprar seu próprio personagem.');
+					$data = getStatus(TRUE, 'You cannot buy your own character.');
 					return json_encode($data);
 				}
 			} else {
-				$data = getStatus(TRUE, "Você não tem permissão pra isso.");
+				$data = getStatus(TRUE, "You are not allowed to do this.");
 				return json_encode($data);
 			}
 		} else {
-			$data = getStatus(TRUE, "Você não tem permissão pra isso.");
+			$data = getStatus(TRUE, "You are not allowed to do this.");
 			return json_encode($data);
 		}
 	} else {
-		$data = getStatus(TRUE, "Número máximo de requisições por minuto atingido.");
+		$data = getStatus(TRUE, "Maximum number of requests per minute reached.");
 		return json_encode($data);
 	}
 };
@@ -329,18 +329,18 @@ $select_player_bank = function ($id) use ($config, $SQL, $account_logged) {
 			if (count($val) > 0) {
 				$q = $SQL->prepare("UPDATE accounts SET player_sell_bank = $id WHERE id = {$account_logged->getID()}");
 				$q->execute();
-				$data = getStatus(false, 'Você atualizou o player com sucesso. Caso venda algum character via Gold os golds serão entregues à ele.');
+				$data = getStatus(false, 'You have successfully updated the player. If you sell any character via Gold, the gold will be delivered to him.');
 				return json_encode($data);
 			} else {
-				$data = getStatus(TRUE, 'Esse player não pertence à você');
+				$data = getStatus(TRUE, 'This player does not belong to you.');
 				return json_encode($data);
 			}
 		} else {
-			$data = getStatus(TRUE, 'Selecione um player!');
+			$data = getStatus(TRUE, 'Select a player!');
 			return json_encode($data);
 		}
 	} else {
-		$data = getStatus(TRUE, "Número máximo de requisições por minuto atingido.");
+		$data = getStatus(TRUE, "Maximum number of requests per minute reached.");
 		return json_encode($data);
 	}
 };
@@ -383,15 +383,15 @@ if ($_POST['type']) {
 <p><b>Who can sell, and how?</b></p>
 <p>Anyone who has a character above the <b>level " . Website::getWebsiteConfig()->getValue('min_lvl_to_sell') . "</b>, that is not banned you can put it on sale. The process is simple, you will choose the character you want to sell, then put the value (in premium points) that you will ask for it.</p>
 <p style='text-align: center'><b>Attention!</b></p>
-<p style='text-align: center'>Será cobrado uma porcentagem de (" . Website::getWebsiteConfig()->getValue('percent_sellchar_sale') . "%) para cada venda realizada.</p>
-<p>Antes de fazer uma venda você precisa escolher um player para receber o gold das vendas - Esse player não poderá ser vendido.</p>";
+<p style='text-align: center'>A percentage will be charged (" . Website::getWebsiteConfig()->getValue('percent_sellchar_sale') . "%) for each sale made.</p>
+<p>Before making a sale you need to choose a player to receive gold from sales  - This player cannot be sold.</p>";
 	$q = $SQL->query("SELECT id FROM players WHERE account_id = {$account_logged->getID()}")->fetchAll();
 	$selected = $SQL->query("SELECT player_sell_bank FROM accounts WHERE id = {$account_logged->getID()}")->fetchAll();
 	$selected = $selected[0]['player_sell_bank'];
 	$main_content .= "<form id='select_player_bank' method='post' action='./?subtopic=accountmanagement&action=sellchar'>
 	<input type='hidden' value='4' name='type'>
 	<select name='id'>
-	<option value='0' " . ($selected == NULL ? "selected" : "") . ">-->SELECT PLAYER<--</option>";
+	<option value='0' " . ($selected == NULL ? "selected" : "") . ">--> Select Player <--</option>";
 	foreach ($q as $play) {
 		$pl = new Player();
 		$pl->loadById($play['id']);
@@ -399,7 +399,7 @@ if ($_POST['type']) {
 <option value='{$pl->getID()}' " . ($selected == $pl->getID() ? "selected" : "") . " name='{$pl->getID()}'>{$pl->getName()}</option>";
 	}
 	$main_content .= "</select>
-	<input type='submit' value='escolher'>
+	<input type='submit' value='Choose'>
 </form>";
 	$main_content .= "
 <script>
@@ -483,7 +483,7 @@ $('#select_player_bank').submit(function() {
 			$main_content .= "<td><input type='number' name='price' required></td>";
 			$main_content .= "<input type='hidden' name='type' value='1'>";
 			$main_content .= "<input type='hidden' name='id' value='" . $pl->getID() . "'>";
-			$main_content .= "<td align='center'><input type='submit' name='submit' value='Vender'></td>";
+			$main_content .= "<td align='center'><input type='submit' name='submit' value='Sell'></td>";
 			$main_content .= '
 <script>
 var q = $("#sell_char_' . $pl->getID() . '");
@@ -535,13 +535,13 @@ q.submit(function() {
 	} else {
 		$main_content .= '
 					<tr style="background-color:#F1E0C6;">
-						<td colspan="6">Você ainda não possui personagens em sua conta.</td>
+						<td colspan="6">You do not have any characters in your account yet.</td>
 					</tr>';
 	}
 	$main_content .= $make_table_footer();
 	$main_content .= '</div>';
 
-	$main_content .= '<p>Once put up for sale, you can only withdraw after of <span style="color: #5b0600">(1 hours)</span></p>';
+	$main_content .= '<p>Once put up for sale, you can only withdraw after of <span style="color: #5b0600">(1 hour)</span></p>';
 
 	$main_content .= '<div class="TableContainer">';
 	$main_content .= $make_content_header("Characters for sale");
@@ -571,7 +571,7 @@ q.submit(function() {
 			$main_content .= "<td><input type='text' style='text-transform: uppercase' name='rk' required></td>";
 			$main_content .= "<input type='hidden' value='2' name='type'>";
 			$main_content .= "<input type='hidden' value='{$pl->getID()}' name='remove_id'>";
-			$main_content .= "<td align='center'><input type='submit' value='remover'></td>";
+			$main_content .= "<td align='center'><input type='submit' value='Remove'></td>";
 			$main_content .= "</tr>";
 			$main_content .= "</form>";
 			$main_content .= "
@@ -622,7 +622,7 @@ q.submit(function() {
 	} else {
 		$main_content .= '
 					<tr style="background-color:#F1E0C6;">
-						<td colspan="6">Você não possui personagens à venda.</td>
+						<td colspan="6">You do not have characters on sale.</td>
 					</tr>';
 	}
 
