@@ -250,8 +250,8 @@ CREATE TABLE `guilds` (
   `balance` bigint(20) UNSIGNED NOT NULL DEFAULT '0',
   `last_execute_points` bigint(20) NOT NULL DEFAULT '0',
   `logo_gfx_name` varchar(255) NOT NULL DEFAULT '',
-  `level` int(11) DEFAULT '1',
-  `points` int(11) DEFAULT '0'
+  `level` int(11) NOT NULL DEFAULT '1',
+  `points` int(11) NOT NULL DEFAULT '0'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
@@ -1078,7 +1078,7 @@ CREATE TABLE `server_config` (
 --
 
 INSERT INTO `server_config` (`config`, `value`) VALUES
-('db_version', '17'),
+('db_version', '18'),
 ('motd_hash', ''),
 ('motd_num', '0'),
 ('players_record', '0');
