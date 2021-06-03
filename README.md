@@ -81,11 +81,10 @@ If you have trouble registering using ubuntu or any other version of php where t
 SET GLOBAL sql_mode = '';
 ```
 
-### UniformServer
-If you are using UniformServer, you will need to enable the module that allows curl and SSL
-Go to: PHP/Edit Basic and Modules
-PHP Modules Enable/Disable
-Enable the options "curl" and "openssl"
+### Uniform Server
+If you are using Uniform Server, you will need to enable the module that allows curl and SSL.
+* Go to: PHP/Edit Basic and Modules, PHP Modules Enable/Disable.
+* Enable the options "curl" and "openssl".
 
 ## Main Dev
 @riicksouzaa
