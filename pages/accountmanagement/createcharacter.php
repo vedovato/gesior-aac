@@ -309,7 +309,7 @@ if ($_POST['savecharacter'] != 1) {
 				$main_content .= '<tr><td><input type="radio" name="newcharvocation" value="' . htmlspecialchars($char_vocation_key) . '" ';
 				if ($newchar_vocation == $char_vocation_key)
 					$main_content .= 'checked="checked" ';
-				$main_content .= '>' . htmlspecialchars($vocation_name[0][$char_vocation_key]) . '</td></tr>';
+				$main_content .= '>' . htmlspecialchars($vocation_name[$char_vocation_key]) . '</td></tr>';
 			}
 			$main_content .= '</table></table></td>';
 		}
