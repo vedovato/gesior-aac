@@ -1127,7 +1127,6 @@ if ($action == 'edit_post') {
 							<a href="?subtopic=forum" >Community Boards</a> |
 							<a href="?subtopic=forum&action=show_board&id=' . $thread['section'] . '">' . $sections[$thread['section']] . '</a> |
 							<a href="?subtopic=forum&action=show_thread&id=' . $thread['first_post'] . '">' . htmlspecialchars($first_post['post_topic']) . '</a> |
-							<b><a href="http://forum.tibia.com/forum/?action=thread&amp;postid=35335511#post35335511" >Post</a></b> |
 							<b>Edit Post</b></TD>
 						<TD><IMG SRC="' . $layout_name . '/images/global/general/blank.gif" WIDTH=10 HEIGHT=1 BORDER=0></TD>
 					</TR>';
@@ -1206,7 +1205,7 @@ if ($action == 'edit_post') {
 						$smile = (int) $thread['post_smile'];
 					}
 					if (!$saved) {
-						if (count($errors) > 0) {
+						if (is_array($errors) && count($errors) > 0) {
 							$main_content .= '<br /><font color="red" size="2"><b>Errors occured:</b>';
 							foreach ($errors as $error)
 								$main_content .= '<br />* ' . $error;
@@ -1503,7 +1502,7 @@ if ($action == 'new_topic') {
 					}
 				}
 				if (!$saved) {
-					if (count($errors) > 0) {
+					if (is_array($errors) && count($errors) > 0) {
 						$main_content .= '<font color="red" size="2"><b>Errors occured:</b>';
 						foreach ($errors as $error)
 							$main_content .= '<br />' . $error;
