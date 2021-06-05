@@ -918,7 +918,7 @@ if ($action == 'new_post') {
 					}
 				}
 				if (!$saved) {
-					if (count($errors) > 0) {
+					if (is_array($errors) && count($errors) > 0) {
 						$main_content .= '<font color="red" size="2"><b>Errors occured:</b>';
 						foreach ($errors as $error)
 							$main_content .= '<br />* ' . $error;
