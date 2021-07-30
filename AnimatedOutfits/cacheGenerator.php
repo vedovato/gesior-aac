@@ -9,7 +9,7 @@ if($password == '')
 	exit('Password cannot be empty. Protect your server!');
 
 if(!isset($_REQUEST['password']) || $password != $_REQUEST['password'])
-	exit('Invalid password. Edit URL. Admin can find password in cacheFenerator.php file.');
+	exit('Invalid password. Edit URL. Admin can find password in cacheGenerator.php file.');
 
 
 error_reporting(E_ERROR | E_WARNING | E_PARSE);
