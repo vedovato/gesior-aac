@@ -636,7 +636,7 @@ if ($action == 'show_thread') {
 				$main_content .= '<img class="CipPostIcon" src="' . $layout_name . '/images/global/forum/cip_post_icon.gif" /><br>';
 				$main_content .= '<font class="ff_smallinfo">Community Manager<br/>';
 			} else {
-				$main_content .= $p->makeOutfitUrl();
+				$main_content .= "<img style='text-decoration:none;margin: 0 0 0 -13px;' class='outfitImgsell2' src='" . $p->makeOutfitUrl() . "' alt='' name=''>";
 			}
 			$main_content .= '
 								</font><br>
