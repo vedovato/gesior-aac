@@ -117,7 +117,7 @@ if ($player_id) {
 <tr>
 	";
 			$main_content .= "
-		  <td><img class='Outfit' src=" . $player_sale_info->makeOutfitUrl() . "' alt='' name=''></td>
+		  <td><img style='text-decoration:none;margin: 0 0 0 -13px;' class='Outfit' src='" . $player_sale_info->makeOutfitUrl() . "' alt='' name=''></td>
 		";
 			$main_content .= "<td><a href='./?subtopic=characters&name=" . urlencode($player_info['name']) . "'>{$player_info['name']}</a><br/> {$player_sale_info->getVocationName()} - Level {$player_sale_info->getLevel()}</td>
 <td>

@@ -45,9 +45,8 @@ if (isset($_REQUEST['id'])) {
 			$main_content .= '</td></tr></tbody></table></div></div><div class="TableShadowContainer"><div class="TableBottomShadow" style="background-image:url(./layouts/tibiacom/images/global/content/table-shadow-bm.gif);"><div class="TableBottomLeftShadow" style="background-image:url(./layouts/tibiacom/images/global/content/table-shadow-bl.gif);"></div><div class="TableBottomRightShadow" style="background-image:url(./layouts/tibiacom/images/global/content/table-shadow-br.gif);"></div></div></div></td></tr><tr><td><div class="TableShadowContainerRightTop"><div class="TableShadowRightTop" style="background-image:url(./layouts/tibiacom/images/global/content/table-shadow-rt.gif);"></div></div><div class="TableContentAndRightShadow" style="background-image:url(./layouts/tibiacom/images/global/content/table-shadow-rm.gif);"><div class="TableContentContainer"><table class="TableContent" width="100%"><tbody><tr bgcolor="#D4C0A1"><td><strong>Character</strong></td><td><strong>Inventory</strong></td><td><strong>Addons</strong></td></tr>';
 
 			$player_info = $player_information->data;
-			$mount_id = $player_information->getStorage('10002011');
 			$main_content .= '<tr bgcolor="#F1E0C6"><td width="33%" rowspan="3"><center>';
-			$main_content .= "<img style='text-decoration:none;margin: 0 0 0 -13px;' class='outfitImgsell2' src='./AnimatedOutfits/animoutfit.php?id={$player_info['looktype']}&addons={$player_info['lookaddons']}&head={$player_info['lookhead']}&body={$player_info['lookbody']}&legs={$player_info['looklegs']}&feet={$player_info['lookfeet']}&mount=" . ($mount_id == null ? 0 : $mount_id) . "' alt='' name=''>";
+			$main_content .= "<img style='text-decoration:none;margin: 0 0 0 -13px;' class='outfitImgsell2' src='./AnimatedOutfits/animoutfit.php?id={$player_info['looktype']}&addons={$player_info['lookaddons']}&head={$player_info['lookhead']}&body={$player_info['lookbody']}&legs={$player_info['looklegs']}&feet={$player_info['lookfeet']}&mount=0'>";
 			$main_content .= '<br>
 				<a href="?subtopic=characters&amp;name=' . urlencode(strtolower($player_information->getName())) . '">' . $player_information->getName() . '</a><br>
 				<font size="1">(' . $player_information->getVocationName() . ')<br>';
@@ -135,7 +134,7 @@ if (isset($_REQUEST['id'])) {
 			$mounts = $mounts->getAllMountsByPlayerId($player_id);
 			if ($mounts != false) {
 				foreach ($mounts as $value) {
-					$main_content .= "<img src='./AnimatedOutfits/animoutfit.php?id={$value['clientid']}'>";
+				$main_content .= "<img src='./AnimatedOutfits/animoutfit.php?id={$player_info['looktype']}&addons={$player_info['lookaddons']}&head={$player_info['lookhead']}&body={$player_info['lookbody']}&legs={$player_info['looklegs']}&feet={$player_info['lookfeet']}&mount={$value['clientid']}'>";
 				}
 			} else {
 				$main_content .= "<p>This player does not have mounts.</p>";
@@ -149,7 +148,8 @@ if (isset($_REQUEST['id'])) {
 				$main_content .= "<div class='depot'>";
 				foreach ($depotitems as $dep) {
 					$itemm = $getItemByItemId((int)$dep['itemtype']);
-					$main_content .= "<div class='depot-item'><img src='./layouts/tibiacom/images/shop/items/{$dep["itemtype"]}.gif'><br/>Name:" . (isset($itemm['article']) ? $itemm['article'] : '') . " " . $itemm['name'] . "<br/>Qnt:{$dep["real_count"]}</div>";
+					$main_content .= "<div class='depot-item'><img src='./layouts/tibiacom/images/shop/items/{$dep["itemtype"]}.gif'><br/>Qnt:{$dep["real_count"]}</div>";
+					//$main_content .= "<div class='depot-item'><img src='./layouts/tibiacom/images/shop/items/{$dep["itemtype"]}.gif'><br/>Name:" . (isset($itemm['article']) ? $itemm['article'] : '') . " " . $itemm['name'] . "<br/>Qnt:{$dep["real_count"]}</div>";
 				}
 				$main_content .= "</div>";
 			} else {
@@ -166,7 +166,8 @@ if (isset($_REQUEST['id'])) {
 				$main_content .= "<div class='depot'>";
 				foreach ($items as $item) {
 					$itemm = $getItemByItemId((int)$item['itemtype']);
-					$main_content .= "<div class='depot-item'><img src='./layouts/tibiacom/images/shop/items/{$item["itemtype"]}.gif'><br/>Name:" . (isset($itemm['article']) ? $itemm['article'] : '') . " " . $itemm['name'] . "<br/>Qnt:{$item["real_count"]}</div>";
+					$main_content .= "<div class='depot-item'><img src='./layouts/tibiacom/images/shop/items/{$item["itemtype"]}.gif'><br/>Qnt:{$item["real_count"]}</div>";
+					//$main_content .= "<div class='depot-item'><img src='./layouts/tibiacom/images/shop/items/{$item["itemtype"]}.gif'><br/>Name:" . (isset($itemm['article']) ? $itemm['article'] : '') . " " . $itemm['name'] . "<br/>Qnt:{$item["real_count"]}</div>";
 				}
 				$main_content .= "</div>";
 			} else {
@@ -477,7 +478,6 @@ if ($query->rowCount() > 0) {
 foreach ($playersinsale as $player) {
 $player_sale_info = new Player();
 $player_sale_info->loadById($player['id_player']);
-$mount_id = $player_sale_info->getStorage('10002011');
 $player_info = $player_sale_info->data;
 $main_content .= "
 <tr>
