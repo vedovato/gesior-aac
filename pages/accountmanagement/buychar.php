@@ -482,9 +482,7 @@ $player_info = $player_sale_info->data;
 $main_content .= "
 <tr>
 ";
-$main_content .= "
-<td><img class='Outfit' src='./AnimatedOutfits/animoutfit.php?id={$player_info['looktype']}&addons={$player_info['lookaddons']}&head={$player_info['lookhead']}&body={$player_info['lookbody']}&legs={$player_info['looklegs']}&feet={$player_info['lookfeet']}&mount=" . ($mount_id == null ? 0 : $mount_id) . "' alt='' name=''></td>
-";
+$main_content .= "<td><img style='text-decoration:none;margin: 0 0 0 -13px;' class='Outfit' src='" . $player_sale_info->makeOutfitUrl() . "' alt='' name=''></td>";
 $main_content .= "<td><a href='./?subtopic=characters&name=" . urlencode($player_info['name']) . "'>{$player_info['name']}</a><br/> {$player_sale_info->getVocationName()} - Level {$player_sale_info->getLevel()}</td>
 <td>
 <center><a href='?subtopic=accountmanagement&action=buychar&id=" . $player['id_player'] . "' style='padding:0px;margin:0px;'><input name='selectedcharacter' value='' type='hidden'><div class='BigButton' style='background-image:url(./layouts/tibiacom/images/global/buttons/sbutton_green.gif)'><div onmouseover='MouseOverBigButton(this);' onmouseout='MouseOutBigButton(this);'><div class='BigButtonOver' style='background-image: url(./layouts/tibiacom/images/global/buttons/sbutton_green_over.gif&quot;); visibility: visible;'></div><input class='ButtonText' name='Create Character' alt='Create Character' src='./layouts/tibiacom/images/global/buttons/buy_character.gif' type='image'></div></div></a></center>    
