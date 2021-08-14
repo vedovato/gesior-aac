@@ -228,89 +228,94 @@ $buy_character_in_sale = function ($player_id, $account_id, $char_id = NULL) use
 			$valida_acc->execute(['player_id' => $player_id, 'account_id' => $account_id]);
 			$valida_id = $SQL->prepare("SELECT id_player,id_account FROM account_character_sale WHERE id_player = :player_id");
 			$valida_id->execute(['player_id' => $player_id]);
-			if ($valida_id->rowCount() != 0) {
-				if ($valida_acc->rowCount() == 0) {
-					$v = $SQL->prepare("SELECT * FROM account_character_sale WHERE id_player = :id_player");
-					$v->execute(['id_player' => $player_id]);
-					$p = $v->fetchAll();
-					if ($char_id != NULL) {
-						$s = new Player();
-						$s->loadById($char_id);
-						//lock the code if the player does not belong to the logged in account
-						if ($account_logged->getID() != $s->getAccountID()) {
-							$data = getStatus(TRUE, 'You are not allowed to do this.');
-							return json_encode($data);
-						}
-						$balance = $s->getBalance();
-					} else {
-						$balance = 0;
-					}
-					$price = ($p[0]['price_type'] == 0 ? $p[0]['price_coins'] : $p[0]['price_gold']);
-					$old_id = $valida_id->fetchAll();
-					$old_id = $old_id[0]['id_account'];
-					$dta = new DateTime();
-					$dta = $dta->format('Y-m-d H:i:s');
-					$percent = Website::getWebsiteConfig()->getValue('percent_sellchar_sale') / 100;
-					if ($p[0]['price_type'] == 0) {
-						$saldo = $account_logged->getPremiumPoints();
-						if ($price <= $saldo) {
-							$query = $SQL->prepare("INSERT INTO account_character_sale_history (id_old_account, id_player, id_new_account,price_type,price, dta_insert,dta_sale) VALUES (:old_id, :player_id, :account_id, :price_type, :price, $dta, :dta)");
-							$query->execute(['old_id' => $old_id, 'player_id' => $player_id, 'account_id' => $account_id, 'price_type' => $p[0]['price_type'], 'price' => $price, 'dta' => $dta]);
-							$query = $SQL->prepare("DELETE FROM account_character_sale WHERE id_player = :id");
-							$query->execute(['id' => $player_id]);
-							$query = $SQL->prepare("UPDATE accounts SET coins = (coins-:price) WHERE id = :account_id");
-							$query->execute(['price' => $price, 'account_id' => $account_id]);
-							$query = $SQL->prepare("UPDATE accounts SET coins = (coins+(:price-(:price*($percent)))) WHERE id = :account_id");
-							$query->execute(['price' => $price, 'account_id' => $old_id]);
-							$query = $SQL->prepare("UPDATE players SET account_id = :acc_id WHERE id = :pl_id");
-							$query->execute(['acc_id' => $account_logged->getID(), 'pl_id' => $player_id]);
-							$data = getStatus(false, 'You have successfully purchased this character.');
-							return json_encode($data);
+			if (count($account_logged->getPlayersList()) < Website::getWebsiteConfig()->getValue('max_players_per_account')){
+				if ($valida_id->rowCount() != 0) {
+					if ($valida_acc->rowCount() == 0) {
+						$v = $SQL->prepare("SELECT * FROM account_character_sale WHERE id_player = :id_player");
+						$v->execute(['id_player' => $player_id]);
+						$p = $v->fetchAll();
+						if ($char_id != NULL) {
+							$s = new Player();
+							$s->loadById($char_id);
+							//lock the code if the player does not belong to the logged in account
+							if ($account_logged->getID() != $s->getAccountID()) {
+								$data = getStatus(TRUE, 'You are not allowed to do this.');
+								return json_encode($data);
+							}
+							$balance = $s->getBalance();
 						} else {
-							$data = getStatus(TRUE, 'You do not have enough balance for this purchase.');
-							return json_encode($data);
+							$balance = 0;
 						}
-					} else {
-						if ($char_id > 0) {
-							$saldo = $balance;
+						$price = ($p[0]['price_type'] == 0 ? $p[0]['price_coins'] : $p[0]['price_gold']);
+						$old_id = $valida_id->fetchAll();
+						$old_id = $old_id[0]['id_account'];
+						$dta = new DateTime();
+						$dta = $dta->format('Y-m-d H:i:s');
+						$percent = Website::getWebsiteConfig()->getValue('percent_sellchar_sale') / 100;
+						if ($p[0]['price_type'] == 0) {
+							$saldo = $account_logged->getPremiumPoints();
 							if ($price <= $saldo) {
-								$verifica_logado = $SQL->prepare("SELECT * FROM players_online WHERE player_id = :pid");
-								$verifica_logado->execute(['pid' => $char_id]);
-								if ($verifica_logado->rowCount() == 0) {
-									$bank_char_id = $SQL->query("SELECT player_sell_bank from accounts WHERE id = $old_id")->fetchAll();
-									$bank_char_id = $bank_char_id[0]['player_sell_bank'];
-									$query = $SQL->prepare("INSERT INTO account_character_sale_history (id_old_account, id_player, id_new_account,price_type,price,char_id,dta_insert, dta_sale) VALUES (:old_id, :player_id, :account_id, :price_type, :price, :char_id, $dta, :dta)");
-									$query->execute(['old_id' => $old_id, 'player_id' => $player_id, 'account_id' => $account_id, 'price_type' => $p[0]['price_type'], 'price' => $price, 'char_id' => $char_id, 'dta' => $dta]);
-									$query = $SQL->prepare("DELETE FROM account_character_sale WHERE id_player = :id");
-									$query->execute(['id' => $player_id]);
-									$query = $SQL->prepare("UPDATE players SET balance = (balance-:price) WHERE id = :p_id");
-									$query->execute(['price' => $price, 'p_id' => $char_id]);
-									$query = $SQL->prepare("UPDATE players SET balance = (balance+(:price-(:price*($percent)))) WHERE id = :p_id");
-									$query->execute(['price' => $price, 'p_id' => $bank_char_id]);
-									$query = $SQL->prepare("UPDATE players SET account_id = :acc_id WHERE id = :pl_id");
-									$query->execute(['acc_id' => $account_logged->getID(), 'pl_id' => $player_id]);
-									$data = getStatus(false, 'You have successfully purchased this character .');
-									return json_encode($data);
-								} else {
-									$data = getStatus(TRUE, 'Your character cannot be logged in when making this purchase. Please log out and try again.');
-									return json_encode($data);
-								}
+								$query = $SQL->prepare("INSERT INTO account_character_sale_history (id_old_account, id_player, id_new_account,price_type,price, dta_insert,dta_sale) VALUES (:old_id, :player_id, :account_id, :price_type, :price, $dta, :dta)");
+								$query->execute(['old_id' => $old_id, 'player_id' => $player_id, 'account_id' => $account_id, 'price_type' => $p[0]['price_type'], 'price' => $price, 'dta' => $dta]);
+								$query = $SQL->prepare("DELETE FROM account_character_sale WHERE id_player = :id");
+								$query->execute(['id' => $player_id]);
+								$query = $SQL->prepare("UPDATE accounts SET coins = (coins-:price) WHERE id = :account_id");
+								$query->execute(['price' => $price, 'account_id' => $account_id]);
+								$query = $SQL->prepare("UPDATE accounts SET coins = (coins+(:price-(:price*($percent)))) WHERE id = :account_id");
+								$query->execute(['price' => $price, 'account_id' => $old_id]);
+								$query = $SQL->prepare("UPDATE players SET account_id = :acc_id WHERE id = :pl_id");
+								$query->execute(['acc_id' => $account_logged->getID(), 'pl_id' => $player_id]);
+								$data = getStatus(false, 'You have successfully purchased this character.');
+								return json_encode($data);
 							} else {
 								$data = getStatus(TRUE, 'You do not have enough balance for this purchase.');
 								return json_encode($data);
 							}
 						} else {
-							$data = getStatus(TRUE, 'For this operation you need to select a character whose balance will be used for the purchase.');
-							return json_encode($data);
+							if ($char_id > 0) {
+								$saldo = $balance;
+								if ($price <= $saldo) {
+									$verifica_logado = $SQL->prepare("SELECT * FROM players_online WHERE player_id = :pid");
+									$verifica_logado->execute(['pid' => $char_id]);
+									if ($verifica_logado->rowCount() == 0) {
+										$bank_char_id = $SQL->query("SELECT player_sell_bank from accounts WHERE id = $old_id")->fetchAll();
+										$bank_char_id = $bank_char_id[0]['player_sell_bank'];
+										$query = $SQL->prepare("INSERT INTO account_character_sale_history (id_old_account, id_player, id_new_account,price_type,price,char_id,dta_insert, dta_sale) VALUES (:old_id, :player_id, :account_id, :price_type, :price, :char_id, $dta, :dta)");
+										$query->execute(['old_id' => $old_id, 'player_id' => $player_id, 'account_id' => $account_id, 'price_type' => $p[0]['price_type'], 'price' => $price, 'char_id' => $char_id, 'dta' => $dta]);
+										$query = $SQL->prepare("DELETE FROM account_character_sale WHERE id_player = :id");
+										$query->execute(['id' => $player_id]);
+										$query = $SQL->prepare("UPDATE players SET balance = (balance-:price) WHERE id = :p_id");
+										$query->execute(['price' => $price, 'p_id' => $char_id]);
+										$query = $SQL->prepare("UPDATE players SET balance = (balance+(:price-(:price*($percent)))) WHERE id = :p_id");
+										$query->execute(['price' => $price, 'p_id' => $bank_char_id]);
+										$query = $SQL->prepare("UPDATE players SET account_id = :acc_id WHERE id = :pl_id");
+										$query->execute(['acc_id' => $account_logged->getID(), 'pl_id' => $player_id]);
+										$data = getStatus(false, 'You have successfully purchased this character .');
+										return json_encode($data);
+									} else {
+										$data = getStatus(TRUE, 'Your character cannot be logged in when making this purchase. Please log out and try again.');
+										return json_encode($data);
+									}
+								} else {
+									$data = getStatus(TRUE, 'You do not have enough balance for this purchase.');
+									return json_encode($data);
+								}
+							} else {
+								$data = getStatus(TRUE, 'For this operation you need to select a character whose balance will be used for the purchase.');
+								return json_encode($data);
+							}
 						}
+					} else {
+						$data = getStatus(TRUE, 'You cannot buy your own character.');
+						return json_encode($data);
 					}
 				} else {
-					$data = getStatus(TRUE, 'You cannot buy your own character.');
+					$data = getStatus(TRUE, "You are not allowed to do this.");
 					return json_encode($data);
 				}
-			} else {
-				$data = getStatus(TRUE, "You are not allowed to do this.");
-				return json_encode($data);
+			}else{
+					$data = getStatus(TRUE, "You can't have more characters in this account.");
+					return json_encode($data);
 			}
 		} else {
 			$data = getStatus(TRUE, "You are not allowed to do this.");
