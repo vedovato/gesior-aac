@@ -6,7 +6,7 @@ if ($action == "") {
 
 	$main_content .= '
 
-<center><img src="http://tibiawiki.com.br/images/a/ab/Bar_of_Gold.gif"><h2><b>Event Shopping</b></h2></center>
+<center><img src="./images/eventshop/Bar_of_Gold.gif"><h2><b>Event Shopping</b></h2></center>
 <div class="TableContainer" style="position:relative;">
 		<div class="ribbonShop-double"></div>
 			<div class="CaptionContainer">
@@ -41,7 +41,7 @@ if ($action == "") {
 													<tbody>
 														<tr>
 															<td>
-To get <b>bars of gold</b> is necessary to participate of server events or buy them from other players, we currently have <a href="?subtopic=battlefield">Battlefield</a>, <a href="?subtopic=battlefield2">Battlefield 2.0</a>, <a href="?subtopic=zombie">Zombie</a>, <a href="?subtopic=castlhe">Castle</a>, <a href="?subtopic=bomberman">Bomberman</a> and <a href="?subtopic=lmstanding">Last Man Standing</a>. Both events has a reward of <b>10 bars of gold</b>, except the Castle (it has 50 as reward).
+To get <b>bars of gold</b> is necessary to participate of server events or buy them from other players, we currently have <a href="?subtopic=battlefield">Battlefield</a>, <a href="?subtopic=zombie">Zombie</a>, <a href="?subtopic=castle">Castle</a> and <a href="?subtopic=lmstanding">Last Man Standing</a>. Both events has a reward of <b>10 bars of gold</b>, except the Castle (it has 50 as reward).
 
 													</td>
 														</tr>
@@ -365,8 +365,8 @@ To get <b>bars of gold</b> is necessary to participate of server events or buy t
 															</p>
 														</div>
 														<td width="20%">
-																			<a class="fancybox-media" href="http://www.impera-global.com/images/Site/Addons/addoner.png">
-																				<img src="http://www.impera-global.com/images/Site/Addons/addoner.png" width="130px" border="1">
+																			<a class="fancybox-media" href="#">
+																				<img src="./images/eventshop/adventurers_guild.png" width="130px" border="1">
 																			</a>
 																		</td>
 													</td>
@@ -393,7 +393,7 @@ if ($action == "itens") {
 
 	$main_content .= '
 
-<center><img src="http://tibiawiki.com.br/images/a/ab/Bar_of_Gold.gif"><h2><b>Event Shopping</b></h2></center>
+<center><img src="./images/eventshop/Bar_of_Gold.gif"><h2><b>Event Shopping</b></h2></center>
 <div class="TableContainer" style="position:relative;">
 		<div class="ribbonShop-double"></div>
 			<div class="CaptionContainer">
@@ -428,7 +428,7 @@ if ($action == "itens") {
 													<tbody>
 														<tr>
 															<td>
-To get <b>bars of gold</b> is necessary to participate of server events or buy them from other players, we currently have <a href="?subtopic=battlefield">Battlefield</a>, <a href="?subtopic=battlefield2">Battlefield 2.0</a>, <a href="?subtopic=zombie">Zombie</a>, <a href="?subtopic=castlhe">Castle</a>, <a href="?subtopic=bomberman">Bomberman</a> and <a href="?subtopic=lmstanding">Last Man Standing</a>. Both events has a reward of <b>10 bars of gold</b>, except the Castle (it has 50 as reward).
+To get <b>bars of gold</b> is necessary to participate of server events or buy them from other players, we currently have <a href="?subtopic=battlefield">Battlefield</a>, <a href="?subtopic=zombie">Zombie</a>, <a href="?subtopic=castle">Castle</a> and <a href="?subtopic=lmstanding">Last Man Standing</a>. Both events has a reward of <b>10 bars of gold</b>, except the Castle (it has 50 as reward).
 
 													</td>
 														</tr>
@@ -785,8 +785,8 @@ To get <b>bars of gold</b> is necessary to participate of server events or buy t
 															</p>
 														</div>
 														<td width="20%">
-																			<a class="fancybox-media" href="http://www.impera-global.com/images/Site/Addons/addoner.png">
-																				<img src="http://www.impera-global.com/images/Site/Addons/addoner.png" width="130px" border="1">
+																			<a class="fancybox-media" href="#">
+																				<img src="./images/eventshop/adventurers_guild.png" width="130px" border="1">
 																			</a>
 																		</td>
 													</td>
@@ -814,7 +814,7 @@ if ($action == "addons") {
 
 	$main_content .= '
 
-<center><img src="http://tibiawiki.com.br/images/a/ab/Bar_of_Gold.gif"><h2><b>Event Shopping</b></h2></center>
+<center><img src="./images/eventshop/Bar_of_Gold.gif"><h2><b>Event Shopping</b></h2></center>
 <div class="TableContainer" style="position:relative;">
 		<div class="ribbonShop-double"></div>
 			<div class="CaptionContainer">
@@ -849,7 +849,7 @@ if ($action == "addons") {
 													<tbody>
 														<tr>
 															<td>
-To get <b>bars of gold</b> is necessary to participate of server events or buy them from other players, we currently have <a href="?subtopic=battlefield">Battlefield</a>, <a href="?subtopic=battlefield2">Battlefield 2.0</a>, <a href="?subtopic=zombie">Zombie</a>, <a href="?subtopic=castlhe">Castle</a>, <a href="?subtopic=bomberman">Bomberman</a> and <a href="?subtopic=lmstanding">Last Man Standing</a>. Both events has a reward of <b>10 bars of gold</b>, except the Castle (it has 50 as reward).
+To get <b>bars of gold</b> is necessary to participate of server events or buy them from other players, we currently have <a href="?subtopic=battlefield">Battlefield</a>, <a href="?subtopic=zombie">Zombie</a>, <a href="?subtopic=castle">Castle</a> and <a href="?subtopic=lmstanding">Last Man Standing</a>. Both events has a reward of <b>10 bars of gold</b>, except the Castle (it has 50 as reward).
 
 													</td>
 														</tr>
@@ -992,7 +992,7 @@ To get <b>bars of gold</b> is necessary to participate of server events or buy t
 <div id="ProductCategoryHelperDiv_13" class="ProductCategoryHelperDiv"></div>
 <a href="?subtopic=eventshop&action=mounts">
 <img src="layouts/tibiacom/images/payment/products_tab_nonactive.png">
-<div class="InnerTableTabLabel">Mouns</div>
+<div class="InnerTableTabLabel">Mounts</div>
 <div style="background-image: url(layouts/tibiacom/images/shop/ribbon.png);"></div>
 </a>
 
@@ -1152,8 +1152,8 @@ Veteran Paladin Outfits </div>
 															</p>
 														</div>
 														<td width="20%">
-																			<a class="fancybox-media" href="http://www.impera-global.com/images/Site/Addons/addoner.png">
-																				<img src="http://www.impera-global.com/images/Site/Addons/addoner.png" width="130px" border="1">
+																			<a class="fancybox-media" href="#">
+																				<img src="./images/eventshop/adventurers_guild.png" width="130px" border="1">
 																			</a>
 																		</td>
 													</td>
@@ -1181,7 +1181,7 @@ if ($action == "mounts") {
 
 	$main_content .= '
 
-<center><img src="http://tibiawiki.com.br/images/a/ab/Bar_of_Gold.gif"><h2><b>Event Shopping</b></h2></center>
+<center><img src="./images/eventshop/Bar_of_Gold.gif"><h2><b>Event Shopping</b></h2></center>
 <div class="TableContainer" style="position:relative;">
 		<div class="ribbonShop-double"></div>
 			<div class="CaptionContainer">
@@ -1216,7 +1216,7 @@ if ($action == "mounts") {
 													<tbody>
 														<tr>
 															<td>
-To get <b>bars of gold</b> is necessary to participate of server events or buy them from other players, we currently have <a href="?subtopic=battlefield">Battlefield</a>, <a href="?subtopic=battlefield2">Battlefield 2.0</a>, <a href="?subtopic=zombie">Zombie</a>, <a href="?subtopic=castlhe">Castle</a>, <a href="?subtopic=bomberman">Bomberman</a> and <a href="?subtopic=lmstanding">Last Man Standing</a>. Both events has a reward of <b>10 bars of gold</b>, except the Castle (it has 50 as reward).
+To get <b>bars of gold</b> is necessary to participate of server events or buy them from other players, we currently have <a href="?subtopic=battlefield">Battlefield</a>, <a href="?subtopic=zombie">Zombie</a>, <a href="?subtopic=castle">Castle</a> and <a href="?subtopic=lmstanding">Last Man Standing</a>. Both events has a reward of <b>10 bars of gold</b>, except the Castle (it has 50 as reward).
 
 													</td>
 														</tr>
@@ -1517,8 +1517,8 @@ To get <b>bars of gold</b> is necessary to participate of server events or buy t
 															</p>
 														</div>
 														<td width="20%">
-																			<a class="fancybox-media" href="http://www.impera-global.com/images/Site/Addons/addoner.png">
-																				<img src="http://www.impera-global.com/images/Site/Addons/addoner.png" width="130px" border="1">
+																			<a class="fancybox-media" href="#">
+																				<img src="./images/eventshop/adventurers_guild.png" width="130px" border="1">
 																			</a>
 																		</td>
 													</td>
@@ -1545,7 +1545,7 @@ if ($action == "dolls") {
 
 	$main_content .= '
 
-<center><img src="http://tibiawiki.com.br/images/a/ab/Bar_of_Gold.gif"><h2><b>Event Shopping</b></h2></center>
+<center><img src="./images/eventshop/Bar_of_Gold.gif"><h2><b>Event Shopping</b></h2></center>
 <div class="TableContainer" style="position:relative;">
 		<div class="ribbonShop-double"></div>
 			<div class="CaptionContainer">
@@ -1580,7 +1580,7 @@ if ($action == "dolls") {
 													<tbody>
 														<tr>
 															<td>
-To get <b>bars of gold</b> is necessary to participate of server events or buy them from other players, we currently have <a href="?subtopic=battlefield">Battlefield</a>, <a href="?subtopic=battlefield2">Battlefield 2.0</a>, <a href="?subtopic=zombie">Zombie</a>, <a href="?subtopic=castlhe">Castle</a>, <a href="?subtopic=bomberman">Bomberman</a> and <a href="?subtopic=lmstanding">Last Man Standing</a>. Both events has a reward of <b>10 bars of gold</b>, except the Castle (it has 50 as reward).
+To get <b>bars of gold</b> is necessary to participate of server events or buy them from other players, we currently have <a href="?subtopic=battlefield">Battlefield</a>, <a href="?subtopic=zombie">Zombie</a>, <a href="?subtopic=castle">Castle</a> and <a href="?subtopic=lmstanding">Last Man Standing</a>. Both events has a reward of <b>10 bars of gold</b>, except the Castle (it has 50 as reward).
 
 													</td>
 														</tr>
@@ -2053,8 +2053,8 @@ To get <b>bars of gold</b> is necessary to participate of server events or buy t
 															</p>
 														</div>
 														<td width="20%">
-																			<a class="fancybox-media" href="http://www.impera-global.com/images/Site/Addons/addoner.png">
-																				<img src="http://www.impera-global.com/images/Site/Addons/addoner.png" width="130px" border="1">
+																			<a class="fancybox-media" href="#">
+																				<img src="./images/eventshop/adventurers_guild.png" width="130px" border="1">
 																			</a>
 																		</td>
 													</td>
@@ -2082,7 +2082,7 @@ if ($action == "house") {
 
 	$main_content .= '
 
-<center><img src="http://tibiawiki.com.br/images/a/ab/Bar_of_Gold.gif"><h2><b>Event Shopping</b></h2></center>
+<center><img src="./images/eventshop/Bar_of_Gold.gif"><h2><b>Event Shopping</b></h2></center>
 <div class="TableContainer" style="position:relative;">
 		<div class="ribbonShop-double"></div>
 			<div class="CaptionContainer">
@@ -2117,7 +2117,7 @@ if ($action == "house") {
 													<tbody>
 														<tr>
 															<td>
-To get <b>bars of gold</b> is necessary to participate of server events or buy them from other players, we currently have <a href="?subtopic=battlefield">Battlefield</a>, <a href="?subtopic=battlefield2">Battlefield 2.0</a>, <a href="?subtopic=zombie">Zombie</a>, <a href="?subtopic=castlhe">Castle</a>, <a href="?subtopic=bomberman">Bomberman</a> and <a href="?subtopic=lmstanding">Last Man Standing</a>. Both events has a reward of <b>10 bars of gold</b>, except the Castle (it has 50 as reward).
+To get <b>bars of gold</b> is necessary to participate of server events or buy them from other players, we currently have <a href="?subtopic=battlefield">Battlefield</a>, <a href="?subtopic=zombie">Zombie</a>, <a href="?subtopic=castle">Castle</a> and <a href="?subtopic=lmstanding">Last Man Standing</a>. Both events has a reward of <b>10 bars of gold</b>, except the Castle (it has 50 as reward).
 
 													</td>
 														</tr>
@@ -2421,8 +2421,8 @@ To get <b>bars of gold</b> is necessary to participate of server events or buy t
 															</p>
 														</div>
 														<td width="20%">
-																			<a class="fancybox-media" href="http://www.impera-global.com/images/Site/Addons/addoner.png">
-																				<img src="http://www.impera-global.com/images/Site/Addons/addoner.png" width="130px" border="1">
+																			<a class="fancybox-media" href="#">
+																				<img src="./images/eventshop/adventurers_guild.png" width="130px" border="1">
 																			</a>
 																		</td>
 													</td>
