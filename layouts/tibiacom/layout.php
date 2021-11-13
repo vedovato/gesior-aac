@@ -370,7 +370,7 @@ background-attachment: fixed;
                                         <div id="submenu_premium_benefits" data-menu="news" class="Submenuitem" onmouseover="MouseOverSubmenuItem(this)" onmouseout="MouseOutSubmenuItem(this)">
                                             <div class="LeftChain" style="background-image:url(<?php echo $layout_name; ?>/images/global/general/chain.gif);"></div>
                                             <div id="ActiveSubmenuItemIcon_premium_benefits" class="ActiveSubmenuItemIcon" style="background-image:url(<?php echo $layout_name; ?>/images/global/menu/icon-activesubmenu.gif);"></div>
-                                            <div id="ActiveSubmenuItemLabel_premium_benefits" class="SubmenuitemLabel"><blink style="color: #18ff00; text-shadow: #ffffff 1px 1px 10p">Benefícios VIP</blink></div>
+                                            <div id="ActiveSubmenuItemLabel_premium_benefits" class="SubmenuitemLabel"><blink style="color: #18ff00; text-shadow: #ffffff 1px 1px 10p">Premium Benefits</blink></div>
                                             <div class="RightChain" style="background-image:url(<?php echo $layout_name; ?>/images/global/general/chain.gif);"></div>
                                         </div>
                                     </a>

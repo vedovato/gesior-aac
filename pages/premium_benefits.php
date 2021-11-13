@@ -2,12 +2,12 @@
 if(!defined('INITIALIZED'))
 	exit;
 $main_content .= '<center>
-<img width="200px" height="200px" src="./images/vip_logo.png">
+<img width="200px" height="200px" src="./images/premium_logo.png">
 			<table>
 				<tbody>
 					<tr>
 						<td><img src="./'.$layout_name.'/images/global/content/headline-bracer-left.gif"></td>
-						<td style="text-align:center;vertical-align:middle;horizontal-align:center;font-size:17px;font-weight:bold;">VIP System ' . htmlspecialchars($config['server']['serverName']) . '!</td>
+						<td style="text-align:center;vertical-align:middle;horizontal-align:center;font-size:17px;font-weight:bold;">Premium System ' . htmlspecialchars($config['server']['serverName']) . '!</td>
 						<td><img src="./'.$layout_name.'/images/global/content/headline-bracer-right.gif"></td>
 					</tr>
 				</tbody>
@@ -28,15 +28,15 @@ $main_content .= '<center>
 
 	<br><br>
 
-		<h3>Find out what are the advantages and benefits of being a VIP below:</h3>
+		<h3>Find out what are the advantages and benefits of being a Premium below:</h3>
 		<br>
-		<li>Get VIP and help the <b>' . $config["server"]["serverName"] . '</b> grow even more!</li>
+		<li>Get Premium and help the <b>' . $config["server"]["serverName"] . '</b> grow even more!</li>
 		<br>
 		<div class="TableContainer">
 				<div class="CaptionContainer">
 						<div class="CaptionInnerContainer">
 								<span class="CaptionEdgeLeftTop" style="background-image:url('.$layout_name.'/images/global/content/box-frame-edge.gif);"></span>        <span class="CaptionEdgeRightTop" style="background-image:url('.$layout_name.'/images/global/content/box-frame-edge.gif);"></span>        <span class="CaptionBorderTop" style="background-image:url('.$layout_name.'/images/global/content/table-headline-border.gif);"></span>        <span class="CaptionVerticalLeft" style="background-image:url('.$layout_name.'/images/global/content/box-frame-vertical.gif);"></span>
-								<div class="Text">VIP System Information</div>
+								<div class="Text">Premium System Information</div>
 								<span class="CaptionVerticalRight" style="background-image:url('.$layout_name.'/images/global/content/box-frame-vertical.gif);"></span>        <span class="CaptionBorderBottom" style="background-image:url('.$layout_name.'/images/global/content/table-headline-border.gif);"></span>        <span class="CaptionEdgeLeftBottom" style="background-image:url('.$layout_name.'/images/global/content/box-frame-edge.gif);"></span>        <span class="CaptionEdgeRightBottom" style="background-image:url('.$layout_name.'/images/global/content/box-frame-edge.gif);"></span>
 						</div>
 				</div>
@@ -58,15 +58,15 @@ $main_content .= '<center>
 																								<tbody>
 																								<tr class="LabelH">
 														<td width="25%">Benefit</td>
-																										<td width="25%"><center>VIP Details </center></td>
+																										<td width="25%"><center>Premium Details </center></td>
 																										<td width="25%"><center>Free</center></td>
-																										<td width="25%"><center>VIP</center></td>
+																										<td width="25%"><center>Premium</center></td>
 																								</tr>
 																								<tr class="Odd">
 																										<td><b>XP Boost</b></td>
 													<td align="center" valign="middle">
 													<span>
-														<span class="HelperDivIndicator" onmouseover="ActivateHelperDiv($(this), \'10% XP boost for your hunt.\', \'<p>How about gaining 10% more XP when hunting? As a VIP player, you can enjoy this valuable boost.</p>\', \'\');" onmouseout="$(\'#HelperDivContainer\').hide();">
+														<span class="HelperDivIndicator" onmouseover="ActivateHelperDiv($(this), \'10% XP boost for your hunt.\', \'<p>How about gaining 10% more XP when hunting? As a Premium player, you can enjoy this valuable boost.</p>\', \'\');" onmouseout="$(\'#HelperDivContainer\').hide();">
 														<image style="border:0px;" src="./images/premiumfeatures/PremiumIcon-Stamina.png" />
 														</span>
 													</span>
@@ -83,7 +83,7 @@ $main_content .= '<center>
 																										<td><b>Store discount</b></td>
 													<td align="center" valign="middle">
 													<span>
-														<span class="HelperDivIndicator" onmouseover="ActivateHelperDiv($(this), \'10% off in Store.\', \'<p>VIP players have a 10% discount on the purchase of any product in the Store.</p>\', \'\');" onmouseout="$(\'#HelperDivContainer\').hide();">
+														<span class="HelperDivIndicator" onmouseover="ActivateHelperDiv($(this), \'10% off in Store.\', \'<p>Premium players have a 10% discount on the purchase of any product in the Store.</p>\', \'\');" onmouseout="$(\'#HelperDivContainer\').hide();">
 														<image style="border:0px;" src="./images/premiumfeatures/PremiumIcon-Market.png" />
 														</span>
 													</span>
@@ -113,7 +113,7 @@ $main_content .= '<center>
 																										<td><b>Slots AutoLoot</b></td>
 													<td align="center" valign="middle">
 											 <span>
-														<span class="HelperDivIndicator" onmouseover="ActivateHelperDiv($(this), \'More space on the autoloot.\', \'<p>VIP players have more slots for their item list (client 10)</p>\', \'\');" onmouseout="$(\'#HelperDivContainer\').hide();">
+														<span class="HelperDivIndicator" onmouseover="ActivateHelperDiv($(this), \'More space on the autoloot.\', \'<p>Premium players have more slots for their item list (client 10)</p>\', \'\');" onmouseout="$(\'#HelperDivContainer\').hide();">
 														<image style="border:0px;" src="./images/premiumfeatures/PremiumIcon-QuickLoot.png" />
 														</span>
 													</span>
@@ -406,14 +406,14 @@ $main_content .= '<center>
 		<br><br>';
 
  $main_content .= '
-	<h2>Pricing</h2><p style="margin-top: 20px; margin-bottom: 20px;">Best of all, Tibia VIP Time is inexpensive! You can upgrade your account to VIP starting from as little as 250 TC for a month:</p><div class="TableContainer"> <table class="Table3" cellpadding="0" cellspacing="0"> <div class="CaptionContainer"> <div class="CaptionInnerContainer"> <span class="CaptionEdgeLeftTop" style="background-image:url(./'. $layout_name .'/images/global/content/box-frame-edge.gif);" /></span> <span class="CaptionEdgeRightTop" style="background-image:url(./'. $layout_name .'/images/global/content/box-frame-edge.gif);" /></span> <span class="CaptionBorderTop" style="background-image:url(./'. $layout_name .'/images/global/content/table-headline-border.gif);"></span> <span class="CaptionVerticalLeft" style="background-image:url(./'. $layout_name .'/images/global/content/box-frame-vertical.gif);" /></span> <div class="Text">VIP Time</div> <span class="CaptionVerticalRight" style="background-image:url(./'. $layout_name .'/images/global/content/box-frame-vertical.gif);" /></span> <span class="CaptionBorderBottom" style="background-image:url(./'. $layout_name .'/images/global/content/table-headline-border.gif);"></span> <span class="CaptionEdgeLeftBottom" style="background-image:url(./'. $layout_name .'/images/global/content/box-frame-edge.gif);" /></span> <span class="CaptionEdgeRightBottom" style="background-image:url(./'. $layout_name .'/images/global/content/box-frame-edge.gif);" /></span> </div> </div> <tr> <td> <div class="InnerTableContainer"> <table style="width:100%;"><tr><td><div class="TableShadowContainerRightTop"> <div class="TableShadowRightTop" style="background-image:url(./'. $layout_name .'/images/global/content/table-shadow-rt.gif);"></div></div><div class="TableContentAndRightShadow" style="background-image:url(./'. $layout_name .'/images/global/content/table-shadow-rm.gif);"> <div class="TableContentContainer"> <table class="TableContent" width="100%" style="border:1px solid #faf0d7;"><tr><td colspan="3">VIP Time can only be used for your own account, while the scroll can be sold.</td></tr> </table> </div></div><div class="TableShadowContainer"> <div class="TableBottomShadow" style="background-image:url(./'. $layout_name .'/images/global/content/table-shadow-bm.gif);"> <div class="TableBottomLeftShadow" style="background-image:url(./'. $layout_name .'/images/global/content/table-shadow-bl.gif);"></div> <div class="TableBottomRightShadow" style="background-image:url(./'. $layout_name .'/images/global/content/table-shadow-br.gif);"></div> </div></div></td></tr><tr><td><div class="TableShadowContainerRightTop"> <div class="TableShadowRightTop" style="background-image:url(./'. $layout_name .'/images/global/content/table-shadow-rt.gif);"></div></div><div class="TableContentAndRightShadow" style="background-image:url(./'. $layout_name .'/images/global/content/table-shadow-rm.gif);"> <div class="TableContentContainer"> <table class="TableContent" width="100%" style="border:1px solid #faf0d7;"><tr class="LabelV"><td style="width: 25%;">Duration</td><td style="width: 25%;">Price</td></tr>
+	<h2>Pricing</h2><p style="margin-top: 20px; margin-bottom: 20px;">Best of all, Tibia Premium Time is inexpensive! You can upgrade your account to Premium starting from as little as 250 TC for a month:</p><div class="TableContainer"> <table class="Table3" cellpadding="0" cellspacing="0"> <div class="CaptionContainer"> <div class="CaptionInnerContainer"> <span class="CaptionEdgeLeftTop" style="background-image:url(./'. $layout_name .'/images/global/content/box-frame-edge.gif);" /></span> <span class="CaptionEdgeRightTop" style="background-image:url(./'. $layout_name .'/images/global/content/box-frame-edge.gif);" /></span> <span class="CaptionBorderTop" style="background-image:url(./'. $layout_name .'/images/global/content/table-headline-border.gif);"></span> <span class="CaptionVerticalLeft" style="background-image:url(./'. $layout_name .'/images/global/content/box-frame-vertical.gif);" /></span> <div class="Text">Premium Time</div> <span class="CaptionVerticalRight" style="background-image:url(./'. $layout_name .'/images/global/content/box-frame-vertical.gif);" /></span> <span class="CaptionBorderBottom" style="background-image:url(./'. $layout_name .'/images/global/content/table-headline-border.gif);"></span> <span class="CaptionEdgeLeftBottom" style="background-image:url(./'. $layout_name .'/images/global/content/box-frame-edge.gif);" /></span> <span class="CaptionEdgeRightBottom" style="background-image:url(./'. $layout_name .'/images/global/content/box-frame-edge.gif);" /></span> </div> </div> <tr> <td> <div class="InnerTableContainer"> <table style="width:100%;"><tr><td><div class="TableShadowContainerRightTop"> <div class="TableShadowRightTop" style="background-image:url(./'. $layout_name .'/images/global/content/table-shadow-rt.gif);"></div></div><div class="TableContentAndRightShadow" style="background-image:url(./'. $layout_name .'/images/global/content/table-shadow-rm.gif);"> <div class="TableContentContainer"> <table class="TableContent" width="100%" style="border:1px solid #faf0d7;"><tr><td colspan="3">Premium Time can only be used for your own account, while the scroll can be sold.</td></tr> </table> </div></div><div class="TableShadowContainer"> <div class="TableBottomShadow" style="background-image:url(./'. $layout_name .'/images/global/content/table-shadow-bm.gif);"> <div class="TableBottomLeftShadow" style="background-image:url(./'. $layout_name .'/images/global/content/table-shadow-bl.gif);"></div> <div class="TableBottomRightShadow" style="background-image:url(./'. $layout_name .'/images/global/content/table-shadow-br.gif);"></div> </div></div></td></tr><tr><td><div class="TableShadowContainerRightTop"> <div class="TableShadowRightTop" style="background-image:url(./'. $layout_name .'/images/global/content/table-shadow-rt.gif);"></div></div><div class="TableContentAndRightShadow" style="background-image:url(./'. $layout_name .'/images/global/content/table-shadow-rm.gif);"> <div class="TableContentContainer"> <table class="TableContent" width="100%" style="border:1px solid #faf0d7;"><tr class="LabelV"><td style="width: 25%;">Duration</td><td style="width: 25%;">Price</td></tr>
 	<tr class="Odd"><td>1 month (30 days)</td><td>Tibia Coins 250</td></tr>
 	<tr class="Even"><td>3 months (90 days)</td><td>Tibia Coins 400</td></tr>
 	<tr class="Odd"><td>6 months (180 days)</td><td>Tibia Coins 700</td></tr>
 	<tr class="Even"><td>12 months (360 days)</td><td>Tibia Coins 1000</td></tr>
 
 	</table> </div></div>
-<div class="TableShadowContainer"> <div class="TableBottomShadow" style="background-image:url(./'. $layout_name .'/images/global/content/table-shadow-bm.gif);"> <div class="TableBottomLeftShadow" style="background-image:url(./'. $layout_name .'/images/global/content/table-shadow-bl.gif);"></div> <div class="TableBottomRightShadow" style="background-image:url(./'. $layout_name .'/images/global/content/table-shadow-br.gif);"></div> </div></div></td></tr> </table> </div> </td> </tr> </table></div><p style="margin-top: 20px; margin-bottom: 20px;">And that\'s not all, you can also buy <b><font color=green>VIP</font></b> for Tibia Coins in the game Store! Since Tibia Coins can also be sold on the Market for golds, you can buy them and buy VIP or an extra service for your account, even if you are unable to pay with real money or Tibia Coins at the moment. There is really no excuse for not becoming a VIP account - buy VIP Time or Tibia Coins and enjoy the full Tibia experience today!</p>
+<div class="TableShadowContainer"> <div class="TableBottomShadow" style="background-image:url(./'. $layout_name .'/images/global/content/table-shadow-bm.gif);"> <div class="TableBottomLeftShadow" style="background-image:url(./'. $layout_name .'/images/global/content/table-shadow-bl.gif);"></div> <div class="TableBottomRightShadow" style="background-image:url(./'. $layout_name .'/images/global/content/table-shadow-br.gif);"></div> </div></div></td></tr> </table> </div> </td> </tr> </table></div><p style="margin-top: 20px; margin-bottom: 20px;">And that\'s not all, you can also buy <b><font color=green>Premium</font></b> for Tibia Coins in the game Store! Since Tibia Coins can also be sold on the Market for golds, you can buy them and buy Premium or an extra service for your account, even if you are unable to pay with real money or Tibia Coins at the moment. There is really no excuse for not becoming a Premium account - buy Premium Time or Tibia Coins and enjoy the full Tibia experience today!</p>
 	';
 
 
