@@ -321,7 +321,7 @@ if (count($skills) != 0) {
 	$bgcolor = $config['site']['lightborder'];
 	$main_content .= '
 											<tr style="background-color: ' . $bgcolor . ';">
-												<td colspan="5" style="text-align: center">Nenhum personagem encontrado.</td>
+												<td colspan="5" style="text-align: center">No characters found.</td>
 											 </tr>
 	 ';
 }

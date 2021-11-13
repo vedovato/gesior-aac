@@ -122,7 +122,7 @@ $main_content .= '
 											<div class="TableContentContainer">
 												<table class="TableContent" width="100%">
 													<tr style="background-color:#F1E0C6">
-														<td width="50%" align="center">Saturday (sábado)</td>
+														<td width="50%" align="center">Saturday</td>
 														<td width="50%" align="center">20:00</td>
 													</tr>
 												</table>

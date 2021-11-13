@@ -215,7 +215,7 @@ $main_content .= '
 											<div class="TableContentContainer">
 												<table class="TableContent" width="100%">
 													<tr style="background-color:#F1E0C6">
-														<td width="50%" align="center">Todos os dias (every day)</td>
+														<td width="50%" align="center">Everyday</td>
 														<td width="50%" align="center">21:00</td>
 													</tr>
 												</table>

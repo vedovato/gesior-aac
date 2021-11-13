@@ -60,7 +60,7 @@ if (count($topfrags) > 0) {
 	}
 } else {
 	$main_content .= '
-											<td align="center" width="33%"> Nenhuma morte registrada.</td>';
+											<td align="center" width="33%">No deaths registered.</td>';
 }
 $main_content .= '
 										</tr>

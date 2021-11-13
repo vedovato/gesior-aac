@@ -40,7 +40,7 @@ $count = $SQL->query("SELECT COUNT(*) AS 'count' FROM account_bans")->fetch();
 if ($count["count"] == 0) {
 	$main_content .= "
 	<tr>
-		<td colspan=5>Não há registro de banimentos</td>
+		<td colspan=5>There is no record of banned players. </td>
 	</tr>";
 } else {
 	$bans =  $SQL->query("SELECT * FROM account_bans ORDER BY banned_at DESC LIMIT 50")->fetchAll();

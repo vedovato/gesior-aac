@@ -979,13 +979,13 @@ background-attachment: fixed;
                                                 </a>
                                                 <?php }?>
                                                 <?php if(Website::getWebsiteConfig()->getValue('info_bar_youtube')){?>
-                                                <a class="InfoBarBlock" href="https://gaming.youtube.com/game/UCccW6i67_MlXxwqBMh0emYA" target="_blank">
+                                                <a class="InfoBarBlock" href="" target="_blank">
                                                     <img class="InfoBarBigLogo" src="layouts/tibiacom/images/global/header/info/icon-youtube.png">
                                                     <span class="InfoBarNumbers" <?php if($_REQUEST['subtopic'] == 'characters' && $_REQUEST['name']){ echo "style='top:0'"; }?>>
                                                         <img class="InfoBarSmallElement" src="layouts/tibiacom/images/global/header/info/icon-streamers.png">
-                                                        <span class="InfoBarSmallElement">17</span>
+                                                        <span class="InfoBarSmallElement">0</span>
                                                         <img class="InfoBarSmallElement" src="layouts/tibiacom/images/global/header/info/icon-viewers.png">
-                                                        <span class="InfoBarSmallElement">661</span>
+                                                        <span class="InfoBarSmallElement">0</span>
                                                     </span>
                                                 </a>
                                                 <?php }?>

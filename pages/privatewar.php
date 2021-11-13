@@ -33,8 +33,8 @@ $main_content .= '
 											<table class="TableContent" width="100%" style="border:1px solid #faf0d7;">
 													<tbody>
 														<tr>
-															<td>Este sistema foi desenvolvido pela equipe ' . htmlspecialchars($config['server']['serverName']) . ' para que as Guilds travem batalhas sem que outros jogadores atrapalhem a performance. O sistema permite que 2 guilds façam suas guerras em um dos quatro mapas disponíveis, podendo personalizar o tempo limite de duração da guerra, a liberação ou bloqueio de spells, runas, montarias e/ou summons.<br>
-															<br>As duas guilds interessadas precisam estar em guerra ativa, lideres de ambas as guilds precisam estar online para criar e aceitar o convite. Após o convite ser criado, junto com as condições da private war, o lider da outra guild precisa aceitar o convite. Quando o convite for aceito, os membros de ambas as guilds já podem utilizar o comando para entrar na private war.
+															<td>This system was developed by ' . htmlspecialchars($config['server']['serverName']) . ' team so that Guilds fight battles without other players interfering with performance. The system allows 2 guilds to make their wars in one of the four available maps, being able to customize the time limit for the duration of the war, the release or blocking of spells, runes, mounts and/or summons.<br>
+															<br>The two interested guilds need to be in active warfare, leaders of both guilds need to be online to create and accept the invitation. After the invitation is created, along with the conditions of the private war, the leader of the other guild needs to accept the invitation. When the invitation is accepted, members of both guilds can already use the command to enter the private war. 
 															</td>
 														</tr>
 													</tbody>
