@@ -36,28 +36,28 @@ if ($logged) {
 					<td>
 						<div class="InnerTableContainer" >
 							<table style="width:100%;" >
-							<center><h2>LEIA COM ATENÇÃO!</h2></center>
+							<center><h2>READ WITH ATTENTION!</h2></center>
 <ul>
-							<li>Toda renda obtida com as doações é diretamente aplicada para a manutenção e melhorias do ' . $config['server']['serverName'] . ', o jogo é gratuito e se mantém com a doação de alguns players.</li>
-							<li>Ao fazer uma doação, você receberá alguns pontos dentro do jogo como forma de gratificação, você poderá trocar estes pontos por produtos na nossa loja Store.</li>
-							<li>É muito importante entender que você <b>não está comprando os pontos</b>, e sim recebendo uma <b>gratificação simbólica</b>. </li>
-							<li>Não é permitido o uso deste website sem o acompanhamento dos responsáveis. </li>
-							<li>O ' . $config['server']['serverName'] . ' poderá alterar, a qualquer tempo, estes Termos e Condições Gerais, visando seu aprimoramento e melhoria dos serviços prestados. Ressalte-se que novos Termos e Condições entrarão em vigor imediatamente após sua publicação no site. </li>
+							<li>All income obtained from donations is directly applied to the maintenance and improvements of ' . $config['server']['serverName'] . ', the game is free and is maintained with the donation of some players.</li>
+							<li>When you make a donation, you will receive some in-game coins as a bonus, you can exchange these coins for products in our store.</li>
+							<li>It is very important to understand that <b>you are not buying the coins</b>, you are receiving a <b>symbolic bonus</b>.</li>
+							<li>It is not allowed to use this website without the monitoring of those responsible. </li>
+							<li>The ' . $config['server']['serverName'] . ' may change, at any time, these General Terms and Conditions, with a view to improving and improving the services provided. It should be noted that new Terms and Conditions will come into effect immediately after their publication on the website.</li>
 </ul>
 
-							<center><h2>REGRAS!</h2></center>
+							<center><h2>RULES!</h2></center>
 <ul>
-							<li>Ao doar, você concorda que <b>não pode ter o valor devolvido</b>. </li>
-							<li>Os pontos serão entregues dentro do prazo de até 72 horas a partir da confirmação do pagamento na conta do doador. </li>
-							<li>Ao doar, você está ciente de que <b>não está comprando</b> e sim <b>doando</b>, e como forma de gratificação, iremos adicionar os pontos em sua conta. </li>
-							<li>Ao clicar em <b>I Agree</b> você concorda com todas as regras que foram passadas.</li>
+							<li>By donating, you agree that <b>you cannot have the amount returned</b>.</li>
+							<li>The coins will be awarded within 72 hours of confirmation of payment to the donor account.</li>
+							<li>By donating, you are aware that <b>you are donating</b> and as a form of gratification, we will add the coins to your account.</li>
+							<li>By clicking on <b>I Agree</b> you agree with all the rules that have been presented.</li>
 </ul>
 <br />
 <br />
-<font size=1 color=gray>*Eventualmente, o website poderá não estar disponível por motivos técnicos ou falhas da Internet, ou por qualquer outro evento fortuito ou de força maior, alheio ao controle do ' . $config['server']['serverName'] . '. Em decorrência, o usuário não poderá lhe atribuir, qualquer responsabilidade e nem exigir indenização em virtude de prejuízos resultantes da ocorrência dos mesmos.</font><br />
-<center><h4>Ao clicar em <b>I Agree</b> você concorda com todas as regras que foram passadas.</h4></center>
+<font size=1 color=gray>*Eventually, the website may not be available for technical reasons or Internet failures, or for any other fortuitous event or force majeure, beyond the control of the ' . $config['server']['serverName'] . '. As a result, the user will not be able to assign him any responsibility or demand indemnity due to damages resulting from the occurrence of the same.</font><br />
+<center><h4>By clicking on <b>I Agree</b> you agree with all the rules that have been presented.</h4></center>
 
-<font size=1 color=red>*Todas as regras podem ser modificadas a qualquer momento sem aviso prévio.</font><br />
+<font size=1 color=red>*All rules can be changed at any time without notice.</font><br />
 							</table>
 						</div>
 					</td>
@@ -262,8 +262,7 @@ if ($logged) {
 																				<label for="ServiceID_' . $id . '">
 																					<div class="ServiceIDLabelContainer">
 																						<div class="ServiceIDLabel">
-																						
-																						<input type="radio" id="ServiceID_' . $id . '" name="ServiceID" value="' . $id . '" style="display: none;"> <strike>' . $coins / 1.5 . ' Coins </strike> <br/>' . $coins . ' ' . $config['sale']['subProductName'] . '  </div>
+																						<input type="radio" id="ServiceID_' . $id . '" name="ServiceID" value="' . $id . '" style="display: none;"> <strike>' . $coins . ' Coins </strike> <br/>' . $coins / 1.5 . ' ' . $config['sale']['subProductName'] . '  </div>
 																					</div>
 																					<div class="ServiceIDPriceContainer">
 																						<span class="ServiceIDPrice" id="PD_' . $id . '">R$ ' . number_format($reais / 100, 2, ",", ".") . '</span>
@@ -821,7 +820,7 @@ if ($logged) {
 	</table>
 			';
 				$methodBuy = $payment_data["storage_OrderServiceData"]["PaymentMethodName"];
-				$donateRef = $methodBuy . "-" . random_int(0, 5000);
+				$donateRef = $methodBuy . "-" . rand(0, 5000);
 				$donateRef2 = "confirm";
 				if ($methodBuy == "pagseguro") {
 					$donateRef2 = "waiting";
