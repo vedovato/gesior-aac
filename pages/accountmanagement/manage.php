@@ -129,9 +129,7 @@ if ($config['server']['freePremium'] == "yes") {
 															</td>';
 } else {
 	$main_content .= '
-															<td>' . $account_status . '<br>
-																<small>(Premium Time expires at Dec&#160;20&#160;2014,&#160;21:50:32&#160;CET)</small>
-															</td>';
+															<td>' . $account_status . '</td>';
 }
 $main_content .= '
 														</tr>

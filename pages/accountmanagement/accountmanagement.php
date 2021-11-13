@@ -76,7 +76,7 @@ if ($config['server']['freePremium'] == "yes") {
 																				<span class="BigBoldText">Premium Account</span>
 																			</span>
 																			<small>
-																				<br>The server is configured to free premium account , good game !<br>
+																				<br>The server is configured to free premium account, good game!<br>
 																				(Balance of tibia coins: ' . (($account_logged->getPremiumPoints() > 0) ? '<font class="red">' . $account_logged->getPremiumPoints() . '</font>' : '<font class="red">0</font>') . ' Coins)
 																			</small>
 																		</td>';
@@ -85,9 +85,9 @@ if ($config['server']['freePremium'] == "yes") {
 																		<td>' . $account_statusPic . '</td>
 																		<td width="100%" valign="middle">
 																			' . $account_statusOver . '';
-	$daysVip = $account_logged->getPremDays();
-	$vipDays = $daysVip * 86400;
-	$resDate = time() + $vipDays;
+	$premiumStatus = $account_logged->getPremDays();
+	$premiumDays = $premiumStatus * 86400;
+	$resDate = time() + $premiumDays;
 	$main_content .= '
 																			<small><br>Your premium time expires at <font style="text-transform:capitalize;">' . strftime('%b %d %Y, %H:%M:%S', $resDate) . '</font></small>';
 	$main_content .= '
