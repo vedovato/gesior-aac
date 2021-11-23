@@ -11,11 +11,11 @@ $main_content .= '
 						<table style="width:100%;">
 							<tbody><tr><td style="width:100%;text-align:center;">
 
-							<nobr>[<a href="#fixo">Fixed</a>]</nobr>
+							<nobr>[<a href="#fixed">Fixed</a>]</nobr>
 							<nobr>[<a href="#normal">Normal</a>]</nobr>
-							<nobr>[<a href="#semiraro">Semi Rare</a>]</nobr>
-							<nobr>[<a href="#raro">Rare</a>]</nobr>
-							<nobr>[<a href="#especial">Especial</a>]</nobr>
+							<nobr>[<a href="#semirare">Semi Rare</a>]</nobr>
+							<nobr>[<a href="#rare">Rare</a>]</nobr>
+							<nobr>[<a href="#special">Special</a>]</nobr>
 
 							</td>
 						</tr>
@@ -26,7 +26,7 @@ $main_content .= '
 				<div class="BoxFrameEdgeLeftBottom" style="background-image:url(' . $layout_name . '/images/global/content/box-frame-edge.gif);"></div>
 			</div>
 		</div><br>
-		<a name="fixo"></a>
+		<a name="fixed"></a>
 	<div class="TopButtonContainer">
 		<div class="TopButton">
 		<a href="#top">
@@ -38,7 +38,7 @@ $main_content .= '
 								<span class="CaptionEdgeRightTop" style="background-image:url(' . $layout_name . '/images/global/content/box-frame-edge.gif);"></span>
 								<span class="CaptionBorderTop" style="background-image:url(' . $layout_name . '/images/global/content/table-headline-border.gif);"></span>
 								<span class="CaptionVerticalLeft" style="background-image:url(' . $layout_name . '/images/global/content/box-frame-vertical.gif);"></span>
-								<div class="Text">Invasões Fixas</div>
+								<div class="Text">Fixed Raids</div>
 								<span class="CaptionVerticalRight" style="background-image:url(' . $layout_name . '/images/global/content/box-frame-vertical.gif);"></span>
 								<span class="CaptionBorderBottom" style="background-image:url(' . $layout_name . '/images/global/content/table-headline-border.gif);"></span>
 								<span class="CaptionEdgeLeftBottom" style="background-image:url(' . $layout_name . '/images/global/content/box-frame-edge.gif);"></span>
@@ -189,7 +189,7 @@ $main_content .= '
 							</td></tr></tbody></table>
 						</div>
 					<br>
-		<a name="especial"></a>
+		<a name="special"></a>
 	<div class="TopButtonContainer">
 		<div class="TopButton">
 		<a href="#top">
@@ -201,7 +201,7 @@ $main_content .= '
 								<span class="CaptionEdgeRightTop" style="background-image:url(' . $layout_name . '/images/global/content/box-frame-edge.gif);"></span>
 								<span class="CaptionBorderTop" style="background-image:url(' . $layout_name . '/images/global/content/table-headline-border.gif);"></span>
 								<span class="CaptionVerticalLeft" style="background-image:url(' . $layout_name . '/images/global/content/box-frame-vertical.gif);"></span>
-								<div class="Text">Special Invasions</div>
+								<div class="Text">Special Raids</div>
 								<span class="CaptionVerticalRight" style="background-image:url(' . $layout_name . '/images/global/content/box-frame-vertical.gif);"></span>
 								<span class="CaptionBorderBottom" style="background-image:url(' . $layout_name . '/images/global/content/table-headline-border.gif);"></span>
 								<span class="CaptionEdgeLeftBottom" style="background-image:url(' . $layout_name . '/images/global/content/box-frame-edge.gif);"></span>
@@ -284,7 +284,7 @@ $main_content .= '
 								<span class="CaptionEdgeRightTop" style="background-image:url(' . $layout_name . '/images/global/content/box-frame-edge.gif);"></span>
 								<span class="CaptionBorderTop" style="background-image:url(' . $layout_name . '/images/global/content/table-headline-border.gif);"></span>
 								<span class="CaptionVerticalLeft" style="background-image:url(' . $layout_name . '/images/global/content/box-frame-vertical.gif);"></span>
-								<div class="Text">Normais</div>
+								<div class="Text">Normal</div>
 								<span class="CaptionVerticalRight" style="background-image:url(' . $layout_name . '/images/global/content/box-frame-vertical.gif);"></span>
 								<span class="CaptionBorderBottom" style="background-image:url(' . $layout_name . '/images/global/content/table-headline-border.gif);"></span>
 								<span class="CaptionEdgeLeftBottom" style="background-image:url(' . $layout_name . '/images/global/content/box-frame-edge.gif);"></span>
@@ -774,7 +774,7 @@ $main_content .= '
 							</td></tr></tbody></table>
 						</div><br>
 
-	<a name="semiraro"></a>
+	<a name="semirare"></a>
 	<div class="TopButtonContainer">
 		<div class="TopButton">
 		<a href="#top">
@@ -933,7 +933,7 @@ $main_content .= '
 							</td></tr></tbody></table>
 						</div><br>
 
-	<a name="raro"></a>
+	<a name="rare"></a>
 	<div class="TopButtonContainer">
 		<div class="TopButton">
 		<a href="#top">
@@ -945,7 +945,7 @@ $main_content .= '
 								<span class="CaptionEdgeRightTop" style="background-image:url(' . $layout_name . '/images/global/content/box-frame-edge.gif);"></span>
 								<span class="CaptionBorderTop" style="background-image:url(' . $layout_name . '/images/global/content/table-headline-border.gif);"></span>
 								<span class="CaptionVerticalLeft" style="background-image:url(' . $layout_name . '/images/global/content/box-frame-vertical.gif);"></span>
-								<div class="Text">Raro</div>
+								<div class="Text">Rare</div>
 								<span class="CaptionVerticalRight" style="background-image:url(' . $layout_name . '/images/global/content/box-frame-vertical.gif);"></span>
 								<span class="CaptionBorderBottom" style="background-image:url(' . $layout_name . '/images/global/content/table-headline-border.gif);"></span>
 								<span class="CaptionEdgeLeftBottom" style="background-image:url(' . $layout_name . '/images/global/content/box-frame-edge.gif);"></span>
