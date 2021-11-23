@@ -433,7 +433,7 @@ $main_content .= '
 																		</div>
 																	</form>
 																	<div style="font-size:1px;height:4px;" ></div>
-																	<form action="?subtopic=accountmanagement&action=donateshistory" method="post" style="padding:0px;margin:0px;" >
+																	<form action="?subtopic=adminpanel&action=history" method="post" style="padding:0px;margin:0px;" >
 																		<div class="BigButton" style="background-image:url(' . $layout_name . '/images/global/buttons/sbutton.gif)" >
 																			<div onMouseOver="MouseOverBigButton(this);" onMouseOut="MouseOutBigButton(this);" ><div class="BigButtonOver" style="background-image:url(' . $layout_name . '/images/global/buttons/sbutton_over.gif);" ></div>
 																				<input class="ButtonText" type="image" name="View History" alt="View History" src="' . $layout_name . '/images/global/buttons/_sbutton_viewhistory.gif" >
@@ -761,7 +761,7 @@ $main_content .= '
 															<tr>
 																<td>
 																	<div style="float:right;" >
-																		<form action="?subtopic=accountmanagement&action=donateshistory" method="post" style="padding:0px;margin:0px;" >
+																		<form action="?subtopic=adminpanel&action=history" method="post" style="padding:0px;margin:0px;" >
 																			<div class="BigButton" style="background-image:url(' . $layout_name . '/images/global/buttons/sbutton.gif)" >
 																				<div onMouseOver="MouseOverBigButton(this);" onMouseOut="MouseOutBigButton(this);" ><div class="BigButtonOver" style="background-image:url(' . $layout_name . '/images/global/buttons/sbutton_over.gif);" ></div>
 																					<input class="ButtonText" type="image" name="View History" alt="View History" src="' . $layout_name . '/images/global/buttons/_sbutton_viewhistory.gif" >

@@ -40,13 +40,13 @@ if ($serviceGo == "items") {
 
 	$main_content .= '
 																				<span class="green">
-																					<span class="BigBoldText">' . $getItemsMonth . ' itens comprados</span>
+																					<span class="BigBoldText">' . $getItemsMonth . ' purchased items</span>
 																				</span>
 																				<small>
-																					<br>Itens comprados no mês de ' . date('F') . '.<br>
-																					(Desde o último reset o já foram comprados <span class="green">' . $getItemsTotal . ' itens</span>)
+																					<br>Items purchased in the month of ' . date('F') . '.<br>
+																					(Since the last reset they have already been purchased  <span class="green">' . $getItemsTotal . ' items</span>)
 																				</small>
-																			</td>				
+																			</td>
 																		</tr>
 																	</tbody>
 																</table>
@@ -107,11 +107,11 @@ if ($serviceGo == "items") {
 																					<span class="BigBoldText">R$ ' . number_format($pagMonth, 2, ',', '.') . '</span>
 																				</span>
 																				<small>
-																					<br>O saldo acima é referente ao total de todas as doações realizadas no mês de ' . date('F') . '.<br>
-																					As doações realizadas desde o último reset representam um total de <span class="green">' . number_format($pagTotal, 2, ',', '.') . '</span><br>
-																					(Natanael possui 40% dos lucros, um total de <span class="green">R$ ' . number_format(porcentagem_xn(40, $pagMonth), 2, ',', '.') . '</span> no mês de ' . date('F') . ' e <span class="green">R$ ' . number_format(porcentagem_xn(40, $pagTotal), 2, ',', '.') . '</span> desde o último reset)
+																					<br>The balance above refers to the total of all donations made in the month of ' . date('F') . '.<br>
+																					Donations made since the last reset represent a total of <span class="green">' . number_format($pagTotal, 2, ',', '.') . '</span><br>
+																					(' . $config['server']['serverName'] . ' owns 40% of the profits, a total of <span class="green">R$ ' . number_format(porcentagem_xn(40, $pagMonth), 2, ',', '.') . '</span> in the month of ' . date('F') . ' e <span class="green">R$ ' . number_format(porcentagem_xn(40, $pagTotal), 2, ',', '.') . '</span> since the last reset).
 																				</small>
-																			</td>				
+																			</td>
 																		</tr>
 																	</tbody>
 																</table>
@@ -132,7 +132,7 @@ if ($serviceGo == "items") {
 						</tr>
 					</tbody>
 				</table>
-				<p>A lista abaixo mostra as últimas 40 doações realizadas por ' . $serviceGo . '.</p>';
+				<p>The list below shows the last 40 donations made by ' . $serviceGo . '.</p>';
 	$main_content .= '
 				<div class="TableContainer">
 					<div class="CaptionContainer">
@@ -141,7 +141,7 @@ if ($serviceGo == "items") {
 							<span class="CaptionEdgeRightTop" style="background-image:url(' . $layout_name . '/images/global/content/box-frame-edge.gif);"></span>
 							<span class="CaptionBorderTop" style="background-image:url(' . $layout_name . '/images/global/content/table-headline-border.gif);"></span>
 							<span class="CaptionVerticalLeft" style="background-image:url(' . $layout_name . '/images/global/content/box-frame-vertical.gif);"></span>
-							<div class="Text">Doações realizadas por ' . $serviceGo . '</div>
+							<div class="Text">Donations made by ' . $serviceGo . '</div>
 							<span class="CaptionVerticalRight" style="background-image:url(' . $layout_name . '/images/global/content/box-frame-vertical.gif);"></span>
 							<span class="CaptionBorderBottom" style="background-image:url(' . $layout_name . '/images/global/content/table-headline-border.gif);"></span>
 							<span class="CaptionEdgeLeftBottom" style="background-image:url(' . $layout_name . '/images/global/content/box-frame-edge.gif);"></span>
@@ -163,23 +163,23 @@ if ($serviceGo == "items") {
 														<div class="TableContentContainer" >
 															<table class="TableContent" width="100%">
 																<tr bgcolor="#D4C0A1">
-																	<td class="LabelV">Data</td>
-																	<td class="LabelV">Código da Transação</td>
-																	<td class="LabelV">Referência/Nome da conta</td>
-																	<td class="LabelV">Valor</td>
+																	<td class="LabelV">Date</td>
+																	<td class="LabelV">Transaction Code</td>
+																	<td class="LabelV">Reference/Account Name</td>
+																	<td class="LabelV">Value</td>
 																	<td class="LabelV">Status</td>
 																	
 																</tr>';
 	$status_pagamento = array(
-		1 => "Aguardando pagamento",
-		2 => "Em análise",
-		3 => "Paga",
-		4 => "Disponivel",
-		5 => "Em disputa",
-		6 => "Devolvida",
-		7 => "Cancelada",
-		8 => "Chargeback debitado",
-		9 => "Em contestação"
+		1 => "Waiting payment",
+		2 => "Under review",
+		3 => "Paid",
+		4 => "Available",
+		5 => "In dispute",
+		6 => "Returned",
+		7 => "Canceled",
+		8 => "Chargeback debited",
+		9 => "In contestation"
 	);
 	$get_Pagseguro = $SQL->query("SELECT * FROM `pagseguro` ORDER BY `date` DESC LIMIT 40")->fetchAll();
 	$getCountPagseguro = $SQL->query("SELECT COUNT(*) FROM `pagseguro`")->fetchColumn();
@@ -207,7 +207,7 @@ if ($serviceGo == "items") {
 		} else
 		$main_content .= '
 																<tr bgcolor="' . $config['site']['lightborder'] . '">
-																	<td colspan="5">Nenhuma doação realizada ainda.</td>
+																	<td colspan="5">No donations made yet.</td>
 																</tr>';
 	$main_content .= '
 															</table>
@@ -267,6 +267,7 @@ if ($serviceGo == "items") {
 		return ($porcentagem / 100) * $total;
 	}
 
+	/*
 	$getM = $SQL->query($getMonthBalance)->fetchAll();
 	$getT = $SQL->query($getTotalBalance)->fetchAll();
 	foreach ($getM as $monthBalance) {
@@ -274,17 +275,27 @@ if ($serviceGo == "items") {
 	}
 	foreach ($getT as $totalBalance) {
 		$balancoTotal += $totalBalance['price'];
+	*/
+
+	if ($serviceGo == "picpay") {
+		$getMonthBalance = "SELECT `price` FROM `z_shop_donates` WHERE YEAR(FROM_UNIXTIME(date)) = YEAR(CURDATE()) AND MONTH(FROM_UNIXTIME(date)) = MONTH(CURDATE()) AND `status` = 'received' AND `method` = 'picpay'";
+		$getTotalBalance = "SELECT `price` FROM `z_shop_donates` WHERE `status` = 'received' AND `method` = 'picpay'";
+		$method = "picpay";
+	} elseif ($serviceGo == "mercadopago") {
+		$getMonthBalance = "SELECT `price` FROM `z_shop_donates` WHERE YEAR(FROM_UNIXTIME(date)) = YEAR(CURDATE()) AND MONTH(FROM_UNIXTIME(date)) = MONTH(CURDATE()) AND `status` = 'received' AND `method` = 'mercadopago'";
+		$getTotalBalance = "SELECT `price` FROM `z_shop_donates` WHERE `status` = 'received' AND `method` = 'mercadopago'";
+		$method = "mercadopago";
 	}
 	$main_content .= '
 																				<span class="green">
 																					<span class="BigBoldText">R$ ' . number_format($balancoMensal, 2, ',', '.') . '</span>
 																				</span>
 																				<small>
-																					<br>O saldo acima é referente ao total de todas as doações realizadas no mês de ' . date('F') . '.<br>
-																					As doações realizadas desde o último reset representam um total de <span class="green">' . number_format($balancoTotal, 2, ',', '.') . '</span><br>
-																					(Natanael possui 40% dos lucros, um total de <span class="green">R$ ' . number_format(porcentagem_xn(40, $balancoMensal), 2, ',', '.') . '</span> no mês de ' . date('F') . ' e <span class="green">R$ ' . number_format(porcentagem_xn(40, $balancoTotal), 2, ',', '.') . '</span> desde o último reset)
+																					<br>The balance above refers to the total of all donations made in the month of ' . date('F') . '.<br>
+																					Donations made since the last reset represent a total of <span class="green">' . number_format($balancoTotal, 2, ',', '.') . '</span><br>
+																					(' . $config['server']['serverName'] . ' owns 40% of the profits, a total of <span class="green">R$ ' . number_format(porcentagem_xn(40, $balancoMensal), 2, ',', '.') . '</span> in the month of ' . date('F') . ' e <span class="green">R$ ' . number_format(porcentagem_xn(40, $balancoTotal), 2, ',', '.') . '</span> since the last reset).
 																				</small>
-																			</td>				
+																			</td>
 																		</tr>
 																	</tbody>
 																</table>
@@ -322,7 +333,7 @@ if ($serviceGo == "items") {
 							<span class="CaptionEdgeRightTop" style="background-image:url(' . $layout_name . '/images/global/content/box-frame-edge.gif);"></span>
 							<span class="CaptionBorderTop" style="background-image:url(' . $layout_name . '/images/global/content/table-headline-border.gif);"></span>
 							<span class="CaptionVerticalLeft" style="background-image:url(' . $layout_name . '/images/global/content/box-frame-vertical.gif);"></span>
-							<div class="Text">10 últimas doações realizadas por PayPal</div>
+							<div class="Text">10 Last donations made by ' . $serviceGo . '</div>
 							<span class="CaptionVerticalRight" style="background-image:url(' . $layout_name . '/images/global/content/box-frame-vertical.gif);"></span>
 							<span class="CaptionBorderBottom" style="background-image:url(' . $layout_name . '/images/global/content/table-headline-border.gif);"></span>
 							<span class="CaptionEdgeLeftBottom" style="background-image:url(' . $layout_name . '/images/global/content/box-frame-edge.gif);"></span>
@@ -344,10 +355,10 @@ if ($serviceGo == "items") {
 														<div class="TableContentContainer" >
 															<table class="TableContent" width="100%">
 																<tr bgcolor="#D4C0A1">
-																	<td class="LabelV">Data</td>
-																	<td class="LabelV">Referência</td>
-																	<td class="LabelV">Nome da conta</td>
-																	<td class="LabelV">Valor</td>
+																	<td class="LabelV">Date</td>
+																	<td class="LabelV">Reference</td>
+																	<td class="LabelV">Account Name</td>
+																	<td class="LabelV">Value</td>
 																	<td class="LabelV">Status</td>
 																</tr>';
 	$get_Mov = $SQL->query("SELECT * FROM `z_shop_donates` WHERE `method` = '$method' ORDER BY `date` DESC LIMIT 40")->fetchAll();
@@ -369,7 +380,7 @@ if ($serviceGo == "items") {
 		} else
 		$main_content .= '
 																<tr bgcolor="' . $config['site']['lightborder'] . '">
-																	<td colspan="5">Nenhuma doação realizada ainda.</td>
+																	<td colspan="5">No donations made yet.</td>
 																</tr>';
 	$main_content .= '
 															</table>

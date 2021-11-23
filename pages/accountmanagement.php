@@ -425,7 +425,7 @@ if (!$logged)
 		if ($action == "paymentshistory") include 'accountmanagement/paymentshistory.php';
 		if ($action == "confirmtransfer") include 'accountmanagement/confirmtransfer.php';
 
-		if ($action == "donateshistory") include 'accountmanagement/donateshistory.php';
+		if ($action == "history") include 'adminpanel/history.php';
 
 
 		if ($action == "confirmdonate") include 'accountmanagement/confirmdonate.php';

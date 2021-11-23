@@ -47,7 +47,7 @@ $main_content .= '
 																	<td class="LabelV"></td>
 																</tr>';
 $getPagseguroDonates = $SQL->query("SELECT * FROM `pagseguro_transactions` where `name` = '{$account_logged->getName()}' order by `data` desc")->fetchAll();
-if (count($getPagseguroDonates) > 0) {
+if (is_array($getPagseguroDonates) && count($getPagseguroDonates) > 0) {
 	$n = 0;
 	foreach ($getPagseguroDonates as $pagseguro) {
 		$bgcolor = (($n++ % 2 == 1) ? $config['site']['darkborder'] : $config['site']['lightborder']);
@@ -67,7 +67,7 @@ if (count($getPagseguroDonates) > 0) {
 	$main_content .= "<th/>";
 	unset($n);
 }
-if (count($getHistoryDonate[0]) > 0) {
+if (is_array($getHistoryDonate[0]) && count($getHistoryDonate[0]) > 0) {
 	$n = 0;
 	foreach ($getHistoryDonate as $doHistory) {
 		$bgcolor = (($n++ % 2 == 1) ? $config['site']['darkborder'] : $config['site']['lightborder']);

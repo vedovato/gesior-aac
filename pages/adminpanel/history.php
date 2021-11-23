@@ -49,11 +49,11 @@ $main_content .= '
 																				<span class="BigBoldText">R$ ' . number_format($somaBalance, 2, ',', '.') . '</span>
 																			</span>
 																			<small>
-																				<br>Saldo total de todas as doações realizadas no mês de ' . date('F') . '.<br>
-																				<!--(' . $config['server']['ownerName'] . ' possui 50% dos lucros, um total de <span class="red">R$ ' . number_format(porcentagem_xn(50, $somaBalance), 2, ',', '.') . '--></span>
+																				<br>Total balance of all donations made in the month of ' . date('F') . '.<br>
+																				(' . $config['server']['serverName'] . ' owns 50% of the profits, a total of <span class="red">R$ ' . number_format(porcentagem_xn(50, $somaBalance), 2, ',', '.') . '</span>)
 																			</small><br/>
-																			<small>O total geral em vendas em todos os meses foi de <span style="color: #1c6a12">R$ ' . number_format($profitTotal[0]['price'], 2, ',', '.') . '</span></small>
-																		</td>				
+																			<small>The general total in sales for all months was <span style="color: #1c6a12">R$ ' . number_format($profitTotal[0]['price'], 2, ',', '.') . '</span></small>
+																		</td>
 																	</tr>
 																</tbody>
 															</table>
@@ -85,7 +85,7 @@ $main_content .= '
 						<div class="BoxFrameVerticalLeft" style="background-image:url(' . $layout_name . '/images/global/content/box-frame-vertical.gif);" /></div>
 						<div class="BoxFrameVerticalRight" style="background-image:url(' . $layout_name . '/images/global/content/box-frame-vertical.gif);" /></div>
 						<table style="width:100%;" >
-							<td style="width:100%;text-align:center;" ><nobr>[<a href="#Ultimos+Servicos" >Últimos serviços comprados</a>]</nobr> <nobr>[<a href="#Confirmed" >Daoações confirmadas</a>]</nobr> <nobr>[<a href="#Pagseguro" >Pagseguro</a>]</nobr> <nobr>[<a href="#Bank+Transfer" >Transferência bancárias</a>]</nobr> <nobr>[<a href="#Paypal" >Paypal</a>]</nobr> <nobr>[<a href="#PicPay" >PicPay</a>]</nobr> <nobr>[<a href="#MercadoPago" >Mercado Pago</a>]</nobr></td>
+							<td style="width:100%;text-align:center;" ><nobr>[<a href="#Last+Services" >Last services purchased </a>]</nobr> <nobr>[<a href="#Confirmed" >Confirmed donations </a>]</nobr> <nobr>[<a href="#Pagseguro" >Pagseguro</a>]</nobr> <nobr>[<a href="#Bank+Transfer" >Bank Transfer</a>]</nobr> <nobr>[<a href="#Paypal" >Paypal</a>]</nobr> <nobr>[<a href="#PicPay" >PicPay</a>]</nobr> <nobr>[<a href="#MercadoPago" >Mercado Pago</a>]</nobr></td>
 						</tr>
 					</table>
 				</div>
@@ -96,7 +96,7 @@ $main_content .= '
 		</div>
 		<br/>';
 $main_content .= '
-				<a name="Ultimos+Servicos" ></a>
+				<a name="Last+Services" ></a>
 				<div class="TopButtonContainer" >
 					<div class="TopButton" >
 						<a href="#top" >
@@ -111,7 +111,7 @@ $main_content .= '
 							<span class="CaptionEdgeRightTop" style="background-image:url(' . $layout_name . '/images/global/content/box-frame-edge.gif);"></span>
 							<span class="CaptionBorderTop" style="background-image:url(' . $layout_name . '/images/global/content/table-headline-border.gif);"></span>
 							<span class="CaptionVerticalLeft" style="background-image:url(' . $layout_name . '/images/global/content/box-frame-vertical.gif);"></span>
-							<div class="Text">5 últimos serviços comprados no site</div>
+							<div class="Text">5 Last services purchased on the site</div>
 							<span class="CaptionVerticalRight" style="background-image:url(' . $layout_name . '/images/global/content/box-frame-vertical.gif);"></span>
 							<span class="CaptionBorderBottom" style="background-image:url(' . $layout_name . '/images/global/content/table-headline-border.gif);"></span>
 							<span class="CaptionEdgeLeftBottom" style="background-image:url(' . $layout_name . '/images/global/content/box-frame-edge.gif);"></span>
@@ -154,7 +154,7 @@ if ($getCountServices > 0) {
 																			<center>
 																				<img src="' . $layout_name . '/' . $pathToService . '" alt="Tibiamax"/><br>
 																				<small><strong>' . $get_historyService['offer_name'] . '</strong></small><br>
-																				<small>(Comprado com a conta: <strong>' . $service['account_name'] . '</strong>)</small>
+																				<small>(Purchased with the account: <strong>' . $service['account_name'] . '</strong>)</small>
 																			</center>
 																		</td>';
 	}
@@ -163,7 +163,7 @@ if ($getCountServices > 0) {
 } else
 	$main_content .= '
 																<tr bgcolor="' . $config['site']['lightborder'] . '">
-																	<td colspan="5">Nenhum serviço comprado ainda.</td>
+																	<td colspan="5">No services purchased yet.</td>
 																</tr>';
 $main_content .= '
 															</table>
@@ -216,7 +216,7 @@ $main_content .= '
 							<span class="CaptionEdgeRightTop" style="background-image:url(' . $layout_name . '/images/global/content/box-frame-edge.gif);"></span>
 							<span class="CaptionBorderTop" style="background-image:url(' . $layout_name . '/images/global/content/table-headline-border.gif);"></span>
 							<span class="CaptionVerticalLeft" style="background-image:url(' . $layout_name . '/images/global/content/box-frame-vertical.gif);"></span>
-							<div class="Text">Últimas 10 doações confirmadas</div>
+							<div class="Text">10 Last confirmed donations</div>
 							<span class="CaptionVerticalRight" style="background-image:url(' . $layout_name . '/images/global/content/box-frame-vertical.gif);"></span>
 							<span class="CaptionBorderBottom" style="background-image:url(' . $layout_name . '/images/global/content/table-headline-border.gif);"></span>
 							<span class="CaptionEdgeLeftBottom" style="background-image:url(' . $layout_name . '/images/global/content/box-frame-edge.gif);"></span>
@@ -243,7 +243,7 @@ $getCountOrders = $SQL->query("SELECT COUNT(*) FROM `z_shop_donates` WHERE `stat
 $main_content .= '
 																	<td class="LabelV">Date</td>
 																	<td class="LabelV">Service</td>
-																	<td class="LabelV">Price</td>																	
+																	<td class="LabelV">Price</td>
 																	<td class="LabelV">Method</td>
 																	<td class="LabelV">Bank Name</td>
 																	<td class="LabelV">Status</td>
@@ -270,7 +270,7 @@ if ($getCountOrders > 0)
 	} else
 	$main_content .= '
 																<tr bgcolor="' . $config['site']['lightborder'] . '">
-																	<td colspan="7">Nenhuma doação confirmada ainda.</td>
+																	<td colspan="7">No confirmed donations yet.</td>
 																</tr>';
 $main_content .= '
 															</table>
@@ -307,7 +307,7 @@ $main_content .= '
 							<span class="CaptionEdgeRightTop" style="background-image:url(' . $layout_name . '/images/global/content/box-frame-edge.gif);"></span>
 							<span class="CaptionBorderTop" style="background-image:url(' . $layout_name . '/images/global/content/table-headline-border.gif);"></span>
 							<span class="CaptionVerticalLeft" style="background-image:url(' . $layout_name . '/images/global/content/box-frame-vertical.gif);"></span>
-							<div class="Text">10 últimas doações realizadas por PagSeguro</div>
+							<div class="Text">10 Last donations made by PagSeguro</div>
 							<span class="CaptionVerticalRight" style="background-image:url(' . $layout_name . '/images/global/content/box-frame-vertical.gif);"></span>
 							<span class="CaptionBorderBottom" style="background-image:url(' . $layout_name . '/images/global/content/table-headline-border.gif);"></span>
 							<span class="CaptionEdgeLeftBottom" style="background-image:url(' . $layout_name . '/images/global/content/box-frame-edge.gif);"></span>
@@ -329,23 +329,23 @@ $main_content .= '
 														<div class="TableContentContainer" >
 															<table class="TableContent" width="100%">
 																<tr bgcolor="#D4C0A1">
-																	<td class="LabelV">Data</td>
-																	<td class="LabelV">Código da Transação</td>
-																	<td class="LabelV">Nome da conta</td>
-																	<td class="LabelV">Valor</td>
+																	<td class="LabelV">Date</td>
+																	<td class="LabelV">Transaction Code</td>
+																	<td class="LabelV">Account name</td>
+																	<td class="LabelV">Value</td>
 																	<td class="LabelV">Status</td>
 																	
 																</tr>';
 $status_pagamento = array(
-	1 => "Aguardando pagamento",
-	2 => "Em análise",
-	3 => "Paga",
-	4 => "Disponivel",
-	5 => "Em disputa",
-	6 => "Devolvida",
-	7 => "Cancelada",
-	8 => "Chargeback debitado",
-	9 => "Em contestação"
+	1 => "Awaiting payment",
+	2 => "Under review",
+	3 => "Paid",
+	4 => "Available",
+	5 => "In dispute",
+	6 => "Returned",
+	7 => "Canceled",
+	8 => "Chargeback debited",
+	9 => "In contestation"
 );
 $get_Pagseguro = $SQL->query("SELECT * FROM `pagseguro_transactions` where `status` = 'DELIVERED' ORDER BY `data` DESC LIMIT 10")->fetchAll();
 $getCountPagseguro = $SQL->query("SELECT COUNT(*) FROM `pagseguro_transactions`")->fetchColumn();
@@ -375,7 +375,7 @@ if ($getCountPagseguro > 0)
 	} else
 	$main_content .= '
 																<tr bgcolor="' . $config['site']['lightborder'] . '">
-																	<td colspan="5">Nenhuma doação realizada ainda.</td>
+																	<td colspan="5">No donations made yet.</td>
 																</tr>';
 $main_content .= '
 															</table>
@@ -429,7 +429,7 @@ $main_content .= '
 							<span class="CaptionEdgeRightTop" style="background-image:url(' . $layout_name . '/images/global/content/box-frame-edge.gif);"></span>
 							<span class="CaptionBorderTop" style="background-image:url(' . $layout_name . '/images/global/content/table-headline-border.gif);"></span>
 							<span class="CaptionVerticalLeft" style="background-image:url(' . $layout_name . '/images/global/content/box-frame-vertical.gif);"></span>
-							<div class="Text">10 últimas doações realizadas por transferência bancária</div>
+							<div class="Text">10 Last donations made by Bank Transfer</div>
 							<span class="CaptionVerticalRight" style="background-image:url(' . $layout_name . '/images/global/content/box-frame-vertical.gif);"></span>
 							<span class="CaptionBorderBottom" style="background-image:url(' . $layout_name . '/images/global/content/table-headline-border.gif);"></span>
 							<span class="CaptionEdgeLeftBottom" style="background-image:url(' . $layout_name . '/images/global/content/box-frame-edge.gif);"></span>
@@ -451,10 +451,10 @@ $main_content .= '
 														<div class="TableContentContainer" >
 															<table class="TableContent" width="100%">
 																<tr bgcolor="#D4C0A1">
-																	<td class="LabelV">Data</td>
-																	<td class="LabelV">Referência</td>
-																	<td class="LabelV">Nome da conta</td>
-																	<td class="LabelV">Valor</td>
+																	<td class="LabelV">Date</td>
+																	<td class="LabelV">Reference</td>
+																	<td class="LabelV">Account name</td>
+																	<td class="LabelV">Value</td>
 																	<td class="LabelV">Status</td>
 																</tr>';
 $get_Transfers = $SQL->query("SELECT * FROM `z_shop_donates` WHERE `method` = 'transfer' ORDER BY `date` DESC LIMIT 10")->fetchAll();
@@ -476,7 +476,7 @@ if ($getCountTransfers > 0)
 	} else
 	$main_content .= '
 																<tr bgcolor="' . $config['site']['lightborder'] . '">
-																	<td colspan="5">Nenhuma doação realizada ainda.</td>
+																	<td colspan="5">No donations made yet.</td>
 																</tr>';
 $main_content .= '
 															</table>
@@ -530,7 +530,7 @@ $main_content .= '
 							<span class="CaptionEdgeRightTop" style="background-image:url(' . $layout_name . '/images/global/content/box-frame-edge.gif);"></span>
 							<span class="CaptionBorderTop" style="background-image:url(' . $layout_name . '/images/global/content/table-headline-border.gif);"></span>
 							<span class="CaptionVerticalLeft" style="background-image:url(' . $layout_name . '/images/global/content/box-frame-vertical.gif);"></span>
-							<div class="Text">10 últimas doações realizadas por PayPal</div>
+							<div class="Text">10 Last donations made by PayPal</div>
 							<span class="CaptionVerticalRight" style="background-image:url(' . $layout_name . '/images/global/content/box-frame-vertical.gif);"></span>
 							<span class="CaptionBorderBottom" style="background-image:url(' . $layout_name . '/images/global/content/table-headline-border.gif);"></span>
 							<span class="CaptionEdgeLeftBottom" style="background-image:url(' . $layout_name . '/images/global/content/box-frame-edge.gif);"></span>
@@ -552,10 +552,10 @@ $main_content .= '
 														<div class="TableContentContainer" >
 															<table class="TableContent" width="100%">
 																<tr bgcolor="#D4C0A1">
-																	<td class="LabelV">Data</td>
-																	<td class="LabelV">Referência</td>
-																	<td class="LabelV">Nome da conta</td>
-																	<td class="LabelV">Valor</td>
+																	<td class="LabelV">Date</td>
+																	<td class="LabelV">Reference</td>
+																	<td class="LabelV">Account name</td>
+																	<td class="LabelV">Value</td>
 																	<td class="LabelV">Status</td>
 																</tr>';
 $get_Paypal = $SQL->query("SELECT * FROM `z_shop_donates` WHERE `method` = 'paypal' ORDER BY `date` DESC LIMIT 10")->fetchAll();
@@ -577,7 +577,7 @@ if ($getCountPaypal > 0)
 	} else
 	$main_content .= '
 																<tr bgcolor="' . $config['site']['lightborder'] . '">
-																	<td colspan="5">Nenhuma doação realizada ainda.</td>
+																	<td colspan="5">No donations made yet.</td>
 																</tr>';
 $main_content .= '
 															</table>
@@ -632,7 +632,7 @@ $main_content .= '
 							<span class="CaptionEdgeRightTop" style="background-image:url(' . $layout_name . '/images/global/content/box-frame-edge.gif);"></span>
 							<span class="CaptionBorderTop" style="background-image:url(' . $layout_name . '/images/global/content/table-headline-border.gif);"></span>
 							<span class="CaptionVerticalLeft" style="background-image:url(' . $layout_name . '/images/global/content/box-frame-vertical.gif);"></span>
-							<div class="Text">10 últimas doações realizadas por PicPay</div>
+							<div class="Text">10 Last donations made by PicPay</div>
 							<span class="CaptionVerticalRight" style="background-image:url(' . $layout_name . '/images/global/content/box-frame-vertical.gif);"></span>
 							<span class="CaptionBorderBottom" style="background-image:url(' . $layout_name . '/images/global/content/table-headline-border.gif);"></span>
 							<span class="CaptionEdgeLeftBottom" style="background-image:url(' . $layout_name . '/images/global/content/box-frame-edge.gif);"></span>
@@ -654,10 +654,10 @@ $main_content .= '
 														<div class="TableContentContainer" >
 															<table class="TableContent" width="100%">
 																<tr bgcolor="#D4C0A1">
-																	<td class="LabelV">Data</td>
-																	<td class="LabelV">Referência</td>
-																	<td class="LabelV">Nome da conta</td>
-																	<td class="LabelV">Valor</td>
+																	<td class="LabelV">Date</td>
+																	<td class="LabelV">Reference</td>
+																	<td class="LabelV">Account name</td>
+																	<td class="LabelV">Value</td>
 																	<td class="LabelV">Status</td>
 																</tr>';
 $get_PicPay = $SQL->query("SELECT * FROM `z_shop_donates` WHERE `method` = 'picpay' ORDER BY `date` DESC LIMIT 10")->fetchAll();
@@ -679,7 +679,7 @@ if ($getCountPicpay > 0)
 	} else
 	$main_content .= '
 																<tr bgcolor="' . $config['site']['lightborder'] . '">
-																	<td colspan="5">Nenhuma doação realizada ainda.</td>
+																	<td colspan="5">No donations made yet.</td>
 																</tr>';
 $main_content .= '
 															</table>
@@ -736,7 +736,7 @@ $main_content .= '
 							<span class="CaptionEdgeRightTop" style="background-image:url(' . $layout_name . '/images/global/content/box-frame-edge.gif);"></span>
 							<span class="CaptionBorderTop" style="background-image:url(' . $layout_name . '/images/global/content/table-headline-border.gif);"></span>
 							<span class="CaptionVerticalLeft" style="background-image:url(' . $layout_name . '/images/global/content/box-frame-vertical.gif);"></span>
-							<div class="Text">10 últimas doações realizadas por Mercado Pago</div>
+							<div class="Text">10 Last donations made by Mercado Pago</div>
 							<span class="CaptionVerticalRight" style="background-image:url(' . $layout_name . '/images/global/content/box-frame-vertical.gif);"></span>
 							<span class="CaptionBorderBottom" style="background-image:url(' . $layout_name . '/images/global/content/table-headline-border.gif);"></span>
 							<span class="CaptionEdgeLeftBottom" style="background-image:url(' . $layout_name . '/images/global/content/box-frame-edge.gif);"></span>
@@ -758,10 +758,10 @@ $main_content .= '
 														<div class="TableContentContainer" >
 															<table class="TableContent" width="100%">
 																<tr bgcolor="#D4C0A1">
-																	<td class="LabelV">Data</td>
-																	<td class="LabelV">Referência</td>
-																	<td class="LabelV">Nome da conta</td>
-																	<td class="LabelV">Valor</td>
+																	<td class="LabelV">Date</td>
+																	<td class="LabelV">Reference</td>
+																	<td class="LabelV">Account name</td>
+																	<td class="LabelV">Value</td>
 																	<td class="LabelV">Status</td>
 																</tr>';
 $get_mercadoPago = $SQL->query("SELECT * FROM `z_shop_donates` WHERE `method` = 'mercadoPago' ORDER BY `date` DESC LIMIT 10")->fetchAll();
@@ -783,7 +783,7 @@ if ($getCountmercadoPago > 0)
 	} else
 	$main_content .= '
 																<tr bgcolor="' . $config['site']['lightborder'] . '">
-																	<td colspan="5">Nenhuma doação realizada ainda.</td>
+																	<td colspan="5">No donations made yet.</td>
 																</tr>';
 $main_content .= '
 															</table>
