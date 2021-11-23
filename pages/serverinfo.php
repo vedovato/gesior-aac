@@ -164,14 +164,14 @@ if ($action == "tutorialdonate") {
 				<tbody>
 					<tr>
 						<td><img src="' . $layout_name . '/images/global/content/headline-bracer-left.gif"></td>
-						<td style="text-align:center;vertical-align:middle;horizontal-align:center;font-size:17px;font-weight:bold;">Tutorial - Sistema de Doações</td>
+						<td style="text-align:center;vertical-align:middle;horizontal-align:center;font-size:17px;font-weight:bold;">Tutorial - Donation System </td>
 						<td><img src="' . $layout_name . '/images/global/content/headline-bracer-right.gif"></td>
 					</tr>
 				</tbody>
 			</table>
 		</center>
 		<br>';
-	$main_content .= '<p>Our donation system consists of 3 types of payment, <strong>PagSeguro</strong>, <strong>PayPal</strong> e <strong>Bank Transfer</strong>. O PagSeguro is the only method that does not require confirmation of payment, since it is automatic, since the others need confirmation, below you will see a brief explanation of how it works.</p>';
+	$main_content .= '<p>Our donation system consists of some types of payment, <strong>PagSeguro</strong>, <strong>PayPal</strong>, <strong>PicPay</strong> and <strong>Bank Transfer</strong>. The PagSeguro is the only method that does not require confirmation of payment, since it is automatic, since the others need confirmation, below you will see a brief explanation of how it works.</p>';
 	$main_content .= '
 			<div class="SmallBox" >
 				<div class="MessageContainer" >
@@ -183,10 +183,10 @@ if ($action == "tutorialdonate") {
 						<div class="BoxFrameVerticalRight" style="background-image:url(' . $layout_name . '/images/global/content/box-frame-vertical.gif);" /></div>
 						<table style="width:100%;" >
 							<td style="width:100%;text-align:center;" >
-							<nobr>[<a href="#PagSeguro" >Pagseguro</a>]</nobr>
+							<nobr>[<a href="#PagSeguro" >PagSeguro</a>]</nobr>
 							<!--<nobr>[<a href="#PayPal" >PayPal</a>]</nobr>-->
 							<!--<nobr>[<a href="#Bank+Transfer" >Bank Transfer</a>]</nobr>-->
-							<nobr>[<a href="#Confirmar" >Confirming your donation</a>]</nobr>
+							<nobr>[<a href="#Confirm" >Confirming your donation</a>]</nobr>
 							<nobr>[<a href="#Obs" >Comments</a>]</nobr></td>
 						</tr>
 					</table>
@@ -213,7 +213,7 @@ if ($action == "tutorialdonate") {
 					<span class="CaptionEdgeRightTop" style="background-image:url(' . $layout_name . '/images/global/content/box-frame-edge.gif);"></span>
 					<span class="CaptionBorderTop" style="background-image:url(' . $layout_name . '/images/global/content/table-headline-border.gif);"></span>
 					<span class="CaptionVerticalLeft" style="background-image:url(' . $layout_name . '/images/global/content/box-frame-vertical.gif);"></span>
-					<div class="Text">Donations - Pagseguro</div>
+					<div class="Text">Donations - PagSeguro</div>
 					<span class="CaptionVerticalRight" style="background-image:url(' . $layout_name . '/images/global/content/box-frame-vertical.gif);"></span>
 					<span class="CaptionBorderBottom" style="background-image:url(' . $layout_name . '/images/global/content/table-headline-border.gif);"></span>
 					<span class="CaptionEdgeLeftBottom" style="background-image:url(' . $layout_name . '/images/global/content/box-frame-edge.gif);"></span>
@@ -744,7 +744,7 @@ if ($action == "tutorialdonate") {
 		</div><br>';
 	*/
 	$main_content .= '
-		<a name="Confirmar" ></a>
+		<a name="Confirm" ></a>
 			<div class="TopButtonContainer" >
 				<div class="TopButton" >
 					<a href="#top" >
@@ -1205,7 +1205,7 @@ if ($action == "tutorialshop") {
 													<table class="TableContent" width="100%">
 														<tr style="background-color:#D4C0A1;" >
 															<td>
-																<p>For the service go to the page where it contains <a href="?subtopic=accountmanagement&action=manage">todas as informações de sua conta</a>. Go to the box <strong>Products Ready To Use</strong>, nit will be all the services you bought in the shop and need to be activated in your account or one of your characters. Choose the service you want to activate (if there is more than one) and then click <strong>Active</strong>. <small>(Click on the image to enlarge.)</small></p>
+																<p>For the service go to the page where it contains <a href="?subtopic=accountmanagement&action=manage">all your account information</a>. Go to the box <strong>Products Ready To Use</strong>, it will be all the services you bought in the shop and need to be activated in your account or one of your characters. Choose the service you want to activate (if there is more than one) and then click <strong>Active</strong>. <small>(Click on the image to enlarge.)</small></p>
 															</td>
 															<td width="30%">
 																<a class="fancybox-media" href="' . $layout_name . '/images/shop/tutorial/img17.jpg">
