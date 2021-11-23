@@ -275,6 +275,7 @@ if ($serviceGo == "items") {
 	}
 	foreach ($getT as $totalBalance) {
 		$balancoTotal += $totalBalance['price'];
+	}
 	*/
 
 	if ($serviceGo == "picpay") {
