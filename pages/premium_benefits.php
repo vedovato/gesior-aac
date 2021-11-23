@@ -317,9 +317,9 @@ $main_content .= '<center>
 											<div class="TableContentContainer">
 												<table class="TableContent" width="100%">
 													<tbody><tr style="background-color:#F1E0C6">
-														<td width="33%" align="center"><img src="https://www.tibiawiki.com.br/images/9/9a/Outfit_Void_Master_Male_Addon_3.gif"></td>
-														<td width="33%" align="center"><img src="https://www.tibiawiki.com.br/images/1/19/Outfit_Veteran_Paladin_Male_Addon_3.gif"></td>
-														<td width="33%" align="center"><img src="https://www.tibiawiki.com.br/images/4/43/Outfit_Lion_of_War_Male_Addon_3.gif"></td>
+														<td width="33%" align="center"><img src="'.$layout_name.'/images/shop/outfits/Void_Master_Male.gif"></td>
+														<td width="33%" align="center"><img src="'.$layout_name.'/images/shop/outfits/Veteran_Paladin_Male.gif"></td>
+														<td width="33%" align="center"><img src="'.$layout_name.'/images/shop/outfits/Lion_of_War_Male.gif"></td>
 													</tr>
 												</tbody></table>
 											</div>
@@ -379,9 +379,9 @@ $main_content .= '<center>
 											<div class="TableContentContainer">
 												<table class="TableContent" width="100%">
 													<tbody><tr style="background-color:#F1E0C6">
-														<td width="33%" align="center"><img src="https://www.tibiawiki.com.br/images/d/d4/Blazing_Unicorn.gif"></td>
-														<td width="33%" align="center"><img src="https://www.tibiawiki.com.br/images/b/ba/Arctic_Unicorn.gif"></td>
-														<td width="33%" align="center"><img src="https://www.tibiawiki.com.br/images/c/c7/Prismatic_Unicorn.gif"></td>
+														<td width="33%" align="center"><img src="'.$layout_name.'/images/shop/mounts/Blazing_Unicorn.gif"></td>
+														<td width="33%" align="center"><img src="'.$layout_name.'/images/shop/mounts/Arctic_Unicorn.gif"></td>
+														<td width="33%" align="center"><img src="'.$layout_name.'/images/shop/mounts/Prismatic_Unicorn.gif"></td>
 													</tr>
 												</tbody></table>
 											</div>
