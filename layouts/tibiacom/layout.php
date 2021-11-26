@@ -283,7 +283,7 @@ background-attachment: fixed;
                         <div id="LeftArtwork">
                             <a href="./?subtopic=latestnews">
                                 <img id="TibiaLogoArtworkTop"
-                                     src="<?php echo $layout_name; ?>/images/tibia-logo-artwork-top.png" 
+                                     src="<?php echo $layout_name; ?>/images/global/header/tibia-logo-artwork-top.png" 
                                      alt="<?php echo $config['server']['serverName']?>"
                                      name="<?php echo $config['server']['serverName']?>"
                                 >
