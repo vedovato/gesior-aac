@@ -30,7 +30,7 @@ $main_content .= '
 	<div class="TopButtonContainer">
 		<div class="TopButton">
 		<a href="#top">
-		<img style="border:0px;" src="' . $layout_name . '/images/back-to-top.gif"></a></div></div>
+		<img style="border:0px;" src="' . $layout_name . '/images/global/content/back-to-top.gif"></a></div></div>
 	<div class="TableContainer">
 					<div class="CaptionContainer">
 							<div class="CaptionInnerContainer">
@@ -193,7 +193,7 @@ $main_content .= '
 	<div class="TopButtonContainer">
 		<div class="TopButton">
 		<a href="#top">
-		<img style="border:0px;" src="' . $layout_name . '/images/back-to-top.gif"></a></div></div>
+		<img style="border:0px;" src="' . $layout_name . '/images/global/content/back-to-top.gif"></a></div></div>
 	<div class="TableContainer">
 					<div class="CaptionContainer">
 							<div class="CaptionInnerContainer">
@@ -276,7 +276,7 @@ $main_content .= '
 		<div class="TopButtonContainer">
 		<div class="TopButton">
 		<a href="#top">
-		<img style="border:0px;" src="' . $layout_name . '/images/back-to-top.gif"></a></div></div>
+		<img style="border:0px;" src="' . $layout_name . '/images/global/content/back-to-top.gif"></a></div></div>
 	<div class="TableContainer">
 					<div class="CaptionContainer">
 							<div class="CaptionInnerContainer">
@@ -778,7 +778,7 @@ $main_content .= '
 	<div class="TopButtonContainer">
 		<div class="TopButton">
 		<a href="#top">
-		<img style="border:0px;" src="' . $layout_name . '/images/back-to-top.gif"></a></div></div>
+		<img style="border:0px;" src="' . $layout_name . '/images/global/content/back-to-top.gif"></a></div></div>
 	<div class="TableContainer">
 					<div class="CaptionContainer">
 							<div class="CaptionInnerContainer">
@@ -937,7 +937,7 @@ $main_content .= '
 	<div class="TopButtonContainer">
 		<div class="TopButton">
 		<a href="#top">
-		<img style="border:0px;" src="' . $layout_name . '/images/back-to-top.gif"></a></div></div>
+		<img style="border:0px;" src="' . $layout_name . '/images/global/content/back-to-top.gif"></a></div></div>
 	<div class="TableContainer">
 					<div class="CaptionContainer">
 							<div class="CaptionInnerContainer">
