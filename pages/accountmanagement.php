@@ -242,7 +242,7 @@ if (!$logged)
 																		<div style="width: 2px; height: 2px;" ></div>
 																		<form action="?subtopic=lostaccount" method="post" style="padding:0px;margin:0px;" >
 																			<div class="BigButton" style="background-image:url(' . $layout_name . '/images/global/buttons/sbutton.gif)" ><div onMouseOver="MouseOverBigButton(this);" onMouseOut="MouseOutBigButton(this);" ><div class="BigButtonOver" style="background-image:url(' . $layout_name . '/images/global/buttons/sbutton_over.gif);" ></div>
-																					<input class="ButtonText" type="image" name="Account lost?" alt="Account lost?" src="' . $layout_name . '/images/global/buttons/_sbutton_accountlost.gif" >
+																					<input class="ButtonText" type="image" name="Lost Account" alt="Lost Account" src="' . $layout_name . '/images/global/buttons/_sbutton_lostaccount.gif" >
 																				</div>
 																			</div>
 																		</form>
