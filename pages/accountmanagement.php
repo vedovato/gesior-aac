@@ -438,7 +438,7 @@ if (!$logged)
 		if ($action == "changeinfo") include 'accountmanagement/changeinfo.php';
 
 		/** SERVICES */
-		//if ($action == "services") include 'accountmanagement/shop.php';
+		if ($action == "services") include 'accountmanagement/shop.php';
 		/** Process payment */
 		if ($action == 'process_transfer_payment') include 'accountmanagement/payment_methods/transfer.php';
 		if ($action == 'process_picpay_payment') include 'accountmanagement/payment_methods/picpay.php';

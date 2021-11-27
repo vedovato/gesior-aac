@@ -1205,7 +1205,7 @@ if ($action == "tutorialshop") {
 													<table class="TableContent" width="100%">
 														<tr style="background-color:#D4C0A1;" >
 															<td>
-																<p>For the service go to the page where it contains <a href="?subtopic=accountmanagement&action=manage">all your account information</a>. Go to the box <strong>Products Ready To Use</strong>, it will be all the services you bought in the shop and need to be activated in your account or one of your characters. Choose the service you want to activate (if there is more than one) and then click <strong>Active</strong>. <small>(Click on the image to enlarge.)</small></p>
+																<p>For the service go to the page where it contains <a href="?subtopic=accountmanagement&action=manage">all your account information</a>. Go to the box <strong>Products Ready To Use</strong>, it will be all the services you bought in the shop and need to be activated in your account or one of your characters. Choose the service you want to activate (if there is more than one) and then click <strong>Activate</strong>. <small>(Click on the image to enlarge.)</small></p>
 															</td>
 															<td width="30%">
 																<a class="fancybox-media" href="' . $layout_name . '/images/shop/tutorial/img17.jpg">

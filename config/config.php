@@ -44,7 +44,7 @@ if ($config['base_url'] == $config['site']['realurl'] || $config['base_url'] == 
 
 
 /** ENABLE SHOP */
-$config['site']['shopEnabled'] = false;
+$config['site']['shopEnabled'] = true;
 
 $config['site']['start'] = 'Apr 07, 2020 18:00:00';
 

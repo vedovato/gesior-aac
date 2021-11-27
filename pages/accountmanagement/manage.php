@@ -661,7 +661,7 @@ else
 															<tr style="background-color:#F1E0C6;" >
 																<td>' . date("d/M/Y", $ready['date']) . '</td>
 																<td>' . $getServiceInfos['offer_name'] . '</td>
-																<td width="10%">[<a href="?subtopic=accountmanagement&action=readytouse&serviceID=' . $ready['id'] . '" >Active</a>]</td>';
+																<td width="10%">[<a href="?subtopic=accountmanagement&action=readytouse&serviceID=' . $ready['id'] . '" >Activate</a>]</td>';
 		$main_content .= '
 															</tr>
 														</table>

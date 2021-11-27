@@ -61,6 +61,8 @@ if ($serviceId == 2) {
 																<tr bgcolor="#D4C0A1">
 																	<td class="LabelV">Name</td>
 																	<td class="LabelV">Price</td>
+																	<td class="LabelV">Status</td>
+																	<td class="LabelV"> </td>
 																</tr>';
 	$getExtraServices = $SQL->query("SELECT * FROM `z_shop_offer` WHERE `category` = '$serviceId' ORDER BY `offer_name` ASC")->fetchAll();
 	$offer_number = 0;
@@ -69,7 +71,13 @@ if ($serviceId == 2) {
 			$main_content .= '
 																	<tr bgcolor="' . $config['site']['lightborder'] . '">
 																		<td width="46%">' . $g_extra['offer_name'] . '</td>
-																		<td>' . $g_extra['coins'] . ' Coins</td>
+																		<td>
+																			<input type="number" name="extraValue" value="' . $g_extra['coins'] . '" ' . (($g_extra['hide'] == 1) ? 'disabled' : '') . '>
+																			<input type="submit" name="extraUpdate" id="extraUpdate" value="Update" ' . (($g_extra['hide'] == 1) ? 'disabled' : '') . '>
+																			<input type="hidden" name="offerID" value="' . $g_extra['id'] . '">
+																		</td>
+																		<td class="settingStatus">' . (($g_extra['hide'] == 0) ? '<font style="color:green;">Enabled</font>' : '<font style="color:red;">Disabled</font>') . '</td>
+																		<td><a href="#" id="extraStatus">' . (($g_extra['hide'] == 0) ? 'Disable' : 'Enable') . '</a></td>
 																	</tr>';
 	}
 	$main_content .= '
@@ -211,7 +219,7 @@ if ($serviceId == 3) {
 								<span class="CaptionEdgeRightTop" style="background-image:url(' . $layout_name . '/images/global/content/box-frame-edge.gif);"></span>
 								<span class="CaptionBorderTop" style="background-image:url(' . $layout_name . '/images/global/content/table-headline-border.gif);"></span>
 								<span class="CaptionVerticalLeft" style="background-image:url(' . $layout_name . '/images/global/content/box-frame-vertical.gif);"></span>
-								<div class="Text">Mounts List Sale</div>
+								<div class="Text">Mounts list sale</div>
 								<span class="CaptionVerticalRight" style="background-image:url(' . $layout_name . '/images/global/content/box-frame-vertical.gif);"></span>
 								<span class="CaptionBorderBottom" style="background-image:url(' . $layout_name . '/images/global/content/table-headline-border.gif);"></span>
 								<span class="CaptionEdgeLeftBottom" style="background-image:url(' . $layout_name . '/images/global/content/box-frame-edge.gif);"></span>
@@ -236,6 +244,7 @@ if ($serviceId == 3) {
 																		<td class="LabelV">*</td>
 																		<td class="LabelV">Mount Name</td>
 																		<td class="LabelV">Price</td>
+																		<td class="LabelV">*</td>
 																	</tr>';
 	$get_Mounts = $SQL->query("SELECT * FROM `z_shop_offer` WHERE `category` = '$serviceId' ORDER BY `offer_date` DESC")->fetchAll();
 	$mount_number = 0;
@@ -246,6 +255,16 @@ if ($serviceId == 3) {
 																		<td width="64px"><img src="' . $layout_name . '/images/shop/mounts/' . str_replace(" ", "_", $g_mount['offer_name']) . '.gif"</td>
 																		<td>' . $g_mount['offer_name'] . '</td>
 																		<td>' . $g_mount['coins'] . ' Coins</td>
+																		<td width="135px">
+																			<form id="delMount" method="post" style="padding:0px;margin:0px;" >
+																				<div class="BigButton" style="background-image:url(' . $layout_name . '/images/global/buttons/sbutton_red.gif)" >
+																					<div onMouseOver="MouseOverBigButton(this);" onMouseOut="MouseOutBigButton(this);" ><div class="BigButtonOver" style="background-image:url(' . $layout_name . '/images/global/buttons/sbutton_red_over.gif);" ></div>
+																						<input type="hidden" class="delMountId" name="delMountId" value="' . $g_mount['id'] . '">
+																						<input class="ButtonText delOutfit" type="image" name="Delete" alt="Delete" src="' . $layout_name . '/images/global/buttons/_sbutton_delete.gif" >
+																					</div>
+																				</div>
+																			</form>
+																		</td>
 																	</tr>';
 	}
 	$main_content .= '
@@ -378,7 +397,7 @@ if ($serviceId == 4) {
 								<span class="CaptionEdgeRightTop" style="background-image:url(' . $layout_name . '/images/global/content/box-frame-edge.gif);"></span>
 								<span class="CaptionBorderTop" style="background-image:url(' . $layout_name . '/images/global/content/table-headline-border.gif);"></span>
 								<span class="CaptionVerticalLeft" style="background-image:url(' . $layout_name . '/images/global/content/box-frame-vertical.gif);"></span>
-								<div class="Text">Outfits List Sale</div>
+								<div class="Text">Outfits list sale</div>
 								<span class="CaptionVerticalRight" style="background-image:url(' . $layout_name . '/images/global/content/box-frame-vertical.gif);"></span>
 								<span class="CaptionBorderBottom" style="background-image:url(' . $layout_name . '/images/global/content/table-headline-border.gif);"></span>
 								<span class="CaptionEdgeLeftBottom" style="background-image:url(' . $layout_name . '/images/global/content/box-frame-edge.gif);"></span>
@@ -403,6 +422,7 @@ if ($serviceId == 4) {
 																		<td class="LabelV">*</td>
 																		<td class="LabelV">Ouftit Name</td>
 																		<td class="LabelV">Price</td>
+																		<td class="LabelV">*</td>
 																	</tr>';
 	$get_Outfits = $SQL->query("SELECT * FROM `z_shop_offer` WHERE `category` = '$serviceId' ORDER BY `offer_date` DESC")->fetchAll();
 	$outfit_number = 0;
@@ -413,6 +433,16 @@ if ($serviceId == 4) {
 																		<td width="64px"><img src="' . $layout_name . '/images/shop/outfits/' . strtolower(str_replace(" ", "_", $g_out['addon_name'])) . '_male.gif"</td>
 																		<td>' . $g_out['addon_name'] . '</td>
 																		<td>' . $g_out['coins'] . ' Coins</td>
+																		<td width="135px">
+																			<form id="delOutfit" method="post" style="padding:0px;margin:0px;" >
+																				<div class="BigButton" style="background-image:url(' . $layout_name . '/images/global/buttons/sbutton_red.gif)" >
+																					<div onMouseOver="MouseOverBigButton(this);" onMouseOut="MouseOutBigButton(this);" ><div class="BigButtonOver" style="background-image:url(' . $layout_name . '/images/global/buttons/sbutton_red_over.gif);" ></div>
+																						<input type="hidden" class="delOutfitId" name="delOutfitId" value="' . $g_out['id'] . '">
+																						<input class="ButtonText delOutfit" type="image" name="Delete" alt="Delete" src="' . $layout_name . '/images/global/buttons/_sbutton_delete.gif" >
+																					</div>
+																				</div>
+																			</form>
+																		</td>
 																	</tr>';
 	}
 	$main_content .= '
@@ -489,9 +519,9 @@ if ($serviceId == 5) {
 																		<td class="LabelV">Coins</td>
 																	</tr>
 																	<tr bgcolor="' . $config['site']['lightborder'] . '">
-																		<td><input type="number" name="itemID" placeholder="Item ID"></td>
+																		<td><input type="number" name="itemID" placeholder="Item Id"></td>
 																		<td><input type="text" name="itemName" placeholder="Item Name"></td>
-																		<td><input type="text" name="itemDesc" placeholder="Item Description" maxlenght="255"></td>
+																		<td><input type="text" name="itemDesc" placeholder="Item Name" maxlenght="255"></td>
 																		<td><input type="number" name="itemAmount" placeholder="Amount"></td>
 																		<td><input type="number" name="itemPrice" placeholder="Item Price"></td>
 																	</tr>
@@ -542,7 +572,7 @@ if ($serviceId == 5) {
 								<span class="CaptionEdgeRightTop" style="background-image:url(' . $layout_name . '/images/global/content/box-frame-edge.gif);"></span>
 								<span class="CaptionBorderTop" style="background-image:url(' . $layout_name . '/images/global/content/table-headline-border.gif);"></span>
 								<span class="CaptionVerticalLeft" style="background-image:url(' . $layout_name . '/images/global/content/box-frame-vertical.gif);"></span>
-								<div class="Text">Items List Sale</div>
+								<div class="Text">Items list sale</div>
 								<span class="CaptionVerticalRight" style="background-image:url(' . $layout_name . '/images/global/content/box-frame-vertical.gif);"></span>
 								<span class="CaptionBorderBottom" style="background-image:url(' . $layout_name . '/images/global/content/table-headline-border.gif);"></span>
 								<span class="CaptionEdgeLeftBottom" style="background-image:url(' . $layout_name . '/images/global/content/box-frame-edge.gif);"></span>
@@ -564,10 +594,9 @@ if ($serviceId == 5) {
 															<div class="TableContentContainer" >
 																<table class="TableContent" width="100%">
 																	<tr style="background-color:#D4C0A1;" >
-																		<td class="LabelV">*</td>
-																		<td class="LabelV">ID</td>
-																		<td class="LabelV">Name</td>
-																		<td class="LabelV">Description</td>
+																		<td class="LabelV">Item ID</td>
+																		<td class="LabelV">Item Name</td>
+																		<td class="LabelV">Item Description</td>
 																		<td class="LabelV">Price</td>
 																	</tr>';
 	$get_Items = $SQL->query("SELECT * FROM `z_shop_offer` WHERE `category` = '$serviceId' ORDER BY `offer_date` DESC")->fetchAll();
@@ -582,6 +611,16 @@ if ($serviceId == 5) {
 																		<td>' . $g_item['offer_name'] . '</td>
 																		<td>' . ((!empty($g_item['offer_description'])) ? $g_item['offer_description'] : 'No description') . '</td>
 																		<td>' . $g_item['coins'] . ' Coins</td>
+																		<td width="135px">
+																			<form id="delItem" method="post" style="padding:0px;margin:0px;" >
+																				<div class="BigButton" style="background-image:url(' . $layout_name . '/images/global/buttons/sbutton_red.gif)" >
+																					<div onMouseOver="MouseOverBigButton(this);" onMouseOut="MouseOutBigButton(this);" ><div class="BigButtonOver" style="background-image:url(' . $layout_name . '/images/global/buttons/sbutton_red_over.gif);" ></div>
+																						<input type="hidden" class="delItemId" name="delItemId" value="' . $g_item['id'] . '">
+																						<input class="ButtonText delItem" type="image" name="Delete" alt="Delete" src="' . $layout_name . '/images/global/buttons/_sbutton_delete.gif" >
+																					</div>
+																				</div>
+																			</form>
+																		</td>
 																	</tr>';
 	}
 	$main_content .= '

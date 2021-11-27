@@ -188,7 +188,7 @@ if (!empty($ready_errors)) {
 			$player_name = addslashes($player->getName());
 		if ($getItemId['category'] >= 3) {
 			if ($getItemId['category'] == 5) {
-				$add_service = $SQL->query("INSERT INTO `z_ots_comunication` (`name`, `type`, `action`, `param1`, `param2`, `param3`, `param4`, `param5`, `param6`, `param7`, `delete_it`) VALUES ('$player_name', 'login', 'give_item', '" . $getItemId['itemid'] . "', '" . $getItemId['count'] . "', '', '', 'item', '" . addslashes($getItemId['offer_name']) . "', '" . $getItemId['id'] . "', '1')");
+				$add_service = $SQL->query("INSERT INTO `z_ots_comunication` (`name`, `type`, `action`, `param1`, `param2`, `param3`, `param4`, `param5`, `param6`, `param7`, `param8`, `param9`, `delete_it`) VALUES ('$player_name', 'login', 'give_item', '" . $getItemId['itemid'] . "', '" . $getItemId['count'] . "', '', '', 'item', '" . addslashes($getItemId['offer_name']) . "', '" . $getItemId['id'] . "', '" . $getItemId['coins'] . "', '', '1')");
 
 				if ($add_service)
 					$update_payment = $SQL->query("UPDATE `z_shop_payment` SET `status` = 'received' WHERE `id` = '$serviceID' AND `account_name` = '" . $account_logged->getName() . "'");
@@ -197,7 +197,7 @@ if (!empty($ready_errors)) {
 			}
 
 			if ($getItemId['category'] == 4) {
-				$add_service = $SQL->query("INSERT INTO `z_ots_comunication` (`name`, `type`, `action`, `param1`, `param2`, `param3`, `param4`, `param5`, `param6`, `param7`, `delete_it`) VALUES ('$player_name', 'login', 'give_outfit', '', '', '" . $getItemId['addon_name'] . "', '', 'outfit', '" . addslashes($getItemId['offer_name']) . "', '" . $getItemId['id'] . "', '1')");
+				$add_service = $SQL->query("INSERT INTO `z_ots_comunication` (`name`, `type`, `action`, `param1`, `param2`, `param3`, `param4`, `param5`, `param6`, `param7`, `param8`, `param9`, `delete_it`) VALUES ('$player_name', 'login', 'give_outfit', '', '" . $getItemId['count'] . "', '', '', 'outfit', '" . addslashes($getItemId['offer_name']) . "', '" . $getItemId['id'] . "', '" . $getItemId['coins'] . "', '" . $getItemId['addon_name'] . "', '1')");
 
 				if ($add_service)
 					$update_payment = $SQL->query("UPDATE `z_shop_payment` SET `status` = 'received' WHERE `id` = '$serviceID' AND `account_name` = '" . $account_logged->getName() . "'");
@@ -206,7 +206,7 @@ if (!empty($ready_errors)) {
 			}
 
 			if ($getItemId['category'] == 3) {
-				$add_service = $SQL->query("INSERT INTO `z_ots_comunication` (`name`, `type`, `action`, `param1`, `param2`, `param3`, `param4`, `param5`, `param6`, `param7`, `delete_it`) VALUES ('$player_name', 'login', 'give_mount', '', '', '', '" . $getItemId['mount_id'] . "', 'mount', '" . addslashes($getItemId['offer_name']) . "', '" . $getItemId['id'] . "', '1')");
+				$add_service = $SQL->query("INSERT INTO `z_ots_comunication` (`name`, `type`, `action`, `param1`, `param2`, `param3`, `param4`, `param5`, `param6`, `param7`, `param8`, `param9`, `delete_it`) VALUES ('$player_name', 'login', 'give_mount', '" . $getItemId['mount_id'] . "', '" . $getItemId['count'] . "', '', '', 'mount', '" . addslashes($getItemId['offer_name']) . "', '" . $getItemId['id'] . "', '" . $getItemId['coins'] . "', '', '1')");
 
 				if ($add_service)
 					$update_payment = $SQL->query("UPDATE `z_shop_payment` SET `status` = 'received' WHERE `id` = '$serviceID' AND `account_name` = '" . $account_logged->getName() . "'");
@@ -223,7 +223,7 @@ if (!empty($ready_errors)) {
 										<span class="CaptionEdgeRightTop" style="background-image:url(' . $layout_name . '/images/global/content/box-frame-edge.gif);" /></span>
 										<span class="CaptionBorderTop" style="background-image:url(' . $layout_name . '/images/global/content/table-headline-border.gif);" ></span>
 										<span class="CaptionVerticalLeft" style="background-image:url(' . $layout_name . '/images/global/content/box-frame-vertical.gif);" /></span>
-										<div class="Text" >Services Actived</div>
+										<div class="Text" >Service Activated</div>
 										<span class="CaptionVerticalRight" style="background-image:url(' . $layout_name . '/images/global/content/box-frame-vertical.gif);" /></span>
 										<span class="CaptionBorderBottom" style="background-image:url(' . $layout_name . '/images/global/content/table-headline-border.gif);" ></span>
 										<span class="CaptionEdgeLeftBottom" style="background-image:url(' . $layout_name . '/images/global/content/box-frame-edge.gif);" /></span>
@@ -586,7 +586,7 @@ if (!empty($ready_errors)) {
 				$main_content .= '
 																		<img src="./' . $layout_name . '/images/shop/items/' . $getServiceInfo['itemid'] . '.gif">';
 			if ($getServiceInfo['category'] == "4")
-				$main_content .= '<img src="./' . $layout_name . '/images/shop/outfits/' . strtolower($getServiceInfo['addon_name']) . '_male.gif">';
+				$main_content .= '<img src="./' . $layout_name . '/images/shop/outfits/' . strtolower(str_replace(" ","_",$getServiceInfo['addon_name'])).'_male.gif">';
 			if ($getServiceInfo['category'] == "3")
 				$main_content .= '<img src="./' . $layout_name . '/images/shop/mounts/' . str_replace(" ", "_", $getServiceInfo['offer_name']) . '.gif">';
 			$main_content .= '

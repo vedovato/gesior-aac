@@ -1079,6 +1079,7 @@ CREATE TABLE `server_config` (
 
 INSERT INTO `server_config` (`config`, `value`) VALUES
 ('db_version', '18'),
+('double', 'desactived'),
 ('motd_hash', ''),
 ('motd_num', '0'),
 ('players_record', '0');
@@ -1223,13 +1224,15 @@ CREATE TABLE `z_ots_comunication` (
   `name` varchar(255) NOT NULL,
   `type` varchar(255) NOT NULL,
   `action` varchar(255) NOT NULL,
-  `param1` varchar(255) NOT NULL,
-  `param2` varchar(255) NOT NULL,
-  `param3` varchar(255) NOT NULL,
-  `param4` varchar(255) NOT NULL,
+  `param1` int(11) NOT NULL,
+  `param2` int(11) NOT NULL,
+  `param3` int(11) NOT NULL,
+  `param4` int(11) NOT NULL,
   `param5` varchar(255) NOT NULL,
   `param6` varchar(255) NOT NULL,
-  `param7` varchar(255) NOT NULL,
+  `param7` int(11) NOT NULL,
+  `param8` int(11) NOT NULL,
+  `param9` varchar(255) NOT NULL,
   `delete_it` int(2) NOT NULL DEFAULT '1'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
@@ -1307,6 +1310,16 @@ CREATE TABLE `z_shop_category` (
   `hide` int(11) NOT NULL DEFAULT '0'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
+--
+-- Extracting data from table `z_shop_category`
+--
+
+INSERT INTO `z_shop_category` (`id`, `name`, `desc`, `button`, `hide`) VALUES
+(2, 'Extra Services', 'Buy an extra service to transfer a character to another game world, to change your character name or sex, to change your account name, or to get a new recovery key.', '_sbutton_getextraservice.gif', 0),
+(3, 'Mounts', 'Buy your characters one or more of the fabulous mounts offered here.', '_sbutton_getmount.gif', 0),
+(4, 'Outfits', 'Buy your characters one or more of the fancy outfits offered here.', '_sbutton_getoutfit.gif', 0),
+(5, 'Items', 'Buy items for your character be more stronger in the game.', '_sbutton_getitem.gif', 0);
+
 -- --------------------------------------------------------
 
 --
@@ -1379,6 +1392,16 @@ CREATE TABLE `z_shop_offer` (
   `default_image` varchar(50) NOT NULL,
   `hide` int(11) NOT NULL DEFAULT '0'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Extracting data from table `z_shop_offer`
+--
+
+INSERT INTO `z_shop_offer` (`id`, `category`, `coins`, `price`, `itemid`, `mount_id`, `addon_name`, `count`, `offer_type`, `offer_description`, `offer_name`, `offer_date`, `default_image`, `hide`) VALUES
+(1, 2, 250, 0, 0, 0, '', 1, 'changename', 'Buy a character name change to rename one of your characters.', 'Character Change Name', 1637974191, 'changename.png', 0),
+(2, 2, 250, 0, 0, 0, '', 1, 'changesex', 'Buy a character sex change to turn your male character into a female one, or your female character into a male one.', 'Character Change Sex', 1637974191, 'changesex.png', 1),
+(3, 2, 250, 0, 0, 0, '', 1, 'changeaccountname', 'Buy an account name change to select a different name for your account.', 'Account Name Change', 1637974191, 'changeaccountname.png', 0),
+(4, 2, 250, 0, 0, 0, '', 1, 'newrk', 'If you need a new recovery key, you can order it here. Note that the letter for the new recovery key can only be sent to the address in the account registration.', 'Recovery Key', 1637974191, 'newrk.png', 0);
 
 -- --------------------------------------------------------
 
