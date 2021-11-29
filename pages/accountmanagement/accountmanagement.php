@@ -88,8 +88,10 @@ if ($config['server']['freePremium'] == "yes") {
 	$premiumStatus = $account_logged->getPremDays();
 	$premiumDays = $premiumStatus * 86400;
 	$resDate = time() + $premiumDays;
+	if ($account_logged->getPremDays() > 0) {
 	$main_content .= '
 																			<small><br>Your premium time expires at <font style="text-transform:capitalize;">' . strftime('%b %d %Y, %H:%M:%S', $resDate) . '</font></small>';
+	}
 	$main_content .= '
 																		</td>';
 }
