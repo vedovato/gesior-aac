@@ -1164,6 +1164,22 @@ CREATE TABLE `tile_store` (
 -- --------------------------------------------------------
 
 --
+-- Table structure `towns`
+--
+
+CREATE TABLE `towns` (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `name` varchar(255) NOT NULL,
+  `posx` int NOT NULL DEFAULT '0',
+  `posy` int NOT NULL DEFAULT '0',
+  `posz` int NOT NULL DEFAULT '0',
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `name` (`name`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- --------------------------------------------------------
+
+--
 -- Table structure `z_forum`
 --
 
